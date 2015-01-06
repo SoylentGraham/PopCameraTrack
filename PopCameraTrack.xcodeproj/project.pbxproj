@@ -867,6 +867,7 @@
 		FB8A05951A2E54730099596C /* src */ = {
 			isa = PBXGroup;
 			children = (
+				FBC164901A5C312A00874332 /* third_party */,
 				FBC1620A1A5C09A300874332 /* libmv */,
 				FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */,
 				FB8A07191A2E6C3E0099596C /* PopCameraTrack.h */,
@@ -1596,6 +1597,14 @@
 			path = tracking;
 			sourceTree = "<group>";
 		};
+		FBC164901A5C312A00874332 /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = third_party;
+			path = /Volumes/Code/libmv/src/third_party;
+			sourceTree = "<absolute>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2014,6 +2023,10 @@
 		FB8A059B1A2E54730099596C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Code/libmv/src/third_party/pthreads-w32/lib",
+				);
 				PRODUCT_NAME = PopCameraTrack;
 			};
 			name = Debug;
@@ -2021,6 +2034,10 @@
 		FB8A059C1A2E54730099596C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Code/libmv/src/third_party/pthreads-w32/lib",
+				);
 				PRODUCT_NAME = PopCameraTrack;
 			};
 			name = Release;
