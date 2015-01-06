@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB6650CD1A56FD8600DF0A12 /* SoyDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */; };
+		FB8A06211A2E5A200099596C /* memheap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06201A2E5A200099596C /* memheap.cpp */; };
+		FB8A06531A2E5A7C0099596C /* SoyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06241A2E5A7C0099596C /* SoyApp.cpp */; };
+		FB8A06541A2E5A7C0099596C /* SoyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06261A2E5A7C0099596C /* SoyArray.cpp */; };
+		FB8A06551A2E5A7C0099596C /* SoyDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06271A2E5A7C0099596C /* SoyDebug.cpp */; };
+		FB8A06561A2E5A7C0099596C /* SoyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A062A1A2E5A7C0099596C /* SoyEvent.cpp */; };
+		FB8A06571A2E5A7C0099596C /* SoyFilesytem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A062C1A2E5A7C0099596C /* SoyFilesytem.cpp */; };
+		FB8A06591A2E5A7C0099596C /* SoyMemFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06301A2E5A7C0099596C /* SoyMemFile.cpp */; };
+		FB8A065D1A2E5A7C0099596C /* SoyPixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06391A2E5A7C0099596C /* SoyPixels.cpp */; };
+		FB8A065E1A2E5A7C0099596C /* SoyPng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A063B1A2E5A7C0099596C /* SoyPng.cpp */; };
+		FB8A065F1A2E5A7C0099596C /* SoyRef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A063D1A2E5A7C0099596C /* SoyRef.cpp */; };
+		FB8A06641A2E5A7C0099596C /* SoyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06491A2E5A7C0099596C /* SoyString.cpp */; };
+		FB8A06651A2E5A7C0099596C /* SoyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064B1A2E5A7C0099596C /* SoyTest.cpp */; };
+		FB8A06661A2E5A7C0099596C /* SoyThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064C1A2E5A7C0099596C /* SoyThread.cpp */; };
+		FB8A06671A2E5A7C0099596C /* SoyTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064E1A2E5A7C0099596C /* SoyTime.cpp */; };
+		FB8A06681A2E5A7C0099596C /* SoyTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06501A2E5A7C0099596C /* SoyTypes.cpp */; };
+		FB8A06801A2E69340099596C /* PopMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A067C1A2E69340099596C /* PopMain.cpp */; };
+		FB8A06811A2E69340099596C /* SoyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A067E1A2E69340099596C /* SoyData.cpp */; };
+		FB8A06941A2E6AB50099596C /* TJob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06821A2E6AB50099596C /* TJob.cpp */; };
+		FB8A06951A2E6AB50099596C /* TJobFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06841A2E6AB50099596C /* TJobFormat.cpp */; };
+		FB8A06961A2E6AB50099596C /* TJobRelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06861A2E6AB50099596C /* TJobRelay.cpp */; };
+		FB8A06971A2E6AB50099596C /* TProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06881A2E6AB50099596C /* TProtocol.cpp */; };
+		FB8A06981A2E6AB50099596C /* TProtocolCli.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068A1A2E6AB50099596C /* TProtocolCli.cpp */; };
+		FB8A06991A2E6AB50099596C /* TProtocolHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068C1A2E6AB50099596C /* TProtocolHttp.cpp */; };
+		FB8A069A1A2E6AB50099596C /* TProtocolJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068E1A2E6AB50099596C /* TProtocolJson.cpp */; };
+		FB8A069B1A2E6AB50099596C /* TProtocolWebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06901A2E6AB50099596C /* TProtocolWebSocket.cpp */; };
+		FB8A069C1A2E6AB50099596C /* TSerialisation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06921A2E6AB50099596C /* TSerialisation.cpp */; };
+		FB8A06A51A2E6AF80099596C /* TChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A069D1A2E6AF80099596C /* TChannel.cpp */; };
+		FB8A06A61A2E6AF80099596C /* TChannelFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */; };
+		FB8A06A71A2E6AF80099596C /* TChannelPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06A11A2E6AF80099596C /* TChannelPipe.cpp */; };
+		FB8A06A81A2E6AF80099596C /* TChannelSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06A31A2E6AF80099596C /* TChannelSocket.cpp */; };
+		FB8A06ED1A2E6B520099596C /* AssertException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06AA1A2E6B520099596C /* AssertException.cpp */; };
+		FB8A06EE1A2E6B520099596C /* Checks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06AD1A2E6B520099596C /* Checks.cpp */; };
+		FB8A06EF1A2E6B520099596C /* CurrentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B01A2E6B520099596C /* CurrentTest.cpp */; };
+		FB8A06F01A2E6B520099596C /* DeferredTestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B21A2E6B520099596C /* DeferredTestReporter.cpp */; };
+		FB8A06F11A2E6B520099596C /* DeferredTestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B41A2E6B520099596C /* DeferredTestResult.cpp */; };
+		FB8A06F21A2E6B520099596C /* MemoryOutStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B71A2E6B520099596C /* MemoryOutStream.cpp */; };
+		FB8A06F31A2E6B520099596C /* SignalTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BA1A2E6B520099596C /* SignalTranslator.cpp */; };
+		FB8A06F41A2E6B520099596C /* TimeHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BC1A2E6B520099596C /* TimeHelpers.cpp */; };
+		FB8A06F51A2E6B520099596C /* ReportAssert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BE1A2E6B520099596C /* ReportAssert.cpp */; };
+		FB8A06F61A2E6B520099596C /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C01A2E6B520099596C /* Test.cpp */; };
+		FB8A06F71A2E6B520099596C /* TestDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C21A2E6B520099596C /* TestDetails.cpp */; };
+		FB8A06F81A2E6B520099596C /* TestList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C41A2E6B520099596C /* TestList.cpp */; };
+		FB8A06F91A2E6B520099596C /* TestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C71A2E6B520099596C /* TestReporter.cpp */; };
+		FB8A06FA1A2E6B520099596C /* TestReporterStdout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C91A2E6B520099596C /* TestReporterStdout.cpp */; };
+		FB8A06FB1A2E6B520099596C /* TestResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CB1A2E6B520099596C /* TestResults.cpp */; };
+		FB8A06FC1A2E6B520099596C /* TestRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CD1A2E6B520099596C /* TestRunner.cpp */; };
+		FB8A070E1A2E6B520099596C /* TimeConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06E41A2E6B520099596C /* TimeConstraint.cpp */; };
+		FB8A07101A2E6B520099596C /* XmlTestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06EB1A2E6B520099596C /* XmlTestReporter.cpp */; };
+		FB8A07131A2E6B880099596C /* TParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07111A2E6B880099596C /* TParameters.cpp */; };
+		FB8A07171A2E6BBF0099596C /* sha1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07151A2E6BBF0099596C /* sha1.cpp */; };
+		FB8A071A1A2E6C3E0099596C /* PopCameraTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */; };
+		FBB328471A2E7591003DE7AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328461A2E7591003DE7AA /* AVFoundation.framework */; };
+		FBB3284A1A2E75D4003DE7AA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328481A2E75D4003DE7AA /* CoreMedia.framework */; };
+		FBB3284B1A2E75D4003DE7AA /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */; };
+		FBB3284D1A2E75EF003DE7AA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */; };
+		FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC3A0DF1A308648009DA49E /* SoyScope.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB8A05911A2E54730099596C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SoyDebug.mm; path = src/SoyDebug.mm; sourceTree = "<group>"; };
+		FB8A05931A2E54730099596C /* PopCameraTrack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PopCameraTrack; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8A05A61A2E57700099596C /* PopApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = PopApp.xcconfig; path = ../NewChromantics/PopTrack/PopApp.xcconfig; sourceTree = SOURCE_ROOT; };
+		FB8A06201A2E5A200099596C /* memheap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = memheap.cpp; path = ../ofxSoylent/src/memheap.cpp; sourceTree = "<group>"; };
+		FB8A06231A2E5A7C0099596C /* SortArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortArray.h; path = ../ofxSoylent/src/SortArray.h; sourceTree = "<group>"; };
+		FB8A06241A2E5A7C0099596C /* SoyApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyApp.cpp; path = ../ofxSoylent/src/SoyApp.cpp; sourceTree = "<group>"; };
+		FB8A06251A2E5A7C0099596C /* SoyApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyApp.h; path = ../ofxSoylent/src/SoyApp.h; sourceTree = "<group>"; };
+		FB8A06261A2E5A7C0099596C /* SoyArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyArray.cpp; path = ../ofxSoylent/src/SoyArray.cpp; sourceTree = "<group>"; };
+		FB8A06271A2E5A7C0099596C /* SoyDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyDebug.cpp; path = ../ofxSoylent/src/SoyDebug.cpp; sourceTree = "<group>"; };
+		FB8A06281A2E5A7C0099596C /* SoyDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyDebug.h; path = ../ofxSoylent/src/SoyDebug.h; sourceTree = "<group>"; };
+		FB8A06291A2E5A7C0099596C /* SoyEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyEnum.h; path = ../ofxSoylent/src/SoyEnum.h; sourceTree = "<group>"; };
+		FB8A062A1A2E5A7C0099596C /* SoyEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyEvent.cpp; path = ../ofxSoylent/src/SoyEvent.cpp; sourceTree = "<group>"; };
+		FB8A062B1A2E5A7C0099596C /* SoyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyEvent.h; path = ../ofxSoylent/src/SoyEvent.h; sourceTree = "<group>"; };
+		FB8A062C1A2E5A7C0099596C /* SoyFilesytem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyFilesytem.cpp; path = ../ofxSoylent/src/SoyFilesytem.cpp; sourceTree = "<group>"; };
+		FB8A062D1A2E5A7C0099596C /* SoyFilesytem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyFilesytem.h; path = ../ofxSoylent/src/SoyFilesytem.h; sourceTree = "<group>"; };
+		FB8A06301A2E5A7C0099596C /* SoyMemFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyMemFile.cpp; path = ../ofxSoylent/src/SoyMemFile.cpp; sourceTree = "<group>"; };
+		FB8A06311A2E5A7C0099596C /* SoyMemFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyMemFile.h; path = ../ofxSoylent/src/SoyMemFile.h; sourceTree = "<group>"; };
+		FB8A06381A2E5A7C0099596C /* SoyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyPair.h; path = ../ofxSoylent/src/SoyPair.h; sourceTree = "<group>"; };
+		FB8A06391A2E5A7C0099596C /* SoyPixels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyPixels.cpp; path = ../ofxSoylent/src/SoyPixels.cpp; sourceTree = "<group>"; };
+		FB8A063A1A2E5A7C0099596C /* SoyPixels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyPixels.h; path = ../ofxSoylent/src/SoyPixels.h; sourceTree = "<group>"; };
+		FB8A063B1A2E5A7C0099596C /* SoyPng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyPng.cpp; path = ../ofxSoylent/src/SoyPng.cpp; sourceTree = "<group>"; };
+		FB8A063C1A2E5A7C0099596C /* SoyPng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyPng.h; path = ../ofxSoylent/src/SoyPng.h; sourceTree = "<group>"; };
+		FB8A063D1A2E5A7C0099596C /* SoyRef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyRef.cpp; path = ../ofxSoylent/src/SoyRef.cpp; sourceTree = "<group>"; };
+		FB8A063E1A2E5A7C0099596C /* SoyRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyRef.h; path = ../ofxSoylent/src/SoyRef.h; sourceTree = "<group>"; };
+		FB8A06431A2E5A7C0099596C /* SoyState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyState.h; path = ../ofxSoylent/src/SoyState.h; sourceTree = "<group>"; };
+		FB8A06441A2E5A7C0099596C /* SoyState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SoyState.hpp; path = ../ofxSoylent/src/SoyState.hpp; sourceTree = "<group>"; };
+		FB8A06491A2E5A7C0099596C /* SoyString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyString.cpp; path = ../ofxSoylent/src/SoyString.cpp; sourceTree = "<group>"; };
+		FB8A064A1A2E5A7C0099596C /* SoyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyString.h; path = ../ofxSoylent/src/SoyString.h; sourceTree = "<group>"; };
+		FB8A064B1A2E5A7C0099596C /* SoyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyTest.cpp; path = ../ofxSoylent/src/SoyTest.cpp; sourceTree = "<group>"; };
+		FB8A064C1A2E5A7C0099596C /* SoyThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyThread.cpp; path = ../ofxSoylent/src/SoyThread.cpp; sourceTree = "<group>"; };
+		FB8A064D1A2E5A7C0099596C /* SoyThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyThread.h; path = ../ofxSoylent/src/SoyThread.h; sourceTree = "<group>"; };
+		FB8A064E1A2E5A7C0099596C /* SoyTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyTime.cpp; path = ../ofxSoylent/src/SoyTime.cpp; sourceTree = "<group>"; };
+		FB8A064F1A2E5A7C0099596C /* SoyTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyTime.h; path = ../ofxSoylent/src/SoyTime.h; sourceTree = "<group>"; };
+		FB8A06501A2E5A7C0099596C /* SoyTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyTypes.cpp; path = ../ofxSoylent/src/SoyTypes.cpp; sourceTree = "<group>"; };
+		FB8A06511A2E5A7C0099596C /* SoyTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyTypes.h; path = ../ofxSoylent/src/SoyTypes.h; sourceTree = "<group>"; };
+		FB8A06521A2E5A7C0099596C /* string.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = string.hpp; path = ../ofxSoylent/src/string.hpp; sourceTree = "<group>"; };
+		FB8A067C1A2E69340099596C /* PopMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopMain.cpp; path = ../PopTrack/src/PopMain.cpp; sourceTree = "<group>"; };
+		FB8A067D1A2E69340099596C /* PopMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopMain.h; path = ../PopTrack/src/PopMain.h; sourceTree = "<group>"; };
+		FB8A067E1A2E69340099596C /* SoyData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyData.cpp; path = ../PopTrack/src/SoyData.cpp; sourceTree = "<group>"; };
+		FB8A067F1A2E69340099596C /* SoyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyData.h; path = ../PopTrack/src/SoyData.h; sourceTree = "<group>"; };
+		FB8A06821A2E6AB50099596C /* TJob.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJob.cpp; path = ../PopTrack/src/TJob.cpp; sourceTree = "<group>"; };
+		FB8A06831A2E6AB50099596C /* TJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJob.h; path = ../PopTrack/src/TJob.h; sourceTree = "<group>"; };
+		FB8A06841A2E6AB50099596C /* TJobFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJobFormat.cpp; path = ../PopTrack/src/TJobFormat.cpp; sourceTree = "<group>"; };
+		FB8A06851A2E6AB50099596C /* TJobFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJobFormat.h; path = ../PopTrack/src/TJobFormat.h; sourceTree = "<group>"; };
+		FB8A06861A2E6AB50099596C /* TJobRelay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJobRelay.cpp; path = ../PopTrack/src/TJobRelay.cpp; sourceTree = "<group>"; };
+		FB8A06871A2E6AB50099596C /* TJobRelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJobRelay.h; path = ../PopTrack/src/TJobRelay.h; sourceTree = "<group>"; };
+		FB8A06881A2E6AB50099596C /* TProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TProtocol.cpp; path = ../PopTrack/src/TProtocol.cpp; sourceTree = "<group>"; };
+		FB8A06891A2E6AB50099596C /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProtocol.h; path = ../PopTrack/src/TProtocol.h; sourceTree = "<group>"; };
+		FB8A068A1A2E6AB50099596C /* TProtocolCli.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TProtocolCli.cpp; path = ../PopTrack/src/TProtocolCli.cpp; sourceTree = "<group>"; };
+		FB8A068B1A2E6AB50099596C /* TProtocolCli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProtocolCli.h; path = ../PopTrack/src/TProtocolCli.h; sourceTree = "<group>"; };
+		FB8A068C1A2E6AB50099596C /* TProtocolHttp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TProtocolHttp.cpp; path = ../PopTrack/src/TProtocolHttp.cpp; sourceTree = "<group>"; };
+		FB8A068D1A2E6AB50099596C /* TProtocolHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProtocolHttp.h; path = ../PopTrack/src/TProtocolHttp.h; sourceTree = "<group>"; };
+		FB8A068E1A2E6AB50099596C /* TProtocolJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TProtocolJson.cpp; path = ../PopTrack/src/TProtocolJson.cpp; sourceTree = "<group>"; };
+		FB8A068F1A2E6AB50099596C /* TProtocolJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProtocolJson.h; path = ../PopTrack/src/TProtocolJson.h; sourceTree = "<group>"; };
+		FB8A06901A2E6AB50099596C /* TProtocolWebSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TProtocolWebSocket.cpp; path = ../PopTrack/src/TProtocolWebSocket.cpp; sourceTree = "<group>"; };
+		FB8A06911A2E6AB50099596C /* TProtocolWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TProtocolWebSocket.h; path = ../PopTrack/src/TProtocolWebSocket.h; sourceTree = "<group>"; };
+		FB8A06921A2E6AB50099596C /* TSerialisation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TSerialisation.cpp; path = ../PopTrack/src/TSerialisation.cpp; sourceTree = "<group>"; };
+		FB8A06931A2E6AB50099596C /* TSerialisation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSerialisation.h; path = ../PopTrack/src/TSerialisation.h; sourceTree = "<group>"; };
+		FB8A069D1A2E6AF80099596C /* TChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChannel.cpp; path = ../PopTrack/src/TChannel.cpp; sourceTree = "<group>"; };
+		FB8A069E1A2E6AF80099596C /* TChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChannel.h; path = ../PopTrack/src/TChannel.h; sourceTree = "<group>"; };
+		FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChannelFile.cpp; path = ../PopTrack/src/TChannelFile.cpp; sourceTree = "<group>"; };
+		FB8A06A01A2E6AF80099596C /* TChannelFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChannelFile.h; path = ../PopTrack/src/TChannelFile.h; sourceTree = "<group>"; };
+		FB8A06A11A2E6AF80099596C /* TChannelPipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChannelPipe.cpp; path = ../PopTrack/src/TChannelPipe.cpp; sourceTree = "<group>"; };
+		FB8A06A21A2E6AF80099596C /* TChannelPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChannelPipe.h; path = ../PopTrack/src/TChannelPipe.h; sourceTree = "<group>"; };
+		FB8A06A31A2E6AF80099596C /* TChannelSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TChannelSocket.cpp; path = ../PopTrack/src/TChannelSocket.cpp; sourceTree = "<group>"; };
+		FB8A06A41A2E6AF80099596C /* TChannelSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TChannelSocket.h; path = ../PopTrack/src/TChannelSocket.h; sourceTree = "<group>"; };
+		FB8A06AA1A2E6B520099596C /* AssertException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AssertException.cpp; path = "../PopTrack/src/UnitTest++/src/AssertException.cpp"; sourceTree = "<group>"; };
+		FB8A06AB1A2E6B520099596C /* AssertException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssertException.h; path = "../PopTrack/src/UnitTest++/src/AssertException.h"; sourceTree = "<group>"; };
+		FB8A06AC1A2E6B520099596C /* CheckMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckMacros.h; path = "../PopTrack/src/UnitTest++/src/CheckMacros.h"; sourceTree = "<group>"; };
+		FB8A06AD1A2E6B520099596C /* Checks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Checks.cpp; path = "../PopTrack/src/UnitTest++/src/Checks.cpp"; sourceTree = "<group>"; };
+		FB8A06AE1A2E6B520099596C /* Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Checks.h; path = "../PopTrack/src/UnitTest++/src/Checks.h"; sourceTree = "<group>"; };
+		FB8A06AF1A2E6B520099596C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Config.h; path = "../PopTrack/src/UnitTest++/src/Config.h"; sourceTree = "<group>"; };
+		FB8A06B01A2E6B520099596C /* CurrentTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CurrentTest.cpp; path = "../PopTrack/src/UnitTest++/src/CurrentTest.cpp"; sourceTree = "<group>"; };
+		FB8A06B11A2E6B520099596C /* CurrentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentTest.h; path = "../PopTrack/src/UnitTest++/src/CurrentTest.h"; sourceTree = "<group>"; };
+		FB8A06B21A2E6B520099596C /* DeferredTestReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeferredTestReporter.cpp; path = "../PopTrack/src/UnitTest++/src/DeferredTestReporter.cpp"; sourceTree = "<group>"; };
+		FB8A06B31A2E6B520099596C /* DeferredTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeferredTestReporter.h; path = "../PopTrack/src/UnitTest++/src/DeferredTestReporter.h"; sourceTree = "<group>"; };
+		FB8A06B41A2E6B520099596C /* DeferredTestResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeferredTestResult.cpp; path = "../PopTrack/src/UnitTest++/src/DeferredTestResult.cpp"; sourceTree = "<group>"; };
+		FB8A06B51A2E6B520099596C /* DeferredTestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeferredTestResult.h; path = "../PopTrack/src/UnitTest++/src/DeferredTestResult.h"; sourceTree = "<group>"; };
+		FB8A06B61A2E6B520099596C /* ExecuteTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExecuteTest.h; path = "../PopTrack/src/UnitTest++/src/ExecuteTest.h"; sourceTree = "<group>"; };
+		FB8A06B71A2E6B520099596C /* MemoryOutStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryOutStream.cpp; path = "../PopTrack/src/UnitTest++/src/MemoryOutStream.cpp"; sourceTree = "<group>"; };
+		FB8A06B81A2E6B520099596C /* MemoryOutStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryOutStream.h; path = "../PopTrack/src/UnitTest++/src/MemoryOutStream.h"; sourceTree = "<group>"; };
+		FB8A06BA1A2E6B520099596C /* SignalTranslator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SignalTranslator.cpp; sourceTree = "<group>"; };
+		FB8A06BB1A2E6B520099596C /* SignalTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalTranslator.h; sourceTree = "<group>"; };
+		FB8A06BC1A2E6B520099596C /* TimeHelpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeHelpers.cpp; sourceTree = "<group>"; };
+		FB8A06BD1A2E6B520099596C /* TimeHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelpers.h; sourceTree = "<group>"; };
+		FB8A06BE1A2E6B520099596C /* ReportAssert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ReportAssert.cpp; path = "../PopTrack/src/UnitTest++/src/ReportAssert.cpp"; sourceTree = "<group>"; };
+		FB8A06BF1A2E6B520099596C /* ReportAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportAssert.h; path = "../PopTrack/src/UnitTest++/src/ReportAssert.h"; sourceTree = "<group>"; };
+		FB8A06C01A2E6B520099596C /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Test.cpp; path = "../PopTrack/src/UnitTest++/src/Test.cpp"; sourceTree = "<group>"; };
+		FB8A06C11A2E6B520099596C /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = "../PopTrack/src/UnitTest++/src/Test.h"; sourceTree = "<group>"; };
+		FB8A06C21A2E6B520099596C /* TestDetails.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestDetails.cpp; path = "../PopTrack/src/UnitTest++/src/TestDetails.cpp"; sourceTree = "<group>"; };
+		FB8A06C31A2E6B520099596C /* TestDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestDetails.h; path = "../PopTrack/src/UnitTest++/src/TestDetails.h"; sourceTree = "<group>"; };
+		FB8A06C41A2E6B520099596C /* TestList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestList.cpp; path = "../PopTrack/src/UnitTest++/src/TestList.cpp"; sourceTree = "<group>"; };
+		FB8A06C51A2E6B520099596C /* TestList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestList.h; path = "../PopTrack/src/UnitTest++/src/TestList.h"; sourceTree = "<group>"; };
+		FB8A06C61A2E6B520099596C /* TestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestMacros.h; path = "../PopTrack/src/UnitTest++/src/TestMacros.h"; sourceTree = "<group>"; };
+		FB8A06C71A2E6B520099596C /* TestReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestReporter.cpp; path = "../PopTrack/src/UnitTest++/src/TestReporter.cpp"; sourceTree = "<group>"; };
+		FB8A06C81A2E6B520099596C /* TestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestReporter.h; path = "../PopTrack/src/UnitTest++/src/TestReporter.h"; sourceTree = "<group>"; };
+		FB8A06C91A2E6B520099596C /* TestReporterStdout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestReporterStdout.cpp; path = "../PopTrack/src/UnitTest++/src/TestReporterStdout.cpp"; sourceTree = "<group>"; };
+		FB8A06CA1A2E6B520099596C /* TestReporterStdout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestReporterStdout.h; path = "../PopTrack/src/UnitTest++/src/TestReporterStdout.h"; sourceTree = "<group>"; };
+		FB8A06CB1A2E6B520099596C /* TestResults.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestResults.cpp; path = "../PopTrack/src/UnitTest++/src/TestResults.cpp"; sourceTree = "<group>"; };
+		FB8A06CC1A2E6B520099596C /* TestResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestResults.h; path = "../PopTrack/src/UnitTest++/src/TestResults.h"; sourceTree = "<group>"; };
+		FB8A06CD1A2E6B520099596C /* TestRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestRunner.cpp; path = "../PopTrack/src/UnitTest++/src/TestRunner.cpp"; sourceTree = "<group>"; };
+		FB8A06CE1A2E6B520099596C /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunner.h; path = "../PopTrack/src/UnitTest++/src/TestRunner.h"; sourceTree = "<group>"; };
+		FB8A06E31A2E6B520099596C /* TestSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestSuite.h; path = "../PopTrack/src/UnitTest++/src/TestSuite.h"; sourceTree = "<group>"; };
+		FB8A06E41A2E6B520099596C /* TimeConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeConstraint.cpp; path = "../PopTrack/src/UnitTest++/src/TimeConstraint.cpp"; sourceTree = "<group>"; };
+		FB8A06E51A2E6B520099596C /* TimeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeConstraint.h; path = "../PopTrack/src/UnitTest++/src/TimeConstraint.h"; sourceTree = "<group>"; };
+		FB8A06E61A2E6B520099596C /* TimeHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeHelpers.h; path = "../PopTrack/src/UnitTest++/src/TimeHelpers.h"; sourceTree = "<group>"; };
+		FB8A06E71A2E6B520099596C /* UnitTest++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UnitTest++.h"; path = "../PopTrack/src/UnitTest++/src/UnitTest++.h"; sourceTree = "<group>"; };
+		FB8A06EB1A2E6B520099596C /* XmlTestReporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XmlTestReporter.cpp; path = "../PopTrack/src/UnitTest++/src/XmlTestReporter.cpp"; sourceTree = "<group>"; };
+		FB8A06EC1A2E6B520099596C /* XmlTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XmlTestReporter.h; path = "../PopTrack/src/UnitTest++/src/XmlTestReporter.h"; sourceTree = "<group>"; };
+		FB8A07111A2E6B880099596C /* TParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TParameters.cpp; path = ../PopTrack/src/TParameters.cpp; sourceTree = "<group>"; };
+		FB8A07121A2E6B880099596C /* TParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TParameters.h; path = ../PopTrack/src/TParameters.h; sourceTree = "<group>"; };
+		FB8A07151A2E6BBF0099596C /* sha1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sha1.cpp; path = ../ofxSoylent/src/smallsha1/sha1.cpp; sourceTree = "<group>"; };
+		FB8A07161A2E6BBF0099596C /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = ../ofxSoylent/src/smallsha1/sha1.h; sourceTree = "<group>"; };
+		FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopCameraTrack.cpp; path = src/PopCameraTrack.cpp; sourceTree = SOURCE_ROOT; };
+		FB8A07191A2E6C3E0099596C /* PopCameraTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopCameraTrack.h; path = src/PopCameraTrack.h; sourceTree = SOURCE_ROOT; };
+		FBB328461A2E7591003DE7AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FBB328481A2E75D4003DE7AA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = System/Library/Frameworks/CoreMediaIO.framework; sourceTree = SDKROOT; };
+		FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		FBC3A0DF1A308648009DA49E /* SoyScope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyScope.cpp; path = ../ofxSoylent/src/SoyScope.cpp; sourceTree = "<group>"; };
+		FBC3A0E01A308648009DA49E /* SoyScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyScope.h; path = ../ofxSoylent/src/SoyScope.h; sourceTree = "<group>"; };
+		FBC3A0E51A328A56009DA49E /* websrc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = websrc; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB8A05901A2E54730099596C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB3284D1A2E75EF003DE7AA /* CoreVideo.framework in Frameworks */,
+				FBB3284A1A2E75D4003DE7AA /* CoreMedia.framework in Frameworks */,
+				FBB3284B1A2E75D4003DE7AA /* CoreMediaIO.framework in Frameworks */,
+				FBB328471A2E7591003DE7AA /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB8A058A1A2E54730099596C = {
+			isa = PBXGroup;
+			children = (
+				FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */,
+				FBB328481A2E75D4003DE7AA /* CoreMedia.framework */,
+				FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */,
+				FBB328461A2E7591003DE7AA /* AVFoundation.framework */,
+				FB8A05A61A2E57700099596C /* PopApp.xcconfig */,
+				FB8A067B1A2E68C20099596C /* poplib */,
+				FB8A06221A2E5A280099596C /* soylib */,
+				FBC3A0E51A328A56009DA49E /* websrc */,
+				FB8A05951A2E54730099596C /* src */,
+				FB8A05941A2E54730099596C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB8A05941A2E54730099596C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A05931A2E54730099596C /* PopCameraTrack */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB8A05951A2E54730099596C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */,
+				FB8A07191A2E6C3E0099596C /* PopCameraTrack.h */,
+			);
+			name = src;
+			path = PopCapture;
+			sourceTree = "<group>";
+		};
+		FB8A06221A2E5A280099596C /* soylib */ = {
+			isa = PBXGroup;
+			children = (
+				FBC3A0DF1A308648009DA49E /* SoyScope.cpp */,
+				FBC3A0E01A308648009DA49E /* SoyScope.h */,
+				FB8A07141A2E6B990099596C /* sha1 */,
+				FB8A06231A2E5A7C0099596C /* SortArray.h */,
+				FB8A06241A2E5A7C0099596C /* SoyApp.cpp */,
+				FB8A06251A2E5A7C0099596C /* SoyApp.h */,
+				FB8A06261A2E5A7C0099596C /* SoyArray.cpp */,
+				FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */,
+				FB8A06271A2E5A7C0099596C /* SoyDebug.cpp */,
+				FB8A06281A2E5A7C0099596C /* SoyDebug.h */,
+				FB8A06291A2E5A7C0099596C /* SoyEnum.h */,
+				FB8A062A1A2E5A7C0099596C /* SoyEvent.cpp */,
+				FB8A062B1A2E5A7C0099596C /* SoyEvent.h */,
+				FB8A062C1A2E5A7C0099596C /* SoyFilesytem.cpp */,
+				FB8A062D1A2E5A7C0099596C /* SoyFilesytem.h */,
+				FB8A06301A2E5A7C0099596C /* SoyMemFile.cpp */,
+				FB8A06311A2E5A7C0099596C /* SoyMemFile.h */,
+				FB8A06381A2E5A7C0099596C /* SoyPair.h */,
+				FB8A06391A2E5A7C0099596C /* SoyPixels.cpp */,
+				FB8A063A1A2E5A7C0099596C /* SoyPixels.h */,
+				FB8A063B1A2E5A7C0099596C /* SoyPng.cpp */,
+				FB8A063C1A2E5A7C0099596C /* SoyPng.h */,
+				FB8A063D1A2E5A7C0099596C /* SoyRef.cpp */,
+				FB8A063E1A2E5A7C0099596C /* SoyRef.h */,
+				FB8A06431A2E5A7C0099596C /* SoyState.h */,
+				FB8A06441A2E5A7C0099596C /* SoyState.hpp */,
+				FB8A06491A2E5A7C0099596C /* SoyString.cpp */,
+				FB8A064A1A2E5A7C0099596C /* SoyString.h */,
+				FB8A064B1A2E5A7C0099596C /* SoyTest.cpp */,
+				FB8A064C1A2E5A7C0099596C /* SoyThread.cpp */,
+				FB8A064D1A2E5A7C0099596C /* SoyThread.h */,
+				FB8A064E1A2E5A7C0099596C /* SoyTime.cpp */,
+				FB8A064F1A2E5A7C0099596C /* SoyTime.h */,
+				FB8A06501A2E5A7C0099596C /* SoyTypes.cpp */,
+				FB8A06511A2E5A7C0099596C /* SoyTypes.h */,
+				FB8A06521A2E5A7C0099596C /* string.hpp */,
+				FB8A06201A2E5A200099596C /* memheap.cpp */,
+			);
+			name = soylib;
+			path = ../NewChromantics/ofxSoylent;
+			sourceTree = "<group>";
+		};
+		FB8A067B1A2E68C20099596C /* poplib */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A07111A2E6B880099596C /* TParameters.cpp */,
+				FB8A07121A2E6B880099596C /* TParameters.h */,
+				FB8A06A91A2E6B040099596C /* Unittest++ */,
+				FB8A069D1A2E6AF80099596C /* TChannel.cpp */,
+				FB8A069E1A2E6AF80099596C /* TChannel.h */,
+				FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */,
+				FB8A06A01A2E6AF80099596C /* TChannelFile.h */,
+				FB8A06A11A2E6AF80099596C /* TChannelPipe.cpp */,
+				FB8A06A21A2E6AF80099596C /* TChannelPipe.h */,
+				FB8A06A31A2E6AF80099596C /* TChannelSocket.cpp */,
+				FB8A06A41A2E6AF80099596C /* TChannelSocket.h */,
+				FB8A06821A2E6AB50099596C /* TJob.cpp */,
+				FB8A06831A2E6AB50099596C /* TJob.h */,
+				FB8A06841A2E6AB50099596C /* TJobFormat.cpp */,
+				FB8A06851A2E6AB50099596C /* TJobFormat.h */,
+				FB8A06861A2E6AB50099596C /* TJobRelay.cpp */,
+				FB8A06871A2E6AB50099596C /* TJobRelay.h */,
+				FB8A06881A2E6AB50099596C /* TProtocol.cpp */,
+				FB8A06891A2E6AB50099596C /* TProtocol.h */,
+				FB8A068A1A2E6AB50099596C /* TProtocolCli.cpp */,
+				FB8A068B1A2E6AB50099596C /* TProtocolCli.h */,
+				FB8A068C1A2E6AB50099596C /* TProtocolHttp.cpp */,
+				FB8A068D1A2E6AB50099596C /* TProtocolHttp.h */,
+				FB8A068E1A2E6AB50099596C /* TProtocolJson.cpp */,
+				FB8A068F1A2E6AB50099596C /* TProtocolJson.h */,
+				FB8A06901A2E6AB50099596C /* TProtocolWebSocket.cpp */,
+				FB8A06911A2E6AB50099596C /* TProtocolWebSocket.h */,
+				FB8A06921A2E6AB50099596C /* TSerialisation.cpp */,
+				FB8A06931A2E6AB50099596C /* TSerialisation.h */,
+				FB8A067C1A2E69340099596C /* PopMain.cpp */,
+				FB8A067D1A2E69340099596C /* PopMain.h */,
+				FB8A067E1A2E69340099596C /* SoyData.cpp */,
+				FB8A067F1A2E69340099596C /* SoyData.h */,
+			);
+			name = poplib;
+			path = ../NewChromantics/PopTrack;
+			sourceTree = "<group>";
+		};
+		FB8A06A91A2E6B040099596C /* Unittest++ */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A06AA1A2E6B520099596C /* AssertException.cpp */,
+				FB8A06AB1A2E6B520099596C /* AssertException.h */,
+				FB8A06AC1A2E6B520099596C /* CheckMacros.h */,
+				FB8A06AD1A2E6B520099596C /* Checks.cpp */,
+				FB8A06AE1A2E6B520099596C /* Checks.h */,
+				FB8A06AF1A2E6B520099596C /* Config.h */,
+				FB8A06B01A2E6B520099596C /* CurrentTest.cpp */,
+				FB8A06B11A2E6B520099596C /* CurrentTest.h */,
+				FB8A06B21A2E6B520099596C /* DeferredTestReporter.cpp */,
+				FB8A06B31A2E6B520099596C /* DeferredTestReporter.h */,
+				FB8A06B41A2E6B520099596C /* DeferredTestResult.cpp */,
+				FB8A06B51A2E6B520099596C /* DeferredTestResult.h */,
+				FB8A06B61A2E6B520099596C /* ExecuteTest.h */,
+				FB8A06B71A2E6B520099596C /* MemoryOutStream.cpp */,
+				FB8A06B81A2E6B520099596C /* MemoryOutStream.h */,
+				FB8A06B91A2E6B520099596C /* Posix */,
+				FB8A06BE1A2E6B520099596C /* ReportAssert.cpp */,
+				FB8A06BF1A2E6B520099596C /* ReportAssert.h */,
+				FB8A06C01A2E6B520099596C /* Test.cpp */,
+				FB8A06C11A2E6B520099596C /* Test.h */,
+				FB8A06C21A2E6B520099596C /* TestDetails.cpp */,
+				FB8A06C31A2E6B520099596C /* TestDetails.h */,
+				FB8A06C41A2E6B520099596C /* TestList.cpp */,
+				FB8A06C51A2E6B520099596C /* TestList.h */,
+				FB8A06C61A2E6B520099596C /* TestMacros.h */,
+				FB8A06C71A2E6B520099596C /* TestReporter.cpp */,
+				FB8A06C81A2E6B520099596C /* TestReporter.h */,
+				FB8A06C91A2E6B520099596C /* TestReporterStdout.cpp */,
+				FB8A06CA1A2E6B520099596C /* TestReporterStdout.h */,
+				FB8A06CB1A2E6B520099596C /* TestResults.cpp */,
+				FB8A06CC1A2E6B520099596C /* TestResults.h */,
+				FB8A06CD1A2E6B520099596C /* TestRunner.cpp */,
+				FB8A06CE1A2E6B520099596C /* TestRunner.h */,
+				FB8A06E31A2E6B520099596C /* TestSuite.h */,
+				FB8A06E41A2E6B520099596C /* TimeConstraint.cpp */,
+				FB8A06E51A2E6B520099596C /* TimeConstraint.h */,
+				FB8A06E61A2E6B520099596C /* TimeHelpers.h */,
+				FB8A06E71A2E6B520099596C /* UnitTest++.h */,
+				FB8A06EB1A2E6B520099596C /* XmlTestReporter.cpp */,
+				FB8A06EC1A2E6B520099596C /* XmlTestReporter.h */,
+			);
+			name = "Unittest++";
+			sourceTree = "<group>";
+		};
+		FB8A06B91A2E6B520099596C /* Posix */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A06BA1A2E6B520099596C /* SignalTranslator.cpp */,
+				FB8A06BB1A2E6B520099596C /* SignalTranslator.h */,
+				FB8A06BC1A2E6B520099596C /* TimeHelpers.cpp */,
+				FB8A06BD1A2E6B520099596C /* TimeHelpers.h */,
+			);
+			name = Posix;
+			path = "../PopTrack/src/UnitTest++/src/Posix";
+			sourceTree = "<group>";
+		};
+		FB8A07141A2E6B990099596C /* sha1 */ = {
+			isa = PBXGroup;
+			children = (
+				FB8A07151A2E6BBF0099596C /* sha1.cpp */,
+				FB8A07161A2E6BBF0099596C /* sha1.h */,
+			);
+			name = sha1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB8A05921A2E54730099596C /* PopCameraTrack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB8A059A1A2E54730099596C /* Build configuration list for PBXNativeTarget "PopCameraTrack" */;
+			buildPhases = (
+				FB8A058F1A2E54730099596C /* Sources */,
+				FB8A05901A2E54730099596C /* Frameworks */,
+				FB8A05911A2E54730099596C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopCameraTrack;
+			productName = PopCapture;
+			productReference = FB8A05931A2E54730099596C /* PopCameraTrack */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB8A058B1A2E54730099596C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = NewChromantics;
+				TargetAttributes = {
+					FB8A05921A2E54730099596C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = FB8A058E1A2E54730099596C /* Build configuration list for PBXProject "PopCameraTrack" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FB8A058A1A2E54730099596C;
+			productRefGroup = FB8A05941A2E54730099596C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB8A05921A2E54730099596C /* PopCameraTrack */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB8A058F1A2E54730099596C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB8A06FC1A2E6B520099596C /* TestRunner.cpp in Sources */,
+				FB8A06651A2E5A7C0099596C /* SoyTest.cpp in Sources */,
+				FB8A06F61A2E6B520099596C /* Test.cpp in Sources */,
+				FB8A06FA1A2E6B520099596C /* TestReporterStdout.cpp in Sources */,
+				FB8A06571A2E5A7C0099596C /* SoyFilesytem.cpp in Sources */,
+				FB8A06681A2E5A7C0099596C /* SoyTypes.cpp in Sources */,
+				FB8A071A1A2E6C3E0099596C /* PopCameraTrack.cpp in Sources */,
+				FB8A06F91A2E6B520099596C /* TestReporter.cpp in Sources */,
+				FB8A06F11A2E6B520099596C /* DeferredTestResult.cpp in Sources */,
+				FB8A07131A2E6B880099596C /* TParameters.cpp in Sources */,
+				FB8A06801A2E69340099596C /* PopMain.cpp in Sources */,
+				FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */,
+				FB8A06671A2E5A7C0099596C /* SoyTime.cpp in Sources */,
+				FB8A06ED1A2E6B520099596C /* AssertException.cpp in Sources */,
+				FB8A06661A2E5A7C0099596C /* SoyThread.cpp in Sources */,
+				FB8A06971A2E6AB50099596C /* TProtocol.cpp in Sources */,
+				FB8A06641A2E5A7C0099596C /* SoyString.cpp in Sources */,
+				FB8A069B1A2E6AB50099596C /* TProtocolWebSocket.cpp in Sources */,
+				FB8A06F71A2E6B520099596C /* TestDetails.cpp in Sources */,
+				FB8A06991A2E6AB50099596C /* TProtocolHttp.cpp in Sources */,
+				FB8A06A51A2E6AF80099596C /* TChannel.cpp in Sources */,
+				FB8A070E1A2E6B520099596C /* TimeConstraint.cpp in Sources */,
+				FB8A06A81A2E6AF80099596C /* TChannelSocket.cpp in Sources */,
+				FB8A06561A2E5A7C0099596C /* SoyEvent.cpp in Sources */,
+				FB8A06981A2E6AB50099596C /* TProtocolCli.cpp in Sources */,
+				FB8A07101A2E6B520099596C /* XmlTestReporter.cpp in Sources */,
+				FB8A065E1A2E5A7C0099596C /* SoyPng.cpp in Sources */,
+				FB6650CD1A56FD8600DF0A12 /* SoyDebug.mm in Sources */,
+				FB8A06551A2E5A7C0099596C /* SoyDebug.cpp in Sources */,
+				FB8A07171A2E6BBF0099596C /* sha1.cpp in Sources */,
+				FB8A069C1A2E6AB50099596C /* TSerialisation.cpp in Sources */,
+				FB8A069A1A2E6AB50099596C /* TProtocolJson.cpp in Sources */,
+				FB8A06591A2E5A7C0099596C /* SoyMemFile.cpp in Sources */,
+				FB8A06941A2E6AB50099596C /* TJob.cpp in Sources */,
+				FB8A06F01A2E6B520099596C /* DeferredTestReporter.cpp in Sources */,
+				FB8A06F31A2E6B520099596C /* SignalTranslator.cpp in Sources */,
+				FB8A06811A2E69340099596C /* SoyData.cpp in Sources */,
+				FB8A065F1A2E5A7C0099596C /* SoyRef.cpp in Sources */,
+				FB8A06531A2E5A7C0099596C /* SoyApp.cpp in Sources */,
+				FB8A06F81A2E6B520099596C /* TestList.cpp in Sources */,
+				FB8A06EE1A2E6B520099596C /* Checks.cpp in Sources */,
+				FB8A06F21A2E6B520099596C /* MemoryOutStream.cpp in Sources */,
+				FB8A06EF1A2E6B520099596C /* CurrentTest.cpp in Sources */,
+				FB8A06A71A2E6AF80099596C /* TChannelPipe.cpp in Sources */,
+				FB8A06F51A2E6B520099596C /* ReportAssert.cpp in Sources */,
+				FB8A06A61A2E6AF80099596C /* TChannelFile.cpp in Sources */,
+				FB8A06951A2E6AB50099596C /* TJobFormat.cpp in Sources */,
+				FB8A06F41A2E6B520099596C /* TimeHelpers.cpp in Sources */,
+				FB8A06961A2E6AB50099596C /* TJobRelay.cpp in Sources */,
+				FB8A06FB1A2E6B520099596C /* TestResults.cpp in Sources */,
+				FB8A065D1A2E5A7C0099596C /* SoyPixels.cpp in Sources */,
+				FB8A06211A2E5A200099596C /* memheap.cpp in Sources */,
+				FB8A06541A2E5A7C0099596C /* SoyArray.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FB8A05981A2E54730099596C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8A05A61A2E57700099596C /* PopApp.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				POP_DIR = ../NewChromantics/PopTrack/;
+				SOYLENT_DIR = ../NewChromantics/ofxSoylent/;
+			};
+			name = Debug;
+		};
+		FB8A05991A2E54730099596C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB8A05A61A2E57700099596C /* PopApp.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				POP_DIR = ../NewChromantics/PopTrack/;
+				SOYLENT_DIR = ../NewChromantics/ofxSoylent/;
+			};
+			name = Release;
+		};
+		FB8A059B1A2E54730099596C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = PopCameraTrack;
+			};
+			name = Debug;
+		};
+		FB8A059C1A2E54730099596C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = PopCameraTrack;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB8A058E1A2E54730099596C /* Build configuration list for PBXProject "PopCameraTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB8A05981A2E54730099596C /* Debug */,
+				FB8A05991A2E54730099596C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB8A059A1A2E54730099596C /* Build configuration list for PBXNativeTarget "PopCameraTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB8A059B1A2E54730099596C /* Debug */,
+				FB8A059C1A2E54730099596C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB8A058B1A2E54730099596C /* Project object */;
+}
