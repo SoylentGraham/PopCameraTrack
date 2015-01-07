@@ -45,6 +45,7 @@ public:
 	void			OnGetFeature(TJobAndChannel& JobAndChannel);
 	void			OnNewFrame(TJobAndChannel& JobAndChannel);
 	void			SubscribeNewCameraPose(TJobAndChannel& JobAndChannel);
+	void			OnResetSlam(TJobAndChannel& JobAndChannel);
 	
 	bool			UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error);
 	
@@ -55,7 +56,7 @@ public:
 	std::shared_ptr<lsd_slam::SlamSystem>	mSlam;
 	SlamOutput					mSlamOutput;
 	
-	std::mutex		mSlamLock;
+	std::recursive_mutex	mSlamLock;
 	unsigned int	mSlamFrameCounter;
 	float			mSlamTimestamp;
 };

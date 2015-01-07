@@ -48,7 +48,11 @@ public class PopCameraTracker : MonoBehaviour {
 		NewQuaternion.Set (quatx, quaty, quatz, quatw);
 	}
 	
-
+	void OnGUI()
+	{
+		if (GUI.Button (new Rect (10, 10, 100, 20), "Reset slam"))
+			mChannel.SendJob ("resetslam");
+	}
 	
 	void OnPostRender()
 	{

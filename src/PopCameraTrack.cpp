@@ -82,6 +82,9 @@ TPopCameraTrack::TPopCameraTrack() :
 	TParameterTraits SubscribeNewCameraPoseTraits;
 	SubscribeNewCameraPoseTraits.mDefaultParams.PushBack( std::make_tuple(std::string("command"),std::string("newcamerapose")) );
 	AddJobHandler("subscribenewcamerapose", SubscribeNewCameraPoseTraits, *this, &TPopCameraTrack::SubscribeNewCameraPose );
+
+	
+	AddJobHandler("resetslam", TParameterTraits(), *this, &TPopCameraTrack::OnResetSlam );
 }
 
 void TPopCameraTrack::AddChannel(std::shared_ptr<TChannel> Channel)
@@ -101,6 +104,13 @@ void TPopCameraTrack::OnExit(TJobAndChannel& JobAndChannel)
 	Reply.mParams.AddDefaultParam(std::string("exiting..."));
 	TChannel& Channel = JobAndChannel;
 	Channel.OnJobCompleted( Reply );
+}
+
+
+void TPopCameraTrack::OnResetSlam(TJobAndChannel& JobAndChannel)
+{
+	std::lock_guard<std::recursive_mutex> Lock( mSlamLock );
+	mSlam.reset();
 }
 
 
@@ -223,14 +233,39 @@ void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 }
 
 
-bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error)
+bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& CameraPixels,std::stringstream& Error)
 {
-	if ( !Soy::Assert(Pixels.IsValid(),"Expected valid pixels") )
+	if ( !Soy::Assert(CameraPixels.IsValid(),"Expected valid pixels") )
 	{
 		Error << "Invalid pixels";
 		return false;
 	}
 	
+	//	if slam already processing, drop this camera frame
+	if ( !mSlamLock.try_lock() )
+	{
+		Error << "slam processing old frame, dropping frame" << std::endl;
+		return false;
+	}
+	
+	//	take another lock and unlock our try_lock so we don't ever lose the lock
+	std::lock_guard<std::recursive_mutex> Lock(mSlamLock);
+	mSlamLock.unlock();
+
+	
+	//	slam needs grey pixels as multiple of 16
+	SoyPixels GreyPixels;
+	GreyPixels.Copy( CameraPixels );
+	if ( !GreyPixels.SetFormat( SoyPixelsFormat::Greyscale ) )
+	{
+		Error << "Failed to convert image to greyscale";
+		return false;
+	}
+	int NewWidth = GreyPixels.GetWidth() - (GreyPixels.GetWidth() % 16);
+	int NewHeight = GreyPixels.GetHeight() - (GreyPixels.GetHeight() % 16);
+	GreyPixels.ResizeClip( NewWidth, NewHeight );
+	auto& Pixels = GreyPixels;
+		
 	//	iphone 4/5 camera
 	double f = 4.1;
 	double resX = Pixels.GetWidth();
@@ -252,22 +287,16 @@ bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error)
 	{
 		mSlam.reset( new lsd_slam::SlamSystem( Pixels.GetWidth(), Pixels.GetHeight(), CameraMatrix, EnableSlam ) );
 		mSlam->setVisualization( &mSlamOutput );
-	}
-
-	SoyPixels GreyPixels;
-	GreyPixels.Copy( Pixels );
-	if ( !GreyPixels.SetFormat( SoyPixelsFormat::Greyscale ) )
-	{
-		Error << "Failed to convert image to greyscale";
-		return false;
+		mSlamFrameCounter = 0;
 	}
 	
 	uchar* PixelsArray = reinterpret_cast<uchar*>( GreyPixels.GetPixelsArray().GetArray() );
 	
-	std::lock_guard<std::mutex> Lock(mSlamLock);
 	
-	//	first run
 	bool Block = true;
+	mSlamTimestamp = SoyTime(true).GetTime() / 1000.f;
+
+	//	first run
 	if ( mSlamFrameCounter == 0 )
 	{
 		mSlam->randomInit( PixelsArray, mSlamTimestamp, mSlamFrameCounter );
@@ -276,7 +305,6 @@ bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error)
 	{
 		mSlam->trackFrame( PixelsArray, mSlamFrameCounter, Block, mSlamTimestamp );
 	}
-	mSlamTimestamp += 0.03f;
 	mSlamFrameCounter++;
 	
 	return true;
@@ -398,7 +426,7 @@ TPopAppError::Type PopMain(TJobParams& Params)
 			TJob GetFrameJob;
 			GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
 			GetFrameJob.mParams.mCommand = "subscribenewframe";
-			GetFrameJob.mParams.AddParam("serial", "facetime" );
+			GetFrameJob.mParams.AddParam("serial", "Right" );
 			GetFrameJob.mParams.AddParam("memfile", "1" );
 			Channel.SendCommand( GetFrameJob );
 		};
