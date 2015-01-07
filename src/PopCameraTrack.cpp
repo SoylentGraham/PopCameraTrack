@@ -353,14 +353,14 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	auto HttpChannel = CreateChannelFromInputString("http:8080-8090", SoyRef("http") );
 //	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9090-9099", SoyRef("websock") );
 	//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
-//	auto SocksChannel = CreateChannelFromInputString("cli:7070-7079", SoyRef("socks") );
+	auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
 	
 	
 	App.AddChannel( CommandLineChannel );
 	App.AddChannel( StdioChannel );
 //	App.AddChannel( HttpChannel );
 //	App.AddChannel( WebSocketChannel );
-//	App.AddChannel( SocksChannel );
+	App.AddChannel( SocksChannel );
 
 	//	when the commandline SENDs a command (a reply), send it to stdout
 	auto RelayFunc = [](TJobAndChannel& JobAndChannel)
