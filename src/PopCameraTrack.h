@@ -4,17 +4,12 @@
 #include <TJob.h>
 #include <TChannel.h>
 
+#include "TJobEventSubscriber.h"
+#include "TCameraPose.h"
+
 #include "SlamSystem.h"
 #include "IOWrapper/Output3DWrapper.h"
 
-
-
-class TCameraPose
-{
-public:
-	vec3f	mPosition;
-	vec4f	mQuaternion;
-};
 
 
 class SlamOutput : public lsd_slam::Output3DWrapper
@@ -49,11 +44,14 @@ public:
 	void			OnExit(TJobAndChannel& JobAndChannel);
 	void			OnGetFeature(TJobAndChannel& JobAndChannel);
 	void			OnNewFrame(TJobAndChannel& JobAndChannel);
+	void			SubscribeNewCameraPose(TJobAndChannel& JobAndChannel);
 	
 	bool			UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error);
 	
 public:
 	Soy::Platform::TConsoleApp	mConsoleApp;
+	TSubscriberManager	mSubcriberManager;
+
 	std::shared_ptr<lsd_slam::SlamSystem>	mSlam;
 	SlamOutput					mSlamOutput;
 	

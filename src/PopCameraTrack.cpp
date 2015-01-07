@@ -64,7 +64,8 @@ void SlamOutput::publishTrackedFrame(lsd_slam::Frame* kf)
 }
 
 
-TPopCameraTrack::TPopCameraTrack()
+TPopCameraTrack::TPopCameraTrack() :
+	mSubcriberManager	( *this )
 {
 	AddJobHandler("exit", TParameterTraits(), *this, &TPopCameraTrack::OnExit );
 	
@@ -76,6 +77,11 @@ TPopCameraTrack::TPopCameraTrack()
 	GetFeatureTraits.mAssumedKeys.PushBack("y");
 	GetFeatureTraits.mRequiredKeys.PushBack("image");
 	AddJobHandler("getfeature", GetFeatureTraits, *this, &TPopCameraTrack::OnGetFeature );
+
+
+	TParameterTraits SubscribeNewCameraPoseTraits;
+	SubscribeNewCameraPoseTraits.mDefaultParams.PushBack( std::make_tuple(std::string("command"),std::string("newcamerapose")) );
+	AddJobHandler("subscribenewcamerapose", SubscribeNewCameraPoseTraits, *this, &TPopCameraTrack::SubscribeNewCameraPose );
 }
 
 void TPopCameraTrack::AddChannel(std::shared_ptr<TChannel> Channel)
@@ -170,6 +176,52 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		std::Debug << "Update slam failed: " << SlamError.str() << std::endl;
 
 }
+
+
+void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
+{
+	const TJob& Job = JobAndChannel;
+	TJobReply Reply( JobAndChannel );
+	
+	std::stringstream Error;
+		
+	//	create new subscription for it
+	//	gr: determine if this already exists!
+	auto EventName = Job.mParams.GetParamAs<std::string>("command");
+	auto Event = mSubcriberManager.AddEvent( mSlamOutput.mOnNewCameraPose, EventName, Error );
+	if ( !Event )
+	{
+		std::stringstream ReplyError;
+		ReplyError << "Failed to create new event " << EventName << ". " << Error.str();
+		Reply.mParams.AddErrorParam( ReplyError.str() );
+		TChannel& Channel = JobAndChannel;
+		Channel.OnJobCompleted( Reply );
+		return;
+	}
+	
+	//	subscribe this caller
+	if ( !Event->AddSubscriber( Job.mChannelMeta, Error ) )
+	{
+		std::stringstream ReplyError;
+		ReplyError << "Failed to add subscriber to event " << EventName << ". " << Error.str();
+		Reply.mParams.AddErrorParam( ReplyError.str() );
+		TChannel& Channel = JobAndChannel;
+		Channel.OnJobCompleted( Reply );
+		return;
+	}
+	
+	
+	std::stringstream ReplyString;
+	ReplyString << "OK subscribed to " << EventName;
+	Reply.mParams.AddDefaultParam( ReplyString.str() );
+	if ( !Error.str().empty() )
+		Reply.mParams.AddErrorParam( Error.str() );
+	Reply.mParams.AddParam("eventcommand", EventName);
+	
+	TChannel& Channel = JobAndChannel;
+	Channel.OnJobCompleted( Reply );
+}
+
 
 bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error)
 {

@@ -248,6 +248,8 @@
 		FBC16F951A5C573C00874332 /* vertex_line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3C1A5C573C00874332 /* vertex_line3d.cpp */; };
 		FBC16F961A5C573C00874332 /* vertex_plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3E1A5C573C00874332 /* vertex_plane.cpp */; };
 		FBC16F971A5C573C00874332 /* vertex_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F401A5C573C00874332 /* vertex_se3_euler.cpp */; };
+		FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */; };
+		FBC16F9D1A5D741000874332 /* TCameraPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F9B1A5D741000874332 /* TCameraPose.cpp */; };
 		FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC3A0DF1A308648009DA49E /* SoyScope.cpp */; };
 /* End PBXBuildFile section */
 
@@ -802,6 +804,10 @@
 		FBC16F3F1A5C573C00874332 /* vertex_plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex_plane.h; sourceTree = "<group>"; };
 		FBC16F401A5C573C00874332 /* vertex_se3_euler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vertex_se3_euler.cpp; sourceTree = "<group>"; };
 		FBC16F411A5C573C00874332 /* vertex_se3_euler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex_se3_euler.h; sourceTree = "<group>"; };
+		FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJobEventSubscriber.cpp; path = src/TJobEventSubscriber.cpp; sourceTree = SOURCE_ROOT; };
+		FBC16F991A5D72C000874332 /* TJobEventSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJobEventSubscriber.h; path = src/TJobEventSubscriber.h; sourceTree = SOURCE_ROOT; };
+		FBC16F9B1A5D741000874332 /* TCameraPose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TCameraPose.cpp; path = src/TCameraPose.cpp; sourceTree = SOURCE_ROOT; };
+		FBC16F9C1A5D741000874332 /* TCameraPose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCameraPose.h; path = src/TCameraPose.h; sourceTree = SOURCE_ROOT; };
 		FBC3A0DF1A308648009DA49E /* SoyScope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyScope.cpp; path = ../ofxSoylent/src/SoyScope.cpp; sourceTree = "<group>"; };
 		FBC3A0E01A308648009DA49E /* SoyScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoyScope.h; path = ../ofxSoylent/src/SoyScope.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -851,6 +857,10 @@
 				FBC16D0F1A5C3DAD00874332 /* lsd slam */,
 				FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */,
 				FB8A07191A2E6C3E0099596C /* PopCameraTrack.h */,
+				FBC16F9B1A5D741000874332 /* TCameraPose.cpp */,
+				FBC16F9C1A5D741000874332 /* TCameraPose.h */,
+				FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */,
+				FBC16F991A5D72C000874332 /* TJobEventSubscriber.h */,
 			);
 			name = src;
 			path = PopCapture;
@@ -1756,6 +1766,7 @@
 				FBC16F801A5C573C00874332 /* edge_se3_prior.cpp in Sources */,
 				FBC16F621A5C573C00874332 /* edge_se2_offset.cpp in Sources */,
 				FBC16DF31A5C535600874332 /* string_tools.cpp in Sources */,
+				FBC16F9D1A5D741000874332 /* TCameraPose.cpp in Sources */,
 				FBC16F641A5C573C00874332 /* edge_se2_pointxy_bearing.cpp in Sources */,
 				FB8A06671A2E5A7C0099596C /* SoyTime.cpp in Sources */,
 				FBC16F471A5C573C00874332 /* types_data.cpp in Sources */,
@@ -1860,6 +1871,7 @@
 				FBC16F851A5C573C00874332 /* parameter_stereo_camera.cpp in Sources */,
 				FBC16DEF1A5C535600874332 /* os_specific.c in Sources */,
 				FBC16F8F1A5C573C00874332 /* edge_se3_euler.cpp in Sources */,
+				FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */,
 				FBC16F571A5C573C00874332 /* types_sba.cpp in Sources */,
 				FB8A06F31A2E6B520099596C /* SignalTranslator.cpp in Sources */,
 				FBC16F5D1A5C573C00874332 /* vertex_odom_differential_params.cpp in Sources */,
