@@ -33,7 +33,6 @@ void TPopCameraTrack::AddChannel(std::shared_ptr<TChannel> Channel)
 	TJobHandler::BindToChannel( *Channel );
 }
 
-
 void TPopCameraTrack::OnExit(TJobAndChannel& JobAndChannel)
 {
 	mConsoleApp.Exit();
@@ -111,8 +110,72 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		return;
 	}
 	std::Debug << "Decoded image " << Image.GetWidth() << "x" << Image.GetHeight() << " " << Image.GetFormat() << std::endl;
+
+	std::stringstream SlamError;
+	UpdateSlam( Image, SlamError );
+	if ( !SlamError.str().empty() )
+		std::Debug << "Update slam failed: " << SlamError.str() << std::endl;
+
 }
 
+bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error)
+{
+	if ( !Soy::Assert(Pixels.IsValid(),"Expected valid pixels") )
+	{
+		Error << "Invalid pixels";
+		return false;
+	}
+	
+	//	iphone 4/5 camera
+	double f = 4.1;
+	double resX = Pixels.GetWidth();
+	double resY = Pixels.GetHeight();
+	double sensorSizeX = 4.89;
+	double sensorSizeY = 3.67;
+	double fx = f * resX / sensorSizeX;
+	double fy = f * resY / sensorSizeY;
+	double cx = resX/2.;
+	double cy = resY/2.;
+	
+	Eigen::Matrix3f CameraMatrix;
+	CameraMatrix << fx, 0.0, cx, 0.0, fy, cy, 0.0, 0.0, 1.0;
+
+	
+	bool EnableSlam = true;
+	
+	if ( !mSlam )
+	{
+		mSlam.reset( new lsd_slam::SlamSystem( Pixels.GetWidth(), Pixels.GetHeight(), CameraMatrix, EnableSlam ) );
+		mSlam->setVisualization( &mSlamOutput );
+	}
+
+	SoyPixels GreyPixels;
+	GreyPixels.Copy( Pixels );
+	if ( !GreyPixels.SetFormat( SoyPixelsFormat::Greyscale ) )
+	{
+		Error << "Failed to convert image to greyscale";
+		return false;
+	}
+	
+	uchar* PixelsArray = reinterpret_cast<uchar*>( GreyPixels.GetPixelsArray().GetArray() );
+	
+	std::lock_guard<std::mutex> Lock(mSlamLock);
+	
+	//	first run
+	bool Block = true;
+	if ( mSlamFrameCounter == 0 )
+	{
+		mSlam->randomInit( PixelsArray, mSlamTimestamp, mSlamFrameCounter );
+	}
+	else
+	{
+		mSlam->trackFrame( PixelsArray, mSlamFrameCounter, Block, mSlamTimestamp );
+	}
+	mSlamTimestamp += 0.03f;
+	mSlamFrameCounter++;
+	
+	return true;
+}
 
 
 class TChannelLiteral : public TChannel
@@ -207,7 +270,7 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	CommandLineChannel->mOnJobSent.AddListener( RelayFunc );
 	
 	//	connect to another app, and subscribe to frames
-	bool CreateCaptureChannel = false;
+	bool CreateCaptureChannel = true;
 	if ( CreateCaptureChannel )
 	{
 		auto CaptureChannel = CreateChannelFromInputString("cli://localhost:7070", SoyRef("capture") );
@@ -229,33 +292,14 @@ TPopAppError::Type PopMain(TJobParams& Params)
 		{
 			TJob GetFrameJob;
 			GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
-			//GetFrameJob.mParams.mCommand = "subscribenewframe";
-			//GetFrameJob.mParams.AddParam("serial", "isight" );
-			GetFrameJob.mParams.mCommand = "getframe";
-			GetFrameJob.mParams.AddParam("serial", "isight" );
+			GetFrameJob.mParams.mCommand = "subscribenewframe";
+			GetFrameJob.mParams.AddParam("serial", "facetime" );
 			GetFrameJob.mParams.AddParam("memfile", "1" );
 			Channel.SendCommand( GetFrameJob );
 		};
 		
 		CaptureChannel->mOnConnected.AddListener( StartSubscription );
 	}
-	
-	
-	//	gr: bootup commands
-	auto Bootup = [](TChannel& Channel)
-	{
-		TJob GetFrameJob;
-		GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
-		GetFrameJob.mParams.mCommand = "getfeature";
-		GetFrameJob.mParams.AddParam("x", 10 );
-		GetFrameJob.mParams.AddParam("y", 10 );
-		GetFrameJob.mParams.AddParam("image", "/users/grahamr/Dropbox/electricusage.png", TJobFormat("text/file/png") );
-		Channel.OnJobRecieved( GetFrameJob );
-	};
-	if ( CommandLineChannel->IsConnected() )
-		Bootup( *CommandLineChannel );
-	else
-		CommandLineChannel->mOnConnected.AddListener( Bootup );
 	
 
 	
