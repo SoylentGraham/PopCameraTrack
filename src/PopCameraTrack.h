@@ -7,9 +7,35 @@
 #include "SlamSystem.h"
 #include "IOWrapper/Output3DWrapper.h"
 
+
+
+class TCameraPose
+{
+public:
+	vec3f	mPosition;
+	vec4f	mQuaternion;
+};
+
+
 class SlamOutput : public lsd_slam::Output3DWrapper
 {
 public:
+	virtual void	publishKeyframeGraph(lsd_slam::KeyFrameGraph* graph) override;
+	
+	// publishes a keyframe. if that frame already existis, it is overwritten, otherwise it is added.
+	virtual void	publishKeyframe(lsd_slam::Frame* kf)  override;
+	
+	// published a tracked frame that did not become a keyframe (yet; i.e. has no depth data)
+	virtual void	publishTrackedFrame(lsd_slam::Frame* kf) override;
+	
+	// publishes graph and all constraints, as well as updated KF poses.
+	virtual void	publishTrajectory(std::vector<Eigen::Matrix<float, 3, 1>> trajectory, std::string identifier) override;
+	virtual void	publishTrajectoryIncrement(Eigen::Matrix<float, 3, 1> pt, std::string identifier) override;
+	
+	virtual void	publishDebugInfo(Eigen::Matrix<float, 20, 1> data) override;
+
+public:
+	SoyEvent<TCameraPose>	mOnNewCameraPose;
 };
 
 

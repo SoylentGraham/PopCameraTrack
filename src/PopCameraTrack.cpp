@@ -9,6 +9,59 @@
 #include <SoyPixels.h>
 #include <SoyString.h>
 
+#include "DataStructures/Frame.h"
+
+void SlamOutput::publishKeyframeGraph(lsd_slam::KeyFrameGraph* graph)
+{
+	//std::Debug << __FUNCTION__ << std::endl;
+}
+
+void SlamOutput::publishKeyframe(lsd_slam::Frame* kf)
+{
+	std::Debug << __FUNCTION__ << std::endl;
+}
+
+void SlamOutput::publishTrajectory(std::vector<Eigen::Matrix<float, 3, 1>> trajectory, std::string identifier)
+{
+	std::Debug << __FUNCTION__ << std::endl;
+}
+
+void SlamOutput::publishTrajectoryIncrement(Eigen::Matrix<float, 3, 1> pt, std::string identifier)
+{
+	std::Debug << __FUNCTION__ << std::endl;
+}
+	
+void SlamOutput::publishDebugInfo(Eigen::Matrix<float, 20, 1> data)
+{
+	std::Debug << __FUNCTION__ << std::endl;
+}
+
+
+
+void SlamOutput::publishTrackedFrame(lsd_slam::Frame* kf)
+{
+	std::Debug << __FUNCTION__ << std::endl;
+	
+	
+	TCameraPose CameraPose;
+	
+	//	extract camera pose
+	SE3 camToWorld = lsd_slam::se3FromSim3(kf->getScaledCamToWorld());
+	CameraPose.mPosition.x = camToWorld.translation()[0];
+	CameraPose.mPosition.y = camToWorld.translation()[1];
+	CameraPose.mPosition.z = camToWorld.translation()[2];
+
+	CameraPose.mQuaternion.x = camToWorld.so3().unit_quaternion().x();
+	CameraPose.mQuaternion.y = camToWorld.so3().unit_quaternion().y();
+	CameraPose.mQuaternion.z = camToWorld.so3().unit_quaternion().z();
+	CameraPose.mQuaternion.w = camToWorld.so3().unit_quaternion().w();
+
+	if ( CameraPose.mQuaternion.w < 0)
+		CameraPose.mQuaternion *= -1.f;
+
+	std::Debug << "camera: " << CameraPose.mPosition.x << "," << CameraPose.mPosition.y << "," << CameraPose.mPosition.z << std::endl;
+	mOnNewCameraPose.OnTriggered( CameraPose );
+}
 
 
 TPopCameraTrack::TPopCameraTrack()
