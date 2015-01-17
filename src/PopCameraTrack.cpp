@@ -9,8 +9,12 @@
 #include <SoyPixels.h>
 #include <SoyString.h>
 
+#if defined(ENABLE_LSDSLAM)
 #include "DataStructures/Frame.h"
+#endif
 
+
+#if defined(ENABLE_LSDSLAM)
 void SlamOutput::publishKeyframeGraph(lsd_slam::KeyFrameGraph* graph)
 {
 	//std::Debug << __FUNCTION__ << std::endl;
@@ -62,6 +66,8 @@ void SlamOutput::publishTrackedFrame(lsd_slam::Frame* kf)
 	std::Debug << "camera: " << CameraPose.mPosition.x << "," << CameraPose.mPosition.y << "," << CameraPose.mPosition.z << std::endl;
 	mOnNewCameraPose.OnTriggered( CameraPose );
 }
+#endif
+
 
 
 TPopCameraTrack::TPopCameraTrack() :
@@ -71,13 +77,6 @@ TPopCameraTrack::TPopCameraTrack() :
 	
 	AddJobHandler("newframe", TParameterTraits(), *this, &TPopCameraTrack::OnNewFrame );
 	AddJobHandler("re:getframe", TParameterTraits(), *this, &TPopCameraTrack::OnNewFrame );
-	
-	TParameterTraits GetFeatureTraits;
-	GetFeatureTraits.mAssumedKeys.PushBack("x");
-	GetFeatureTraits.mAssumedKeys.PushBack("y");
-	GetFeatureTraits.mRequiredKeys.PushBack("image");
-	AddJobHandler("getfeature", GetFeatureTraits, *this, &TPopCameraTrack::OnGetFeature );
-
 
 	TParameterTraits SubscribeNewCameraPoseTraits;
 	SubscribeNewCameraPoseTraits.mDefaultParams.PushBack( std::make_tuple(std::string("command"),std::string("newcamerapose")) );
@@ -109,60 +108,12 @@ void TPopCameraTrack::OnExit(TJobAndChannel& JobAndChannel)
 
 void TPopCameraTrack::OnResetSlam(TJobAndChannel& JobAndChannel)
 {
+#if defined(ENABLE_LSDSLAM)
 	std::lock_guard<std::recursive_mutex> Lock( mSlamLock );
 	mSlam.reset();
+#endif
 }
 
-
-void TPopCameraTrack::OnGetFeature(TJobAndChannel& JobAndChannel)
-{
-	auto& Job = JobAndChannel.GetJob();
-	
-	//	pull image
-	auto ImageParam = Job.mParams.GetParam("image");
-
-	/*
-	//	assume format is now set right, decode the pixels out of it
-	SoyPixels Pixels;
-	if ( !ImageParam.Decode(Pixels) )
-	{
-		std::stringstream Error;
-		Error << "Failed to decode " << Job.mParams.GetParamAs<std::string>("image") << " to an image";
-		TJobReply Reply( JobAndChannel );
-		Reply.mParams.AddErrorParam( Error.str() );
-		
-		TChannel& Channel = JobAndChannel;
-		Channel.OnJobCompleted( Reply );
-		return;
-	}
-	*/
-	
-	auto Image = Job.mParams.GetParamAs<SoyPixels>("image");
-	auto PixelxParam = Job.mParams.GetParam("x");
-	auto PixelyParam = Job.mParams.GetParam("y");
-	int x = PixelxParam.Decode<int>();
-	int y = PixelyParam.Decode<int>();
-	
-	if ( !Image.IsValid() )
-	{
-		std::stringstream Error;
-		Error << "Failed to decode image param";
-		TJobReply Reply( JobAndChannel );
-		Reply.mParams.AddErrorParam( Error.str() );
-		
-		TChannel& Channel = JobAndChannel;
-		Channel.OnJobCompleted( Reply );
-		return;
-	}
-
-	TJobReply Reply( JobAndChannel );
-	
-	Reply.mParams.AddParam( PixelxParam );
-	Reply.mParams.AddParam( PixelyParam );
-	
-	TChannel& Channel = JobAndChannel;
-	Channel.OnJobCompleted( Reply );
-}
 
 
 void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
@@ -194,10 +145,12 @@ void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 	TJobReply Reply( JobAndChannel );
 	
 	std::stringstream Error;
-		
-	//	create new subscription for it
+	
 	//	gr: determine if this already exists!
 	auto EventName = Job.mParams.GetParamAs<std::string>("command");
+	
+#if defined(ENABLE_LSDSLAM)
+	//	create new subscription for it
 	auto Event = mSubcriberManager.AddEvent( mSlamOutput.mOnNewCameraPose, EventName, Error );
 	if ( !Event )
 	{
@@ -224,6 +177,12 @@ void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 	std::stringstream ReplyString;
 	ReplyString << "OK subscribed to " << EventName;
 	Reply.mParams.AddDefaultParam( ReplyString.str() );
+#else
+	
+	Error << "Slam not enabled";
+
+#endif
+	
 	if ( !Error.str().empty() )
 		Reply.mParams.AddErrorParam( Error.str() );
 	Reply.mParams.AddParam("eventcommand", EventName);
@@ -240,7 +199,8 @@ bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& CameraPixels,std::stringstream& 
 		Error << "Invalid pixels";
 		return false;
 	}
-	
+
+#if defined(ENABLE_LSDSLAM)
 	//	if slam already processing, drop this camera frame
 	if ( !mSlamLock.try_lock() )
 	{
@@ -308,6 +268,10 @@ bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& CameraPixels,std::stringstream& 
 	mSlamFrameCounter++;
 	
 	return true;
+#else
+	Error << "Slam not enabled";
+	return false;
+#endif
 }
 
 

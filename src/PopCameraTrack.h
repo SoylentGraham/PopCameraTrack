@@ -6,12 +6,15 @@
 
 #include "TJobEventSubscriber.h"
 #include "TCameraPose.h"
+#include <TFeatureBinRing.h>
 
+#if defined(ENABLE_LSDSLAM)
 #include "SlamSystem.h"
 #include "IOWrapper/Output3DWrapper.h"
+#endif
 
 
-
+#if defined(ENABLE_LSDSLAM)
 class SlamOutput : public lsd_slam::Output3DWrapper
 {
 public:
@@ -32,6 +35,22 @@ public:
 public:
 	SoyEvent<TCameraPose>	mOnNewCameraPose;
 };
+#endif
+
+
+//	persistent feature tracker
+class TFeatureTracker
+{
+public:
+	void						UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp);
+
+public:
+	std::string					mSerial;	//	serial of the camera we're tracking
+	Array<TFeatureMatch>		mFeatures;	//	base/original features we're matching
+	SoyTime						mFeaturesTimestamp;	//	timestamp for mFeatures
+};
+
+
 
 
 class TPopCameraTrack : public TJobHandler, public TChannelManager
@@ -53,12 +72,16 @@ public:
 	Soy::Platform::TConsoleApp	mConsoleApp;
 	TSubscriberManager	mSubcriberManager;
 
+#if defined(ENABLE_LSDSLAM)
 	std::shared_ptr<lsd_slam::SlamSystem>	mSlam;
 	SlamOutput					mSlamOutput;
 	
 	std::recursive_mutex	mSlamLock;
 	unsigned int	mSlamFrameCounter;
 	float			mSlamTimestamp;
+#endif
+	
+	std::map<std::string,TFeatureTracker>	mFeatureTrackers;	//	feature tracker for each camera serial
 };
 
 

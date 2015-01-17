@@ -7,6 +7,253 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB50C0551A6AC55A0011A9D9 /* TFeatureBinRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */; };
+		FB50C1551A6AC6060011A9D9 /* TestRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CD1A2E6B520099596C /* TestRunner.cpp */; };
+		FB50C1561A6AC6060011A9D9 /* sparse_optimizer_terminate_action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DB31A5C529700874332 /* sparse_optimizer_terminate_action.cpp */; };
+		FB50C1571A6AC6060011A9D9 /* SophusUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D4C1A5C3DAD00874332 /* SophusUtil.cpp */; };
+		FB50C1581A6AC6060011A9D9 /* edge_line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F291A5C573C00874332 /* edge_line3d.cpp */; };
+		FB50C1591A6AC6060011A9D9 /* edge_se3_lotsofxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F041A5C573C00874332 /* edge_se3_lotsofxyz.cpp */; };
+		FB50C15A1A6AC6060011A9D9 /* vertex_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F231A5C573C00874332 /* vertex_pointxyz.cpp */; };
+		FB50C15B1A6AC6060011A9D9 /* cs_usolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2D1A5C569400874332 /* cs_usolve.c */; };
+		FB50C15C1A6AC6060011A9D9 /* hyper_dijkstra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D821A5C529700874332 /* hyper_dijkstra.cpp */; };
+		FB50C15D1A6AC6060011A9D9 /* edge_se3_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F311A5C573C00874332 /* edge_se3_line.cpp */; };
+		FB50C15E1A6AC6060011A9D9 /* edge_se3_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8C1A5C573C00874332 /* edge_se3_pointxyz.cpp */; };
+		FB50C15F1A6AC6060011A9D9 /* edge_se2_twopointsxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED61A5C573C00874332 /* edge_se2_twopointsxy.cpp */; };
+		FB50C1601A6AC6060011A9D9 /* optimization_algorithm_gauss_newton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D991A5C529700874332 /* optimization_algorithm_gauss_newton.cpp */; };
+		FB50C1611A6AC6060011A9D9 /* cs_add.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFC1A5C569400874332 /* cs_add.c */; };
+		FB50C1621A6AC6060011A9D9 /* FabMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1D1A5C3DAD00874332 /* FabMap.cpp */; };
+		FB50C1631A6AC6060011A9D9 /* types_slam3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9D1A5C573C00874332 /* types_slam3d.cpp */; };
+		FB50C1641A6AC6060011A9D9 /* vertex_tag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E841A5C573C00874332 /* vertex_tag.cpp */; };
+		FB50C1651A6AC6060011A9D9 /* edge_se3_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F081A5C573C00874332 /* edge_se3_pointxyz.cpp */; };
+		FB50C1661A6AC6060011A9D9 /* Relocalizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D3D1A5C3DAD00874332 /* Relocalizer.cpp */; };
+		FB50C1671A6AC6060011A9D9 /* jacobian_workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D881A5C529700874332 /* jacobian_workspace.cpp */; };
+		FB50C1681A6AC6060011A9D9 /* edge_se2_sensor_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB41A5C573C00874332 /* edge_se2_sensor_calib.cpp */; };
+		FB50C1691A6AC6060011A9D9 /* edge_se2_segment2d_pointLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF01A5C573C00874332 /* edge_se2_segment2d_pointLine.cpp */; };
+		FB50C16A1A6AC6060011A9D9 /* cs_lusol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E161A5C569400874332 /* cs_lusol.c */; };
+		FB50C16B1A6AC6060011A9D9 /* SoyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064B1A2E5A7C0099596C /* SoyTest.cpp */; };
+		FB50C16C1A6AC6060011A9D9 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C01A2E6B520099596C /* Test.cpp */; };
+		FB50C16D1A6AC6060011A9D9 /* edge_se2_pointxy_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED01A5C573C00874332 /* edge_se2_pointxy_calib.cpp */; };
+		FB50C16E1A6AC6060011A9D9 /* TestReporterStdout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C91A2E6B520099596C /* TestReporterStdout.cpp */; };
+		FB50C16F1A6AC6060011A9D9 /* vertex_plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3E1A5C573C00874332 /* vertex_plane.cpp */; };
+		FB50C1701A6AC6060011A9D9 /* robot_laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7E1A5C573C00874332 /* robot_laser.cpp */; };
+		FB50C1711A6AC6060011A9D9 /* SoyFilesytem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A062C1A2E5A7C0099596C /* SoyFilesytem.cpp */; };
+		FB50C1721A6AC6060011A9D9 /* SoyTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06501A2E5A7C0099596C /* SoyTypes.cpp */; };
+		FB50C1731A6AC6060011A9D9 /* cs_dmperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E051A5C569400874332 /* cs_dmperm.c */; };
+		FB50C1741A6AC6060011A9D9 /* PopCameraTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07181A2E6C3E0099596C /* PopCameraTrack.cpp */; };
+		FB50C1751A6AC6060011A9D9 /* TestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C71A2E6B520099596C /* TestReporter.cpp */; };
+		FB50C1761A6AC6060011A9D9 /* csparse_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E681A5C56F000874332 /* csparse_helper.cpp */; };
+		FB50C1771A6AC6060011A9D9 /* cs_tdfs.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2A1A5C569400874332 /* cs_tdfs.c */; };
+		FB50C1781A6AC6060011A9D9 /* DeferredTestResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B41A2E6B520099596C /* DeferredTestResult.cpp */; };
+		FB50C1791A6AC6060011A9D9 /* g2oTypeSim3Sophus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1F1A5C3DAD00874332 /* g2oTypeSim3Sophus.cpp */; };
+		FB50C17A1A6AC6060011A9D9 /* cs_fkeep.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0C1A5C569400874332 /* cs_fkeep.c */; };
+		FB50C17B1A6AC6060011A9D9 /* TrackableKeyFrameSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D231A5C3DAD00874332 /* TrackableKeyFrameSearch.cpp */; };
+		FB50C17C1A6AC6060011A9D9 /* filesys_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DD41A5C535600874332 /* filesys_tools.cpp */; };
+		FB50C17D1A6AC6060011A9D9 /* TrackingReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D431A5C3DAD00874332 /* TrackingReference.cpp */; };
+		FB50C17E1A6AC6060011A9D9 /* cs_permute.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1B1A5C569400874332 /* cs_permute.c */; };
+		FB50C17F1A6AC6060011A9D9 /* edge_se3_pointxyz_disparity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0C1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp */; };
+		FB50C1801A6AC6060011A9D9 /* TParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07111A2E6B880099596C /* TParameters.cpp */; };
+		FB50C1811A6AC6060011A9D9 /* PopMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A067C1A2E69340099596C /* PopMain.cpp */; };
+		FB50C1821A6AC6060011A9D9 /* cs_post.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1D1A5C569400874332 /* cs_post.c */; };
+		FB50C1831A6AC6060011A9D9 /* SoyScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC3A0DF1A308648009DA49E /* SoyScope.cpp */; };
+		FB50C1841A6AC6060011A9D9 /* vertex_se2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE21A5C573C00874332 /* vertex_se2.cpp */; };
+		FB50C1851A6AC6060011A9D9 /* cs_etree.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0B1A5C569400874332 /* cs_etree.c */; };
+		FB50C1861A6AC6060011A9D9 /* edge_se3_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0E1A5C573C00874332 /* edge_se3_prior.cpp */; };
+		FB50C1871A6AC6060011A9D9 /* edge_se2_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECA1A5C573C00874332 /* edge_se2_offset.cpp */; };
+		FB50C1881A6AC6060011A9D9 /* string_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE51A5C535600874332 /* string_tools.cpp */; };
+		FB50C1891A6AC6060011A9D9 /* TCameraPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F9B1A5D741000874332 /* TCameraPose.cpp */; };
+		FB50C18A1A6AC6060011A9D9 /* edge_se2_pointxy_bearing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECE1A5C573C00874332 /* edge_se2_pointxy_bearing.cpp */; };
+		FB50C18B1A6AC6060011A9D9 /* SoyTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064E1A2E5A7C0099596C /* SoyTime.cpp */; };
+		FB50C18C1A6AC6060011A9D9 /* types_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E801A5C573C00874332 /* types_data.cpp */; };
+		FB50C18D1A6AC6060011A9D9 /* AssertException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06AA1A2E6B520099596C /* AssertException.cpp */; };
+		FB50C18E1A6AC6060011A9D9 /* SoyThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A064C1A2E5A7C0099596C /* SoyThread.cpp */; };
+		FB50C18F1A6AC6060011A9D9 /* vertex_point_xy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE01A5C573C00874332 /* vertex_point_xy.cpp */; };
+		FB50C1901A6AC6060011A9D9 /* robust_kernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA41A5C529700874332 /* robust_kernel.cpp */; };
+		FB50C1911A6AC6060011A9D9 /* isometry3d_mappings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F131A5C573C00874332 /* isometry3d_mappings.cpp */; };
+		FB50C1921A6AC6060011A9D9 /* TProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06881A2E6AB50099596C /* TProtocol.cpp */; };
+		FB50C1931A6AC6060011A9D9 /* cs_spsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E271A5C569400874332 /* cs_spsolve.c */; };
+		FB50C1941A6AC6060011A9D9 /* SoyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06491A2E5A7C0099596C /* SoyString.cpp */; };
+		FB50C1951A6AC6060011A9D9 /* TProtocolWebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06901A2E6AB50099596C /* TProtocolWebSocket.cpp */; };
+		FB50C1961A6AC6060011A9D9 /* cs_happly.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0E1A5C569400874332 /* cs_happly.c */; };
+		FB50C1971A6AC6060011A9D9 /* vertex_se3_quat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EA11A5C573C00874332 /* vertex_se3_quat.cpp */; };
+		FB50C1981A6AC6060011A9D9 /* sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE01A5C535600874332 /* sampler.cpp */; };
+		FB50C1991A6AC6060011A9D9 /* cs_chol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFF1A5C569400874332 /* cs_chol.c */; };
+		FB50C19A1A6AC6060011A9D9 /* TestDetails.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C21A2E6B520099596C /* TestDetails.cpp */; };
+		FB50C19B1A6AC6060011A9D9 /* cs_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E091A5C569400874332 /* cs_entry.c */; };
+		FB50C19C1A6AC6060011A9D9 /* cs_dupl.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E081A5C569400874332 /* cs_dupl.c */; };
+		FB50C19D1A6AC6060011A9D9 /* TProtocolHttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068C1A2E6AB50099596C /* TProtocolHttp.cpp */; };
+		FB50C19E1A6AC6060011A9D9 /* DepthMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D181A5C3DAD00874332 /* DepthMap.cpp */; };
+		FB50C19F1A6AC6060011A9D9 /* cs_cholsol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E001A5C569400874332 /* cs_cholsol.c */; };
+		FB50C1A01A6AC6060011A9D9 /* edge_se2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC61A5C573C00874332 /* edge_se2.cpp */; };
+		FB50C1A11A6AC6060011A9D9 /* edge_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F001A5C573C00874332 /* edge_pointxyz.cpp */; };
+		FB50C1A21A6AC6060011A9D9 /* cs_qr.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E201A5C569400874332 /* cs_qr.c */; };
+		FB50C1A31A6AC6060011A9D9 /* TChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A069D1A2E6AF80099596C /* TChannel.cpp */; };
+		FB50C1A41A6AC6060011A9D9 /* robust_kernel_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA81A5C529700874332 /* robust_kernel_impl.cpp */; };
+		FB50C1A51A6AC6060011A9D9 /* cs_ltsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E141A5C569400874332 /* cs_ltsolve.c */; };
+		FB50C1A61A6AC6060011A9D9 /* TimeConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06E41A2E6B520099596C /* TimeConstraint.cpp */; };
+		FB50C1A71A6AC6060011A9D9 /* cs_dropzeros.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E071A5C569400874332 /* cs_dropzeros.c */; };
+		FB50C1A81A6AC6060011A9D9 /* parameter_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F151A5C573C00874332 /* parameter_camera.cpp */; };
+		FB50C1A91A6AC6060011A9D9 /* vertex_segment2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF81A5C573C00874332 /* vertex_segment2d.cpp */; };
+		FB50C1AA1A6AC6060011A9D9 /* parameter_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E971A5C573C00874332 /* parameter_camera.cpp */; };
+		FB50C1AB1A6AC6060011A9D9 /* cs_lsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E131A5C569400874332 /* cs_lsolve.c */; };
+		FB50C1AC1A6AC6060011A9D9 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D4A1A5C3DAD00874332 /* settings.cpp */; };
+		FB50C1AD1A6AC6060011A9D9 /* TChannelSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06A31A2E6AF80099596C /* TChannelSocket.cpp */; };
+		FB50C1AE1A6AC6060011A9D9 /* optimizable_graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D911A5C529700874332 /* optimizable_graph.cpp */; };
+		FB50C1AF1A6AC6060011A9D9 /* SoyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A062A1A2E5A7C0099596C /* SoyEvent.cpp */; };
+		FB50C1B01A6AC6060011A9D9 /* types_slam2d_addons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF41A5C573C00874332 /* types_slam2d_addons.cpp */; };
+		FB50C1B11A6AC6060011A9D9 /* globalFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D471A5C3DAD00874332 /* globalFuncs.cpp */; };
+		FB50C1B21A6AC6060011A9D9 /* cs_util.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2E1A5C569400874332 /* cs_util.c */; };
+		FB50C1B31A6AC6060011A9D9 /* TProtocolCli.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068A1A2E6AB50099596C /* TProtocolCli.cpp */; };
+		FB50C1B41A6AC6060011A9D9 /* cs_reach.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E231A5C569400874332 /* cs_reach.c */; };
+		FB50C1B51A6AC6060011A9D9 /* XmlTestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06EB1A2E6B520099596C /* XmlTestReporter.cpp */; };
+		FB50C1B61A6AC6060011A9D9 /* cs_pvec.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1F1A5C569400874332 /* cs_pvec.c */; };
+		FB50C1B71A6AC6060011A9D9 /* vertex_line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3C1A5C573C00874332 /* vertex_line3d.cpp */; };
+		FB50C1B81A6AC6060011A9D9 /* edge_se2_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED41A5C573C00874332 /* edge_se2_prior.cpp */; };
+		FB50C1B91A6AC6060011A9D9 /* edge_se3_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2D1A5C573C00874332 /* edge_se3_calib.cpp */; };
+		FB50C1BA1A6AC6060011A9D9 /* se3quat_gradients.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9B1A5C573C00874332 /* se3quat_gradients.cpp */; };
+		FB50C1BB1A6AC6060011A9D9 /* optimization_algorithm_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D971A5C529700874332 /* optimization_algorithm_factory.cpp */; };
+		FB50C1BC1A6AC6060011A9D9 /* cs_leaf.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E111A5C569400874332 /* cs_leaf.c */; };
+		FB50C1BD1A6AC6060011A9D9 /* SoyPng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A063B1A2E5A7C0099596C /* SoyPng.cpp */; };
+		FB50C1BE1A6AC6060011A9D9 /* line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F361A5C573C00874332 /* line3d.cpp */; };
+		FB50C1BF1A6AC6060011A9D9 /* edge_se2_segment2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEC1A5C573C00874332 /* edge_se2_segment2d.cpp */; };
+		FB50C1C01A6AC6060011A9D9 /* FramePoseStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D151A5C3DAD00874332 /* FramePoseStruct.cpp */; };
+		FB50C1C11A6AC6060011A9D9 /* cs_scatter.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E241A5C569400874332 /* cs_scatter.c */; };
+		FB50C1C21A6AC6060011A9D9 /* DepthMapPixelHypothesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1A1A5C3DAD00874332 /* DepthMapPixelHypothesis.cpp */; };
+		FB50C1C31A6AC6060011A9D9 /* FrameMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D131A5C3DAD00874332 /* FrameMemory.cpp */; };
+		FB50C1C41A6AC6060011A9D9 /* LiveSLAMWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D351A5C3DAD00874332 /* LiveSLAMWrapper.cpp */; };
+		FB50C1C51A6AC6060011A9D9 /* cs_cumsum.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E031A5C569400874332 /* cs_cumsum.c */; };
+		FB50C1C61A6AC6060011A9D9 /* SoyDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */; };
+		FB50C1C71A6AC6060011A9D9 /* parameter_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E991A5C573C00874332 /* parameter_se3_offset.cpp */; };
+		FB50C1C81A6AC6060011A9D9 /* edge_se3_pointxyz_disparity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E901A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp */; };
+		FB50C1C91A6AC6060011A9D9 /* cs_amd.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFD1A5C569400874332 /* cs_amd.c */; };
+		FB50C1CA1A6AC6060011A9D9 /* cs_multiply.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E191A5C569400874332 /* cs_multiply.c */; };
+		FB50C1CB1A6AC6060011A9D9 /* SoyDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06271A2E5A7C0099596C /* SoyDebug.cpp */; };
+		FB50C1CC1A6AC6060011A9D9 /* Timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D321A5C3DAD00874332 /* Timestamp.cpp */; };
+		FB50C1CD1A6AC6060011A9D9 /* cs_counts.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E021A5C569400874332 /* cs_counts.c */; };
+		FB50C1CE1A6AC6060011A9D9 /* cs_scc.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E251A5C569400874332 /* cs_scc.c */; };
+		FB50C1CF1A6AC6060011A9D9 /* vertex_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9F1A5C573C00874332 /* vertex_pointxyz.cpp */; };
+		FB50C1D01A6AC6060011A9D9 /* sha1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A07151A2E6BBF0099596C /* sha1.cpp */; };
+		FB50C1D11A6AC6060011A9D9 /* cs_maxtrans.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E181A5C569400874332 /* cs_maxtrans.c */; };
+		FB50C1D21A6AC6060011A9D9 /* cs_norm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1A1A5C569400874332 /* cs_norm.c */; };
+		FB50C1D31A6AC6060011A9D9 /* TSerialisation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06921A2E6AB50099596C /* TSerialisation.cpp */; };
+		FB50C1D41A6AC6060011A9D9 /* timeutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE91A5C535600874332 /* timeutil.cpp */; };
+		FB50C1D51A6AC6060011A9D9 /* cs_transpose.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2B1A5C569400874332 /* cs_transpose.c */; };
+		FB50C1D61A6AC6060011A9D9 /* solver_csparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E6D1A5C56F000874332 /* solver_csparse.cpp */; };
+		FB50C1D71A6AC6060011A9D9 /* sparse_optimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DB11A5C529700874332 /* sparse_optimizer.cpp */; };
+		FB50C1D81A6AC6060011A9D9 /* optimization_algorithm_with_hessian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D9E1A5C529700874332 /* optimization_algorithm_with_hessian.cpp */; };
+		FB50C1D91A6AC6060011A9D9 /* cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D781A5C529700874332 /* cache.cpp */; };
+		FB50C1DA1A6AC6060011A9D9 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D7F1A5C529700874332 /* factory.cpp */; };
+		FB50C1DB1A6AC6060011A9D9 /* parameter_container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA21A5C529700874332 /* parameter_container.cpp */; };
+		FB50C1DC1A6AC6060011A9D9 /* TProtocolJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A068E1A2E6AB50099596C /* TProtocolJson.cpp */; };
+		FB50C1DD1A6AC6060011A9D9 /* edge_se2_pointxy_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED21A5C573C00874332 /* edge_se2_pointxy_offset.cpp */; };
+		FB50C1DE1A6AC6060011A9D9 /* SoyMemFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06301A2E5A7C0099596C /* SoyMemFile.cpp */; };
+		FB50C1DF1A6AC6060011A9D9 /* types_icp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EA61A5C573C00874332 /* types_icp.cpp */; };
+		FB50C1E01A6AC6060011A9D9 /* cs_ereach.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0A1A5C569400874332 /* cs_ereach.c */; };
+		FB50C1E11A6AC6060011A9D9 /* cs_randperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E221A5C569400874332 /* cs_randperm.c */; };
+		FB50C1E21A6AC6060011A9D9 /* TJob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06821A2E6AB50099596C /* TJob.cpp */; };
+		FB50C1E31A6AC6060011A9D9 /* vertex_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF61A5C573C00874332 /* vertex_line2d.cpp */; };
+		FB50C1E41A6AC6060011A9D9 /* batch_stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D741A5C529700874332 /* batch_stats.cpp */; };
+		FB50C1E51A6AC6060011A9D9 /* data_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E751A5C573C00874332 /* data_queue.cpp */; };
+		FB50C1E61A6AC6060011A9D9 /* edge_se3_pointxyz_depth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0A1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp */; };
+		FB50C1E71A6AC6060011A9D9 /* edge_plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2B1A5C573C00874332 /* edge_plane.cpp */; };
+		FB50C1E81A6AC6060011A9D9 /* vertex_se3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F251A5C573C00874332 /* vertex_se3.cpp */; };
+		FB50C1E91A6AC6060011A9D9 /* cs_lu.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E151A5C569400874332 /* cs_lu.c */; };
+		FB50C1EA1A6AC6060011A9D9 /* hyper_graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D841A5C529700874332 /* hyper_graph.cpp */; };
+		FB50C1EB1A6AC6060011A9D9 /* matrix_structure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D8E1A5C529700874332 /* matrix_structure.cpp */; };
+		FB50C1EC1A6AC6060011A9D9 /* laser_parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E781A5C573C00874332 /* laser_parameters.cpp */; };
+		FB50C1ED1A6AC6060011A9D9 /* isometry3d_gradients.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F111A5C573C00874332 /* isometry3d_gradients.cpp */; };
+		FB50C1EE1A6AC6060011A9D9 /* DeferredTestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B21A2E6B520099596C /* DeferredTestReporter.cpp */; };
+		FB50C1EF1A6AC6060011A9D9 /* parameter_stereo_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F191A5C573C00874332 /* parameter_stereo_camera.cpp */; };
+		FB50C1F01A6AC6060011A9D9 /* os_specific.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DDC1A5C535600874332 /* os_specific.c */; };
+		FB50C1F11A6AC6060011A9D9 /* edge_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2F1A5C573C00874332 /* edge_se3_euler.cpp */; };
+		FB50C1F21A6AC6060011A9D9 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */; };
+		FB50C1F31A6AC6060011A9D9 /* types_sba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EAC1A5C573C00874332 /* types_sba.cpp */; };
+		FB50C1F41A6AC6060011A9D9 /* SignalTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BA1A2E6B520099596C /* SignalTranslator.cpp */; };
+		FB50C1F51A6AC6060011A9D9 /* vertex_odom_differential_params.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EBB1A5C573C00874332 /* vertex_odom_differential_params.cpp */; };
+		FB50C1F61A6AC6060011A9D9 /* cs_gaxpy.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0D1A5C569400874332 /* cs_gaxpy.c */; };
+		FB50C1F71A6AC6060011A9D9 /* edge_se3_quat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E941A5C573C00874332 /* edge_se3_quat.cpp */; };
+		FB50C1F81A6AC6060011A9D9 /* edge_se2_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECC1A5C573C00874332 /* edge_se2_pointxy.cpp */; };
+		FB50C1F91A6AC6060011A9D9 /* parameter_se2_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EDB1A5C573C00874332 /* parameter_se2_offset.cpp */; };
+		FB50C1FA1A6AC6060011A9D9 /* edge_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC41A5C573C00874332 /* edge_pointxy.cpp */; };
+		FB50C1FB1A6AC6060011A9D9 /* SoyData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A067E1A2E69340099596C /* SoyData.cpp */; };
+		FB50C1FC1A6AC6060011A9D9 /* SoyRef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A063D1A2E5A7C0099596C /* SoyRef.cpp */; };
+		FB50C1FD1A6AC6060011A9D9 /* property.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DDE1A5C535600874332 /* property.cpp */; };
+		FB50C1FE1A6AC6060011A9D9 /* optimization_algorithm_dogleg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D951A5C529700874332 /* optimization_algorithm_dogleg.cpp */; };
+		FB50C1FF1A6AC6060011A9D9 /* vertex_ellipse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E821A5C573C00874332 /* vertex_ellipse.cpp */; };
+		FB50C2001A6AC6060011A9D9 /* cs_house.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0F1A5C569400874332 /* cs_house.c */; };
+		FB50C2011A6AC6060011A9D9 /* SoyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06241A2E5A7C0099596C /* SoyApp.cpp */; };
+		FB50C2021A6AC6060011A9D9 /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D111A5C3DAD00874332 /* Frame.cpp */; };
+		FB50C2031A6AC6060011A9D9 /* TestList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C41A2E6B520099596C /* TestList.cpp */; };
+		FB50C2041A6AC6060011A9D9 /* edge_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE61A5C573C00874332 /* edge_line2d.cpp */; };
+		FB50C2051A6AC6060011A9D9 /* Checks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06AD1A2E6B520099596C /* Checks.cpp */; };
+		FB50C2061A6AC6060011A9D9 /* edge_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8A1A5C573C00874332 /* edge_se3_offset.cpp */; };
+		FB50C2071A6AC6060011A9D9 /* edge_se2_xyprior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED81A5C573C00874332 /* edge_se2_xyprior.cpp */; };
+		FB50C2081A6AC6060011A9D9 /* cs_symperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E291A5C569400874332 /* cs_symperm.c */; };
+		FB50C2091A6AC6060011A9D9 /* marginal_covariance_cholesky.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D8B1A5C529700874332 /* marginal_covariance_cholesky.cpp */; };
+		FB50C20A1A6AC6060011A9D9 /* MemoryOutStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B71A2E6B520099596C /* MemoryOutStream.cpp */; };
+		FB50C20B1A6AC6060011A9D9 /* CurrentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06B01A2E6B520099596C /* CurrentTest.cpp */; };
+		FB50C20C1A6AC6060011A9D9 /* cs_sqr.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E281A5C569400874332 /* cs_sqr.c */; };
+		FB50C20D1A6AC6060011A9D9 /* types_slam2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EDE1A5C573C00874332 /* types_slam2d.cpp */; };
+		FB50C20E1A6AC6060011A9D9 /* tictoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE71A5C535600874332 /* tictoc.cpp */; };
+		FB50C20F1A6AC6060011A9D9 /* TChannelPipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06A11A2E6AF80099596C /* TChannelPipe.cpp */; };
+		FB50C2101A6AC6060011A9D9 /* TFeatureBinRing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */; };
+		FB50C2111A6AC6060011A9D9 /* edge_se2_lotsofxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC81A5C573C00874332 /* edge_se2_lotsofxy.cpp */; };
+		FB50C2121A6AC6060011A9D9 /* dquat2mat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EFC1A5C573C00874332 /* dquat2mat.cpp */; };
+		FB50C2131A6AC6060011A9D9 /* cs_dfs.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E041A5C569400874332 /* cs_dfs.c */; };
+		FB50C2141A6AC6060011A9D9 /* ReportAssert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BE1A2E6B520099596C /* ReportAssert.cpp */; };
+		FB50C2151A6AC6060011A9D9 /* cs_pinv.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1C1A5C569400874332 /* cs_pinv.c */; };
+		FB50C2161A6AC6060011A9D9 /* types_sclam2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB91A5C573C00874332 /* types_sclam2d.cpp */; };
+		FB50C2171A6AC6060011A9D9 /* types_six_dof_expmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EAE1A5C573C00874332 /* types_six_dof_expmap.cpp */; };
+		FB50C2181A6AC6060011A9D9 /* cs_ipvec.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E101A5C569400874332 /* cs_ipvec.c */; };
+		FB50C2191A6AC6060011A9D9 /* optimization_algorithm_levenberg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D9B1A5C529700874332 /* optimization_algorithm_levenberg.cpp */; };
+		FB50C21A1A6AC6060011A9D9 /* edge_se3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F021A5C573C00874332 /* edge_se3.cpp */; };
+		FB50C21B1A6AC6060011A9D9 /* robust_kernel_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA61A5C529700874332 /* robust_kernel_factory.cpp */; };
+		FB50C21C1A6AC6060011A9D9 /* optimization_algorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D931A5C529700874332 /* optimization_algorithm.cpp */; };
+		FB50C21D1A6AC6060011A9D9 /* TChannelFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */; };
+		FB50C21E1A6AC6060011A9D9 /* edge_se3_plane_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F331A5C573C00874332 /* edge_se3_plane_calib.cpp */; };
+		FB50C21F1A6AC6060011A9D9 /* edge_se2_segment2d_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEE1A5C573C00874332 /* edge_se2_segment2d_line.cpp */; };
+		FB50C2201A6AC6060011A9D9 /* edge_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F061A5C573C00874332 /* edge_se3_offset.cpp */; };
+		FB50C2211A6AC6060011A9D9 /* edge_se3_pointxyz_depth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8E1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp */; };
+		FB50C2221A6AC6060011A9D9 /* edge_se2_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEA1A5C573C00874332 /* edge_se2_line2d.cpp */; };
+		FB50C2231A6AC6060011A9D9 /* estimate_propagator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D7D1A5C529700874332 /* estimate_propagator.cpp */; };
+		FB50C2241A6AC6060011A9D9 /* raw_laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7A1A5C573C00874332 /* raw_laser.cpp */; };
+		FB50C2251A6AC6060011A9D9 /* solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DAA1A5C529700874332 /* solver.cpp */; };
+		FB50C2261A6AC6060011A9D9 /* TJobFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06841A2E6AB50099596C /* TJobFormat.cpp */; };
+		FB50C2271A6AC6060011A9D9 /* Sim3Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D411A5C3DAD00874332 /* Sim3Tracker.cpp */; };
+		FB50C2281A6AC6060011A9D9 /* parameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA01A5C529700874332 /* parameter.cpp */; };
+		FB50C2291A6AC6060011A9D9 /* KeyFrameGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D211A5C3DAD00874332 /* KeyFrameGraph.cpp */; };
+		FB50C22A1A6AC6060011A9D9 /* odometry_measurement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB71A5C573C00874332 /* odometry_measurement.cpp */; };
+		FB50C22B1A6AC6060011A9D9 /* TimeHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BC1A2E6B520099596C /* TimeHelpers.cpp */; };
+		FB50C22C1A6AC6060011A9D9 /* cs_updown.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2C1A5C569400874332 /* cs_updown.c */; };
+		FB50C22D1A6AC6060011A9D9 /* cs_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E171A5C569400874332 /* cs_malloc.c */; };
+		FB50C22E1A6AC6060011A9D9 /* TJobRelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06861A2E6AB50099596C /* TJobRelay.cpp */; };
+		FB50C22F1A6AC6060011A9D9 /* cs_schol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E261A5C569400874332 /* cs_schol.c */; };
+		FB50C2301A6AC6060011A9D9 /* vertex_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F401A5C573C00874332 /* vertex_se3_euler.cpp */; };
+		FB50C2311A6AC6060011A9D9 /* sparse_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE31A5C535600874332 /* sparse_helper.cpp */; };
+		FB50C2321A6AC6060011A9D9 /* edge_se2_odom_differential_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB21A5C573C00874332 /* edge_se2_odom_differential_calib.cpp */; };
+		FB50C2331A6AC6060011A9D9 /* parameter_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F171A5C573C00874332 /* parameter_se3_offset.cpp */; };
+		FB50C2341A6AC6060011A9D9 /* robot_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7C1A5C573C00874332 /* robot_data.cpp */; };
+		FB50C2351A6AC6060011A9D9 /* command_args.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DD21A5C535600874332 /* command_args.cpp */; };
+		FB50C2361A6AC6060011A9D9 /* SlamSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D391A5C3DAD00874332 /* SlamSystem.cpp */; };
+		FB50C2371A6AC6060011A9D9 /* TestResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CB1A2E6B520099596C /* TestResults.cpp */; };
+		FB50C2381A6AC6060011A9D9 /* edge_line2d_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE81A5C573C00874332 /* edge_line2d_pointxy.cpp */; };
+		FB50C2391A6AC6060011A9D9 /* SoyPixels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06391A2E5A7C0099596C /* SoyPixels.cpp */; };
+		FB50C23A1A6AC6060011A9D9 /* types_slam3d_addons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3A1A5C573C00874332 /* types_slam3d_addons.cpp */; };
+		FB50C23B1A6AC6060011A9D9 /* cs_droptol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E061A5C569400874332 /* cs_droptol.c */; };
+		FB50C23C1A6AC6060011A9D9 /* cs_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E011A5C569400874332 /* cs_compress.c */; };
+		FB50C23D1A6AC6060011A9D9 /* memheap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06201A2E5A200099596C /* memheap.cpp */; };
+		FB50C23E1A6AC6060011A9D9 /* SE3Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D3F1A5C3DAD00874332 /* SE3Tracker.cpp */; };
+		FB50C23F1A6AC6060011A9D9 /* cs_qrsol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E211A5C569400874332 /* cs_qrsol.c */; };
+		FB50C2401A6AC6060011A9D9 /* cs_load.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E121A5C569400874332 /* cs_load.c */; };
+		FB50C2411A6AC6060011A9D9 /* SoyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06261A2E5A7C0099596C /* SoyArray.cpp */; };
+		FB50C2421A6AC6060011A9D9 /* hyper_graph_action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D861A5C529700874332 /* hyper_graph_action.cpp */; };
+		FB50C2431A6AC6060011A9D9 /* edge_se3_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E921A5C573C00874332 /* edge_se3_prior.cpp */; };
+		FB50C2441A6AC6060011A9D9 /* cs_print.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1E1A5C569400874332 /* cs_print.c */; };
+		FB50C2451A6AC6060011A9D9 /* cs_utsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2F1A5C569400874332 /* cs_utsolve.c */; };
+		FB50C2471A6AC6060011A9D9 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */; };
+		FB50C2481A6AC6060011A9D9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328481A2E75D4003DE7AA /* CoreMedia.framework */; };
+		FB50C2491A6AC6060011A9D9 /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */; };
+		FB50C24A1A6AC6060011A9D9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328461A2E7591003DE7AA /* AVFoundation.framework */; };
+		FB50C2511A6ACACF0011A9D9 /* TestResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CB1A2E6B520099596C /* TestResults.cpp */; };
 		FB6650CD1A56FD8600DF0A12 /* SoyDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */; };
 		FB8A06211A2E5A200099596C /* memheap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06201A2E5A200099596C /* memheap.cpp */; };
 		FB8A06531A2E5A7C0099596C /* SoyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06241A2E5A7C0099596C /* SoyApp.cpp */; };
@@ -52,7 +299,6 @@
 		FB8A06F81A2E6B520099596C /* TestList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C41A2E6B520099596C /* TestList.cpp */; };
 		FB8A06F91A2E6B520099596C /* TestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C71A2E6B520099596C /* TestReporter.cpp */; };
 		FB8A06FA1A2E6B520099596C /* TestReporterStdout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06C91A2E6B520099596C /* TestReporterStdout.cpp */; };
-		FB8A06FB1A2E6B520099596C /* TestResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CB1A2E6B520099596C /* TestResults.cpp */; };
 		FB8A06FC1A2E6B520099596C /* TestRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CD1A2E6B520099596C /* TestRunner.cpp */; };
 		FB8A070E1A2E6B520099596C /* TimeConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06E41A2E6B520099596C /* TimeConstraint.cpp */; };
 		FB8A07101A2E6B520099596C /* XmlTestReporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06EB1A2E6B520099596C /* XmlTestReporter.cpp */; };
@@ -63,197 +309,21 @@
 		FBB3284A1A2E75D4003DE7AA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328481A2E75D4003DE7AA /* CoreMedia.framework */; };
 		FBB3284B1A2E75D4003DE7AA /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */; };
 		FBB3284D1A2E75EF003DE7AA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */; };
-		FBC16D501A5C3DAD00874332 /* Frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D111A5C3DAD00874332 /* Frame.cpp */; };
-		FBC16D511A5C3DAD00874332 /* FrameMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D131A5C3DAD00874332 /* FrameMemory.cpp */; };
-		FBC16D521A5C3DAD00874332 /* FramePoseStruct.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D151A5C3DAD00874332 /* FramePoseStruct.cpp */; };
-		FBC16D531A5C3DAD00874332 /* DepthMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D181A5C3DAD00874332 /* DepthMap.cpp */; };
-		FBC16D541A5C3DAD00874332 /* DepthMapPixelHypothesis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1A1A5C3DAD00874332 /* DepthMapPixelHypothesis.cpp */; };
-		FBC16D551A5C3DAD00874332 /* FabMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1D1A5C3DAD00874332 /* FabMap.cpp */; };
-		FBC16D561A5C3DAD00874332 /* g2oTypeSim3Sophus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D1F1A5C3DAD00874332 /* g2oTypeSim3Sophus.cpp */; };
-		FBC16D581A5C3DAD00874332 /* TrackableKeyFrameSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D231A5C3DAD00874332 /* TrackableKeyFrameSearch.cpp */; };
-		FBC16D5C1A5C3DAD00874332 /* Timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D321A5C3DAD00874332 /* Timestamp.cpp */; };
-		FBC16D5D1A5C3DAD00874332 /* LiveSLAMWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D351A5C3DAD00874332 /* LiveSLAMWrapper.cpp */; };
-		FBC16D601A5C3DAD00874332 /* SlamSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D391A5C3DAD00874332 /* SlamSystem.cpp */; };
-		FBC16D611A5C3DAD00874332 /* Relocalizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D3D1A5C3DAD00874332 /* Relocalizer.cpp */; };
-		FBC16D621A5C3DAD00874332 /* SE3Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D3F1A5C3DAD00874332 /* SE3Tracker.cpp */; };
-		FBC16D641A5C3DAD00874332 /* TrackingReference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D431A5C3DAD00874332 /* TrackingReference.cpp */; };
-		FBC16D651A5C3DAD00874332 /* globalFuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D471A5C3DAD00874332 /* globalFuncs.cpp */; };
-		FBC16D661A5C3DAD00874332 /* settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D4A1A5C3DAD00874332 /* settings.cpp */; };
-		FBC16D671A5C3DAD00874332 /* SophusUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D4C1A5C3DAD00874332 /* SophusUtil.cpp */; };
-		FBC16DB51A5C529700874332 /* batch_stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D741A5C529700874332 /* batch_stats.cpp */; };
-		FBC16DB61A5C529700874332 /* cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D781A5C529700874332 /* cache.cpp */; };
-		FBC16DB71A5C529700874332 /* estimate_propagator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D7D1A5C529700874332 /* estimate_propagator.cpp */; };
-		FBC16DB81A5C529700874332 /* factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D7F1A5C529700874332 /* factory.cpp */; };
-		FBC16DB91A5C529700874332 /* hyper_dijkstra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D821A5C529700874332 /* hyper_dijkstra.cpp */; };
-		FBC16DBA1A5C529700874332 /* hyper_graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D841A5C529700874332 /* hyper_graph.cpp */; };
-		FBC16DBB1A5C529700874332 /* hyper_graph_action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D861A5C529700874332 /* hyper_graph_action.cpp */; };
-		FBC16DBC1A5C529700874332 /* jacobian_workspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D881A5C529700874332 /* jacobian_workspace.cpp */; };
-		FBC16DBD1A5C529700874332 /* marginal_covariance_cholesky.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D8B1A5C529700874332 /* marginal_covariance_cholesky.cpp */; };
-		FBC16DBE1A5C529700874332 /* matrix_structure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D8E1A5C529700874332 /* matrix_structure.cpp */; };
-		FBC16DBF1A5C529700874332 /* optimizable_graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D911A5C529700874332 /* optimizable_graph.cpp */; };
-		FBC16DC01A5C529700874332 /* optimization_algorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D931A5C529700874332 /* optimization_algorithm.cpp */; };
-		FBC16DC11A5C529700874332 /* optimization_algorithm_dogleg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D951A5C529700874332 /* optimization_algorithm_dogleg.cpp */; };
-		FBC16DC21A5C529700874332 /* optimization_algorithm_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D971A5C529700874332 /* optimization_algorithm_factory.cpp */; };
-		FBC16DC31A5C529700874332 /* optimization_algorithm_gauss_newton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D991A5C529700874332 /* optimization_algorithm_gauss_newton.cpp */; };
-		FBC16DC41A5C529700874332 /* optimization_algorithm_levenberg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D9B1A5C529700874332 /* optimization_algorithm_levenberg.cpp */; };
-		FBC16DC51A5C529700874332 /* optimization_algorithm_with_hessian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D9E1A5C529700874332 /* optimization_algorithm_with_hessian.cpp */; };
-		FBC16DC61A5C529700874332 /* parameter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA01A5C529700874332 /* parameter.cpp */; };
-		FBC16DC71A5C529700874332 /* parameter_container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA21A5C529700874332 /* parameter_container.cpp */; };
-		FBC16DC81A5C529700874332 /* robust_kernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA41A5C529700874332 /* robust_kernel.cpp */; };
-		FBC16DC91A5C529700874332 /* robust_kernel_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA61A5C529700874332 /* robust_kernel_factory.cpp */; };
-		FBC16DCA1A5C529700874332 /* robust_kernel_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DA81A5C529700874332 /* robust_kernel_impl.cpp */; };
-		FBC16DCB1A5C529700874332 /* solver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DAA1A5C529700874332 /* solver.cpp */; };
-		FBC16DCD1A5C529700874332 /* sparse_optimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DB11A5C529700874332 /* sparse_optimizer.cpp */; };
-		FBC16DCE1A5C529700874332 /* sparse_optimizer_terminate_action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DB31A5C529700874332 /* sparse_optimizer_terminate_action.cpp */; };
-		FBC16DEC1A5C535600874332 /* command_args.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DD21A5C535600874332 /* command_args.cpp */; };
-		FBC16DED1A5C535600874332 /* filesys_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DD41A5C535600874332 /* filesys_tools.cpp */; };
-		FBC16DEF1A5C535600874332 /* os_specific.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DDC1A5C535600874332 /* os_specific.c */; };
-		FBC16DF01A5C535600874332 /* property.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DDE1A5C535600874332 /* property.cpp */; };
-		FBC16DF11A5C535600874332 /* sampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE01A5C535600874332 /* sampler.cpp */; };
-		FBC16DF21A5C535600874332 /* sparse_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE31A5C535600874332 /* sparse_helper.cpp */; };
-		FBC16DF31A5C535600874332 /* string_tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE51A5C535600874332 /* string_tools.cpp */; };
-		FBC16DF41A5C535600874332 /* tictoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE71A5C535600874332 /* tictoc.cpp */; };
-		FBC16DF51A5C535600874332 /* timeutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DE91A5C535600874332 /* timeutil.cpp */; };
-		FBC16DF61A5C53BA00874332 /* Sim3Tracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D411A5C3DAD00874332 /* Sim3Tracker.cpp */; };
-		FBC16DF71A5C560300874332 /* KeyFrameGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16D211A5C3DAD00874332 /* KeyFrameGraph.cpp */; };
-		FBC16E331A5C569400874332 /* cs_add.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFC1A5C569400874332 /* cs_add.c */; };
-		FBC16E341A5C569400874332 /* cs_amd.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFD1A5C569400874332 /* cs_amd.c */; };
-		FBC16E351A5C569400874332 /* cs_chol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DFF1A5C569400874332 /* cs_chol.c */; };
-		FBC16E361A5C569400874332 /* cs_cholsol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E001A5C569400874332 /* cs_cholsol.c */; };
-		FBC16E371A5C569400874332 /* cs_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E011A5C569400874332 /* cs_compress.c */; };
-		FBC16E381A5C569400874332 /* cs_counts.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E021A5C569400874332 /* cs_counts.c */; };
-		FBC16E391A5C569400874332 /* cs_cumsum.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E031A5C569400874332 /* cs_cumsum.c */; };
-		FBC16E3A1A5C569400874332 /* cs_dfs.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E041A5C569400874332 /* cs_dfs.c */; };
-		FBC16E3B1A5C569400874332 /* cs_dmperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E051A5C569400874332 /* cs_dmperm.c */; };
-		FBC16E3C1A5C569400874332 /* cs_droptol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E061A5C569400874332 /* cs_droptol.c */; };
-		FBC16E3D1A5C569400874332 /* cs_dropzeros.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E071A5C569400874332 /* cs_dropzeros.c */; };
-		FBC16E3E1A5C569400874332 /* cs_dupl.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E081A5C569400874332 /* cs_dupl.c */; };
-		FBC16E3F1A5C569400874332 /* cs_entry.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E091A5C569400874332 /* cs_entry.c */; };
-		FBC16E401A5C569400874332 /* cs_ereach.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0A1A5C569400874332 /* cs_ereach.c */; };
-		FBC16E411A5C569400874332 /* cs_etree.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0B1A5C569400874332 /* cs_etree.c */; };
-		FBC16E421A5C569400874332 /* cs_fkeep.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0C1A5C569400874332 /* cs_fkeep.c */; };
-		FBC16E431A5C569400874332 /* cs_gaxpy.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0D1A5C569400874332 /* cs_gaxpy.c */; };
-		FBC16E441A5C569400874332 /* cs_happly.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0E1A5C569400874332 /* cs_happly.c */; };
-		FBC16E451A5C569400874332 /* cs_house.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E0F1A5C569400874332 /* cs_house.c */; };
-		FBC16E461A5C569400874332 /* cs_ipvec.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E101A5C569400874332 /* cs_ipvec.c */; };
-		FBC16E471A5C569400874332 /* cs_leaf.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E111A5C569400874332 /* cs_leaf.c */; };
-		FBC16E481A5C569400874332 /* cs_load.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E121A5C569400874332 /* cs_load.c */; };
-		FBC16E491A5C569400874332 /* cs_lsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E131A5C569400874332 /* cs_lsolve.c */; };
-		FBC16E4A1A5C569400874332 /* cs_ltsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E141A5C569400874332 /* cs_ltsolve.c */; };
-		FBC16E4B1A5C569400874332 /* cs_lu.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E151A5C569400874332 /* cs_lu.c */; };
-		FBC16E4C1A5C569400874332 /* cs_lusol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E161A5C569400874332 /* cs_lusol.c */; };
-		FBC16E4D1A5C569400874332 /* cs_malloc.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E171A5C569400874332 /* cs_malloc.c */; };
-		FBC16E4E1A5C569400874332 /* cs_maxtrans.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E181A5C569400874332 /* cs_maxtrans.c */; };
-		FBC16E4F1A5C569400874332 /* cs_multiply.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E191A5C569400874332 /* cs_multiply.c */; };
-		FBC16E501A5C569400874332 /* cs_norm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1A1A5C569400874332 /* cs_norm.c */; };
-		FBC16E511A5C569400874332 /* cs_permute.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1B1A5C569400874332 /* cs_permute.c */; };
-		FBC16E521A5C569400874332 /* cs_pinv.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1C1A5C569400874332 /* cs_pinv.c */; };
-		FBC16E531A5C569400874332 /* cs_post.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1D1A5C569400874332 /* cs_post.c */; };
-		FBC16E541A5C569400874332 /* cs_print.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1E1A5C569400874332 /* cs_print.c */; };
-		FBC16E551A5C569400874332 /* cs_pvec.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E1F1A5C569400874332 /* cs_pvec.c */; };
-		FBC16E561A5C569400874332 /* cs_qr.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E201A5C569400874332 /* cs_qr.c */; };
-		FBC16E571A5C569400874332 /* cs_qrsol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E211A5C569400874332 /* cs_qrsol.c */; };
-		FBC16E581A5C569400874332 /* cs_randperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E221A5C569400874332 /* cs_randperm.c */; };
-		FBC16E591A5C569400874332 /* cs_reach.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E231A5C569400874332 /* cs_reach.c */; };
-		FBC16E5A1A5C569400874332 /* cs_scatter.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E241A5C569400874332 /* cs_scatter.c */; };
-		FBC16E5B1A5C569400874332 /* cs_scc.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E251A5C569400874332 /* cs_scc.c */; };
-		FBC16E5C1A5C569400874332 /* cs_schol.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E261A5C569400874332 /* cs_schol.c */; };
-		FBC16E5D1A5C569400874332 /* cs_spsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E271A5C569400874332 /* cs_spsolve.c */; };
-		FBC16E5E1A5C569400874332 /* cs_sqr.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E281A5C569400874332 /* cs_sqr.c */; };
-		FBC16E5F1A5C569400874332 /* cs_symperm.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E291A5C569400874332 /* cs_symperm.c */; };
-		FBC16E601A5C569400874332 /* cs_tdfs.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2A1A5C569400874332 /* cs_tdfs.c */; };
-		FBC16E611A5C569400874332 /* cs_transpose.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2B1A5C569400874332 /* cs_transpose.c */; };
-		FBC16E621A5C569400874332 /* cs_updown.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2C1A5C569400874332 /* cs_updown.c */; };
-		FBC16E631A5C569400874332 /* cs_usolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2D1A5C569400874332 /* cs_usolve.c */; };
-		FBC16E641A5C569400874332 /* cs_util.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2E1A5C569400874332 /* cs_util.c */; };
-		FBC16E651A5C569400874332 /* cs_utsolve.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E2F1A5C569400874332 /* cs_utsolve.c */; };
-		FBC16E6E1A5C56F000874332 /* csparse_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E681A5C56F000874332 /* csparse_helper.cpp */; };
-		FBC16E6F1A5C56F000874332 /* solver_csparse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E6D1A5C56F000874332 /* solver_csparse.cpp */; };
-		FBC16F421A5C573C00874332 /* data_queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E751A5C573C00874332 /* data_queue.cpp */; };
-		FBC16F431A5C573C00874332 /* laser_parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E781A5C573C00874332 /* laser_parameters.cpp */; };
-		FBC16F441A5C573C00874332 /* raw_laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7A1A5C573C00874332 /* raw_laser.cpp */; };
-		FBC16F451A5C573C00874332 /* robot_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7C1A5C573C00874332 /* robot_data.cpp */; };
-		FBC16F461A5C573C00874332 /* robot_laser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E7E1A5C573C00874332 /* robot_laser.cpp */; };
-		FBC16F471A5C573C00874332 /* types_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E801A5C573C00874332 /* types_data.cpp */; };
-		FBC16F481A5C573C00874332 /* vertex_ellipse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E821A5C573C00874332 /* vertex_ellipse.cpp */; };
-		FBC16F491A5C573C00874332 /* vertex_tag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E841A5C573C00874332 /* vertex_tag.cpp */; };
-		FBC16F4A1A5C573C00874332 /* edge_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8A1A5C573C00874332 /* edge_se3_offset.cpp */; };
-		FBC16F4B1A5C573C00874332 /* edge_se3_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8C1A5C573C00874332 /* edge_se3_pointxyz.cpp */; };
-		FBC16F4C1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E8E1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp */; };
-		FBC16F4D1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E901A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp */; };
-		FBC16F4E1A5C573C00874332 /* edge_se3_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E921A5C573C00874332 /* edge_se3_prior.cpp */; };
-		FBC16F4F1A5C573C00874332 /* edge_se3_quat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E941A5C573C00874332 /* edge_se3_quat.cpp */; };
-		FBC16F501A5C573C00874332 /* parameter_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E971A5C573C00874332 /* parameter_camera.cpp */; };
-		FBC16F511A5C573C00874332 /* parameter_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E991A5C573C00874332 /* parameter_se3_offset.cpp */; };
-		FBC16F521A5C573C00874332 /* se3quat_gradients.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9B1A5C573C00874332 /* se3quat_gradients.cpp */; };
-		FBC16F531A5C573C00874332 /* types_slam3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9D1A5C573C00874332 /* types_slam3d.cpp */; };
-		FBC16F541A5C573C00874332 /* vertex_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16E9F1A5C573C00874332 /* vertex_pointxyz.cpp */; };
-		FBC16F551A5C573C00874332 /* vertex_se3_quat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EA11A5C573C00874332 /* vertex_se3_quat.cpp */; };
-		FBC16F561A5C573C00874332 /* types_icp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EA61A5C573C00874332 /* types_icp.cpp */; };
-		FBC16F571A5C573C00874332 /* types_sba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EAC1A5C573C00874332 /* types_sba.cpp */; };
-		FBC16F581A5C573C00874332 /* types_six_dof_expmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EAE1A5C573C00874332 /* types_six_dof_expmap.cpp */; };
-		FBC16F591A5C573C00874332 /* edge_se2_odom_differential_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB21A5C573C00874332 /* edge_se2_odom_differential_calib.cpp */; };
-		FBC16F5A1A5C573C00874332 /* edge_se2_sensor_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB41A5C573C00874332 /* edge_se2_sensor_calib.cpp */; };
-		FBC16F5B1A5C573C00874332 /* odometry_measurement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB71A5C573C00874332 /* odometry_measurement.cpp */; };
-		FBC16F5C1A5C573C00874332 /* types_sclam2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EB91A5C573C00874332 /* types_sclam2d.cpp */; };
-		FBC16F5D1A5C573C00874332 /* vertex_odom_differential_params.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EBB1A5C573C00874332 /* vertex_odom_differential_params.cpp */; };
-		FBC16F5F1A5C573C00874332 /* edge_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC41A5C573C00874332 /* edge_pointxy.cpp */; };
-		FBC16F601A5C573C00874332 /* edge_se2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC61A5C573C00874332 /* edge_se2.cpp */; };
-		FBC16F611A5C573C00874332 /* edge_se2_lotsofxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EC81A5C573C00874332 /* edge_se2_lotsofxy.cpp */; };
-		FBC16F621A5C573C00874332 /* edge_se2_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECA1A5C573C00874332 /* edge_se2_offset.cpp */; };
-		FBC16F631A5C573C00874332 /* edge_se2_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECC1A5C573C00874332 /* edge_se2_pointxy.cpp */; };
-		FBC16F641A5C573C00874332 /* edge_se2_pointxy_bearing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ECE1A5C573C00874332 /* edge_se2_pointxy_bearing.cpp */; };
-		FBC16F651A5C573C00874332 /* edge_se2_pointxy_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED01A5C573C00874332 /* edge_se2_pointxy_calib.cpp */; };
-		FBC16F661A5C573C00874332 /* edge_se2_pointxy_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED21A5C573C00874332 /* edge_se2_pointxy_offset.cpp */; };
-		FBC16F671A5C573C00874332 /* edge_se2_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED41A5C573C00874332 /* edge_se2_prior.cpp */; };
-		FBC16F681A5C573C00874332 /* edge_se2_twopointsxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED61A5C573C00874332 /* edge_se2_twopointsxy.cpp */; };
-		FBC16F691A5C573C00874332 /* edge_se2_xyprior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16ED81A5C573C00874332 /* edge_se2_xyprior.cpp */; };
-		FBC16F6A1A5C573C00874332 /* parameter_se2_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EDB1A5C573C00874332 /* parameter_se2_offset.cpp */; };
-		FBC16F6B1A5C573C00874332 /* types_slam2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EDE1A5C573C00874332 /* types_slam2d.cpp */; };
-		FBC16F6C1A5C573C00874332 /* vertex_point_xy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE01A5C573C00874332 /* vertex_point_xy.cpp */; };
-		FBC16F6D1A5C573C00874332 /* vertex_se2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE21A5C573C00874332 /* vertex_se2.cpp */; };
-		FBC16F6E1A5C573C00874332 /* edge_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE61A5C573C00874332 /* edge_line2d.cpp */; };
-		FBC16F6F1A5C573C00874332 /* edge_line2d_pointxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EE81A5C573C00874332 /* edge_line2d_pointxy.cpp */; };
-		FBC16F701A5C573C00874332 /* edge_se2_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEA1A5C573C00874332 /* edge_se2_line2d.cpp */; };
-		FBC16F711A5C573C00874332 /* edge_se2_segment2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEC1A5C573C00874332 /* edge_se2_segment2d.cpp */; };
-		FBC16F721A5C573C00874332 /* edge_se2_segment2d_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EEE1A5C573C00874332 /* edge_se2_segment2d_line.cpp */; };
-		FBC16F731A5C573C00874332 /* edge_se2_segment2d_pointLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF01A5C573C00874332 /* edge_se2_segment2d_pointLine.cpp */; };
-		FBC16F741A5C573C00874332 /* types_slam2d_addons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF41A5C573C00874332 /* types_slam2d_addons.cpp */; };
-		FBC16F751A5C573C00874332 /* vertex_line2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF61A5C573C00874332 /* vertex_line2d.cpp */; };
-		FBC16F761A5C573C00874332 /* vertex_segment2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EF81A5C573C00874332 /* vertex_segment2d.cpp */; };
-		FBC16F771A5C573C00874332 /* dquat2mat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EFC1A5C573C00874332 /* dquat2mat.cpp */; };
-		FBC16F791A5C573C00874332 /* edge_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F001A5C573C00874332 /* edge_pointxyz.cpp */; };
-		FBC16F7A1A5C573C00874332 /* edge_se3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F021A5C573C00874332 /* edge_se3.cpp */; };
-		FBC16F7B1A5C573C00874332 /* edge_se3_lotsofxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F041A5C573C00874332 /* edge_se3_lotsofxyz.cpp */; };
-		FBC16F7C1A5C573C00874332 /* edge_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F061A5C573C00874332 /* edge_se3_offset.cpp */; };
-		FBC16F7D1A5C573C00874332 /* edge_se3_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F081A5C573C00874332 /* edge_se3_pointxyz.cpp */; };
-		FBC16F7E1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0A1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp */; };
-		FBC16F7F1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0C1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp */; };
-		FBC16F801A5C573C00874332 /* edge_se3_prior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F0E1A5C573C00874332 /* edge_se3_prior.cpp */; };
-		FBC16F811A5C573C00874332 /* isometry3d_gradients.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F111A5C573C00874332 /* isometry3d_gradients.cpp */; };
-		FBC16F821A5C573C00874332 /* isometry3d_mappings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F131A5C573C00874332 /* isometry3d_mappings.cpp */; };
-		FBC16F831A5C573C00874332 /* parameter_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F151A5C573C00874332 /* parameter_camera.cpp */; };
-		FBC16F841A5C573C00874332 /* parameter_se3_offset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F171A5C573C00874332 /* parameter_se3_offset.cpp */; };
-		FBC16F851A5C573C00874332 /* parameter_stereo_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F191A5C573C00874332 /* parameter_stereo_camera.cpp */; };
-		FBC16F8A1A5C573C00874332 /* vertex_pointxyz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F231A5C573C00874332 /* vertex_pointxyz.cpp */; };
-		FBC16F8B1A5C573C00874332 /* vertex_se3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F251A5C573C00874332 /* vertex_se3.cpp */; };
-		FBC16F8C1A5C573C00874332 /* edge_line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F291A5C573C00874332 /* edge_line3d.cpp */; };
-		FBC16F8D1A5C573C00874332 /* edge_plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2B1A5C573C00874332 /* edge_plane.cpp */; };
-		FBC16F8E1A5C573C00874332 /* edge_se3_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2D1A5C573C00874332 /* edge_se3_calib.cpp */; };
-		FBC16F8F1A5C573C00874332 /* edge_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2F1A5C573C00874332 /* edge_se3_euler.cpp */; };
-		FBC16F901A5C573C00874332 /* edge_se3_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F311A5C573C00874332 /* edge_se3_line.cpp */; };
-		FBC16F911A5C573C00874332 /* edge_se3_plane_calib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F331A5C573C00874332 /* edge_se3_plane_calib.cpp */; };
-		FBC16F921A5C573C00874332 /* line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F361A5C573C00874332 /* line3d.cpp */; };
-		FBC16F941A5C573C00874332 /* types_slam3d_addons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3A1A5C573C00874332 /* types_slam3d_addons.cpp */; };
-		FBC16F951A5C573C00874332 /* vertex_line3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3C1A5C573C00874332 /* vertex_line3d.cpp */; };
-		FBC16F961A5C573C00874332 /* vertex_plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F3E1A5C573C00874332 /* vertex_plane.cpp */; };
-		FBC16F971A5C573C00874332 /* vertex_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F401A5C573C00874332 /* vertex_se3_euler.cpp */; };
 		FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */; };
 		FBC16F9D1A5D741000874332 /* TCameraPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F9B1A5D741000874332 /* TCameraPose.cpp */; };
 		FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC3A0DF1A308648009DA49E /* SoyScope.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		FB50C24B1A6AC6060011A9D9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		FB8A05911A2E54730099596C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,6 +336,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TFeatureBinRing.cpp; path = src/TFeatureBinRing.cpp; sourceTree = "<group>"; };
+		FB50C0541A6AC55A0011A9D9 /* TFeatureBinRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFeatureBinRing.h; path = src/TFeatureBinRing.h; sourceTree = "<group>"; };
+		FB50C24F1A6AC6060011A9D9 /* PopCameraTrack copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PopCameraTrack copy"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SoyDebug.mm; path = src/SoyDebug.mm; sourceTree = "<group>"; };
 		FB8A05931A2E54730099596C /* PopCameraTrack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PopCameraTrack; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8A05A61A2E57700099596C /* PopApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = PopApp.xcconfig; path = ../NewChromantics/PopTrack/PopApp.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -813,6 +886,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB50C2461A6AC6060011A9D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB50C2471A6AC6060011A9D9 /* CoreVideo.framework in Frameworks */,
+				FB50C2481A6AC6060011A9D9 /* CoreMedia.framework in Frameworks */,
+				FB50C2491A6AC6060011A9D9 /* CoreMediaIO.framework in Frameworks */,
+				FB50C24A1A6AC6060011A9D9 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB8A05901A2E54730099596C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -846,6 +930,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8A05931A2E54730099596C /* PopCameraTrack */,
+				FB50C24F1A6AC6060011A9D9 /* PopCameraTrack copy */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -918,6 +1003,8 @@
 				FB8A07121A2E6B880099596C /* TParameters.h */,
 				FB8A06A91A2E6B040099596C /* Unittest++ */,
 				FB8A069D1A2E6AF80099596C /* TChannel.cpp */,
+				FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */,
+				FB50C0541A6AC55A0011A9D9 /* TFeatureBinRing.h */,
 				FB8A069E1A2E6AF80099596C /* TChannel.h */,
 				FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */,
 				FB8A06A01A2E6AF80099596C /* TChannelFile.h */,
@@ -1082,15 +1169,15 @@
 		FBC16D251A5C3DAD00874332 /* IOWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				FBC16D321A5C3DAD00874332 /* Timestamp.cpp */,
 				FBC16D261A5C3DAD00874332 /* ImageDisplay.h */,
 				FBC16D271A5C3DAD00874332 /* InputImageStream.h */,
 				FBC16D281A5C3DAD00874332 /* NotifyBuffer.h */,
-				FBC16D291A5C3DAD00874332 /* OpenCV */,
 				FBC16D2B1A5C3DAD00874332 /* Output3DWrapper.h */,
-				FBC16D2C1A5C3DAD00874332 /* ROS */,
-				FBC16D321A5C3DAD00874332 /* Timestamp.cpp */,
 				FBC16D331A5C3DAD00874332 /* Timestamp.h */,
 				FBC16D341A5C3DAD00874332 /* TimestampedObject.h */,
+				FBC16D291A5C3DAD00874332 /* OpenCV */,
+				FBC16D2C1A5C3DAD00874332 /* ROS */,
 			);
 			path = IOWrapper;
 			sourceTree = "<group>";
@@ -1118,14 +1205,14 @@
 		FBC16D3B1A5C3DAD00874332 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				FBC16D3C1A5C3DAD00874332 /* LGSX.h */,
 				FBC16D3D1A5C3DAD00874332 /* Relocalizer.cpp */,
-				FBC16D3E1A5C3DAD00874332 /* Relocalizer.h */,
 				FBC16D3F1A5C3DAD00874332 /* SE3Tracker.cpp */,
-				FBC16D401A5C3DAD00874332 /* SE3Tracker.h */,
 				FBC16D411A5C3DAD00874332 /* Sim3Tracker.cpp */,
-				FBC16D421A5C3DAD00874332 /* Sim3Tracker.h */,
 				FBC16D431A5C3DAD00874332 /* TrackingReference.cpp */,
+				FBC16D3C1A5C3DAD00874332 /* LGSX.h */,
+				FBC16D3E1A5C3DAD00874332 /* Relocalizer.h */,
+				FBC16D401A5C3DAD00874332 /* SE3Tracker.h */,
+				FBC16D421A5C3DAD00874332 /* Sim3Tracker.h */,
 				FBC16D441A5C3DAD00874332 /* TrackingReference.h */,
 			);
 			path = Tracking;
@@ -1134,15 +1221,15 @@
 		FBC16D451A5C3DAD00874332 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				FBC16D461A5C3DAD00874332 /* EigenCoreInclude.h */,
 				FBC16D471A5C3DAD00874332 /* globalFuncs.cpp */,
+				FBC16D4A1A5C3DAD00874332 /* settings.cpp */,
+				FBC16D4C1A5C3DAD00874332 /* SophusUtil.cpp */,
+				FBC16D4E1A5C3DAD00874332 /* Undistorter.cpp */,
+				FBC16D461A5C3DAD00874332 /* EigenCoreInclude.h */,
 				FBC16D481A5C3DAD00874332 /* globalFuncs.h */,
 				FBC16D491A5C3DAD00874332 /* IndexThreadReduce.h */,
-				FBC16D4A1A5C3DAD00874332 /* settings.cpp */,
 				FBC16D4B1A5C3DAD00874332 /* settings.h */,
-				FBC16D4C1A5C3DAD00874332 /* SophusUtil.cpp */,
 				FBC16D4D1A5C3DAD00874332 /* SophusUtil.h */,
-				FBC16D4E1A5C3DAD00874332 /* Undistorter.cpp */,
 				FBC16D4F1A5C3DAD00874332 /* Undistorter.h */,
 			);
 			path = util;
@@ -1661,6 +1748,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB50C1531A6AC6060011A9D9 /* PopCameraTrack_WithLsdSlam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB50C24C1A6AC6060011A9D9 /* Build configuration list for PBXNativeTarget "PopCameraTrack_WithLsdSlam" */;
+			buildPhases = (
+				FB50C1541A6AC6060011A9D9 /* Sources */,
+				FB50C2461A6AC6060011A9D9 /* Frameworks */,
+				FB50C24B1A6AC6060011A9D9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopCameraTrack_WithLsdSlam;
+			productName = PopCapture;
+			productReference = FB50C24F1A6AC6060011A9D9 /* PopCameraTrack copy */;
+			productType = "com.apple.product-type.tool";
+		};
 		FB8A05921A2E54730099596C /* PopCameraTrack */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB8A059A1A2E54730099596C /* Build configuration list for PBXNativeTarget "PopCameraTrack" */;
@@ -1705,261 +1809,350 @@
 			projectRoot = "";
 			targets = (
 				FB8A05921A2E54730099596C /* PopCameraTrack */,
+				FB50C1531A6AC6060011A9D9 /* PopCameraTrack_WithLsdSlam */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB50C1541A6AC6060011A9D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB50C1551A6AC6060011A9D9 /* TestRunner.cpp in Sources */,
+				FB50C1561A6AC6060011A9D9 /* sparse_optimizer_terminate_action.cpp in Sources */,
+				FB50C1571A6AC6060011A9D9 /* SophusUtil.cpp in Sources */,
+				FB50C1581A6AC6060011A9D9 /* edge_line3d.cpp in Sources */,
+				FB50C1591A6AC6060011A9D9 /* edge_se3_lotsofxyz.cpp in Sources */,
+				FB50C15A1A6AC6060011A9D9 /* vertex_pointxyz.cpp in Sources */,
+				FB50C15B1A6AC6060011A9D9 /* cs_usolve.c in Sources */,
+				FB50C15C1A6AC6060011A9D9 /* hyper_dijkstra.cpp in Sources */,
+				FB50C15D1A6AC6060011A9D9 /* edge_se3_line.cpp in Sources */,
+				FB50C15E1A6AC6060011A9D9 /* edge_se3_pointxyz.cpp in Sources */,
+				FB50C15F1A6AC6060011A9D9 /* edge_se2_twopointsxy.cpp in Sources */,
+				FB50C1601A6AC6060011A9D9 /* optimization_algorithm_gauss_newton.cpp in Sources */,
+				FB50C1611A6AC6060011A9D9 /* cs_add.c in Sources */,
+				FB50C1621A6AC6060011A9D9 /* FabMap.cpp in Sources */,
+				FB50C1631A6AC6060011A9D9 /* types_slam3d.cpp in Sources */,
+				FB50C1641A6AC6060011A9D9 /* vertex_tag.cpp in Sources */,
+				FB50C1651A6AC6060011A9D9 /* edge_se3_pointxyz.cpp in Sources */,
+				FB50C1661A6AC6060011A9D9 /* Relocalizer.cpp in Sources */,
+				FB50C1671A6AC6060011A9D9 /* jacobian_workspace.cpp in Sources */,
+				FB50C1681A6AC6060011A9D9 /* edge_se2_sensor_calib.cpp in Sources */,
+				FB50C1691A6AC6060011A9D9 /* edge_se2_segment2d_pointLine.cpp in Sources */,
+				FB50C16A1A6AC6060011A9D9 /* cs_lusol.c in Sources */,
+				FB50C16B1A6AC6060011A9D9 /* SoyTest.cpp in Sources */,
+				FB50C16C1A6AC6060011A9D9 /* Test.cpp in Sources */,
+				FB50C16D1A6AC6060011A9D9 /* edge_se2_pointxy_calib.cpp in Sources */,
+				FB50C16E1A6AC6060011A9D9 /* TestReporterStdout.cpp in Sources */,
+				FB50C16F1A6AC6060011A9D9 /* vertex_plane.cpp in Sources */,
+				FB50C1701A6AC6060011A9D9 /* robot_laser.cpp in Sources */,
+				FB50C1711A6AC6060011A9D9 /* SoyFilesytem.cpp in Sources */,
+				FB50C1721A6AC6060011A9D9 /* SoyTypes.cpp in Sources */,
+				FB50C1731A6AC6060011A9D9 /* cs_dmperm.c in Sources */,
+				FB50C1741A6AC6060011A9D9 /* PopCameraTrack.cpp in Sources */,
+				FB50C1751A6AC6060011A9D9 /* TestReporter.cpp in Sources */,
+				FB50C1761A6AC6060011A9D9 /* csparse_helper.cpp in Sources */,
+				FB50C1771A6AC6060011A9D9 /* cs_tdfs.c in Sources */,
+				FB50C1781A6AC6060011A9D9 /* DeferredTestResult.cpp in Sources */,
+				FB50C1791A6AC6060011A9D9 /* g2oTypeSim3Sophus.cpp in Sources */,
+				FB50C17A1A6AC6060011A9D9 /* cs_fkeep.c in Sources */,
+				FB50C17B1A6AC6060011A9D9 /* TrackableKeyFrameSearch.cpp in Sources */,
+				FB50C17C1A6AC6060011A9D9 /* filesys_tools.cpp in Sources */,
+				FB50C17D1A6AC6060011A9D9 /* TrackingReference.cpp in Sources */,
+				FB50C17E1A6AC6060011A9D9 /* cs_permute.c in Sources */,
+				FB50C17F1A6AC6060011A9D9 /* edge_se3_pointxyz_disparity.cpp in Sources */,
+				FB50C1801A6AC6060011A9D9 /* TParameters.cpp in Sources */,
+				FB50C1811A6AC6060011A9D9 /* PopMain.cpp in Sources */,
+				FB50C1821A6AC6060011A9D9 /* cs_post.c in Sources */,
+				FB50C1831A6AC6060011A9D9 /* SoyScope.cpp in Sources */,
+				FB50C1841A6AC6060011A9D9 /* vertex_se2.cpp in Sources */,
+				FB50C1851A6AC6060011A9D9 /* cs_etree.c in Sources */,
+				FB50C1861A6AC6060011A9D9 /* edge_se3_prior.cpp in Sources */,
+				FB50C1871A6AC6060011A9D9 /* edge_se2_offset.cpp in Sources */,
+				FB50C1881A6AC6060011A9D9 /* string_tools.cpp in Sources */,
+				FB50C1891A6AC6060011A9D9 /* TCameraPose.cpp in Sources */,
+				FB50C18A1A6AC6060011A9D9 /* edge_se2_pointxy_bearing.cpp in Sources */,
+				FB50C18B1A6AC6060011A9D9 /* SoyTime.cpp in Sources */,
+				FB50C18C1A6AC6060011A9D9 /* types_data.cpp in Sources */,
+				FB50C18D1A6AC6060011A9D9 /* AssertException.cpp in Sources */,
+				FB50C18E1A6AC6060011A9D9 /* SoyThread.cpp in Sources */,
+				FB50C18F1A6AC6060011A9D9 /* vertex_point_xy.cpp in Sources */,
+				FB50C1901A6AC6060011A9D9 /* robust_kernel.cpp in Sources */,
+				FB50C1911A6AC6060011A9D9 /* isometry3d_mappings.cpp in Sources */,
+				FB50C1921A6AC6060011A9D9 /* TProtocol.cpp in Sources */,
+				FB50C1931A6AC6060011A9D9 /* cs_spsolve.c in Sources */,
+				FB50C1941A6AC6060011A9D9 /* SoyString.cpp in Sources */,
+				FB50C1951A6AC6060011A9D9 /* TProtocolWebSocket.cpp in Sources */,
+				FB50C1961A6AC6060011A9D9 /* cs_happly.c in Sources */,
+				FB50C1971A6AC6060011A9D9 /* vertex_se3_quat.cpp in Sources */,
+				FB50C1981A6AC6060011A9D9 /* sampler.cpp in Sources */,
+				FB50C1991A6AC6060011A9D9 /* cs_chol.c in Sources */,
+				FB50C19A1A6AC6060011A9D9 /* TestDetails.cpp in Sources */,
+				FB50C19B1A6AC6060011A9D9 /* cs_entry.c in Sources */,
+				FB50C19C1A6AC6060011A9D9 /* cs_dupl.c in Sources */,
+				FB50C19D1A6AC6060011A9D9 /* TProtocolHttp.cpp in Sources */,
+				FB50C19E1A6AC6060011A9D9 /* DepthMap.cpp in Sources */,
+				FB50C19F1A6AC6060011A9D9 /* cs_cholsol.c in Sources */,
+				FB50C1A01A6AC6060011A9D9 /* edge_se2.cpp in Sources */,
+				FB50C1A11A6AC6060011A9D9 /* edge_pointxyz.cpp in Sources */,
+				FB50C1A21A6AC6060011A9D9 /* cs_qr.c in Sources */,
+				FB50C1A31A6AC6060011A9D9 /* TChannel.cpp in Sources */,
+				FB50C1A41A6AC6060011A9D9 /* robust_kernel_impl.cpp in Sources */,
+				FB50C1A51A6AC6060011A9D9 /* cs_ltsolve.c in Sources */,
+				FB50C1A61A6AC6060011A9D9 /* TimeConstraint.cpp in Sources */,
+				FB50C1A71A6AC6060011A9D9 /* cs_dropzeros.c in Sources */,
+				FB50C1A81A6AC6060011A9D9 /* parameter_camera.cpp in Sources */,
+				FB50C1A91A6AC6060011A9D9 /* vertex_segment2d.cpp in Sources */,
+				FB50C1AA1A6AC6060011A9D9 /* parameter_camera.cpp in Sources */,
+				FB50C1AB1A6AC6060011A9D9 /* cs_lsolve.c in Sources */,
+				FB50C1AC1A6AC6060011A9D9 /* settings.cpp in Sources */,
+				FB50C1AD1A6AC6060011A9D9 /* TChannelSocket.cpp in Sources */,
+				FB50C1AE1A6AC6060011A9D9 /* optimizable_graph.cpp in Sources */,
+				FB50C1AF1A6AC6060011A9D9 /* SoyEvent.cpp in Sources */,
+				FB50C1B01A6AC6060011A9D9 /* types_slam2d_addons.cpp in Sources */,
+				FB50C1B11A6AC6060011A9D9 /* globalFuncs.cpp in Sources */,
+				FB50C1B21A6AC6060011A9D9 /* cs_util.c in Sources */,
+				FB50C1B31A6AC6060011A9D9 /* TProtocolCli.cpp in Sources */,
+				FB50C1B41A6AC6060011A9D9 /* cs_reach.c in Sources */,
+				FB50C1B51A6AC6060011A9D9 /* XmlTestReporter.cpp in Sources */,
+				FB50C1B61A6AC6060011A9D9 /* cs_pvec.c in Sources */,
+				FB50C1B71A6AC6060011A9D9 /* vertex_line3d.cpp in Sources */,
+				FB50C1B81A6AC6060011A9D9 /* edge_se2_prior.cpp in Sources */,
+				FB50C1B91A6AC6060011A9D9 /* edge_se3_calib.cpp in Sources */,
+				FB50C1BA1A6AC6060011A9D9 /* se3quat_gradients.cpp in Sources */,
+				FB50C1BB1A6AC6060011A9D9 /* optimization_algorithm_factory.cpp in Sources */,
+				FB50C1BC1A6AC6060011A9D9 /* cs_leaf.c in Sources */,
+				FB50C1BD1A6AC6060011A9D9 /* SoyPng.cpp in Sources */,
+				FB50C1BE1A6AC6060011A9D9 /* line3d.cpp in Sources */,
+				FB50C1BF1A6AC6060011A9D9 /* edge_se2_segment2d.cpp in Sources */,
+				FB50C1C01A6AC6060011A9D9 /* FramePoseStruct.cpp in Sources */,
+				FB50C1C11A6AC6060011A9D9 /* cs_scatter.c in Sources */,
+				FB50C1C21A6AC6060011A9D9 /* DepthMapPixelHypothesis.cpp in Sources */,
+				FB50C1C31A6AC6060011A9D9 /* FrameMemory.cpp in Sources */,
+				FB50C1C41A6AC6060011A9D9 /* LiveSLAMWrapper.cpp in Sources */,
+				FB50C1C51A6AC6060011A9D9 /* cs_cumsum.c in Sources */,
+				FB50C1C61A6AC6060011A9D9 /* SoyDebug.mm in Sources */,
+				FB50C1C71A6AC6060011A9D9 /* parameter_se3_offset.cpp in Sources */,
+				FB50C1C81A6AC6060011A9D9 /* edge_se3_pointxyz_disparity.cpp in Sources */,
+				FB50C1C91A6AC6060011A9D9 /* cs_amd.c in Sources */,
+				FB50C1CA1A6AC6060011A9D9 /* cs_multiply.c in Sources */,
+				FB50C1CB1A6AC6060011A9D9 /* SoyDebug.cpp in Sources */,
+				FB50C1CC1A6AC6060011A9D9 /* Timestamp.cpp in Sources */,
+				FB50C1CD1A6AC6060011A9D9 /* cs_counts.c in Sources */,
+				FB50C1CE1A6AC6060011A9D9 /* cs_scc.c in Sources */,
+				FB50C1CF1A6AC6060011A9D9 /* vertex_pointxyz.cpp in Sources */,
+				FB50C1D01A6AC6060011A9D9 /* sha1.cpp in Sources */,
+				FB50C1D11A6AC6060011A9D9 /* cs_maxtrans.c in Sources */,
+				FB50C1D21A6AC6060011A9D9 /* cs_norm.c in Sources */,
+				FB50C1D31A6AC6060011A9D9 /* TSerialisation.cpp in Sources */,
+				FB50C1D41A6AC6060011A9D9 /* timeutil.cpp in Sources */,
+				FB50C1D51A6AC6060011A9D9 /* cs_transpose.c in Sources */,
+				FB50C1D61A6AC6060011A9D9 /* solver_csparse.cpp in Sources */,
+				FB50C1D71A6AC6060011A9D9 /* sparse_optimizer.cpp in Sources */,
+				FB50C1D81A6AC6060011A9D9 /* optimization_algorithm_with_hessian.cpp in Sources */,
+				FB50C1D91A6AC6060011A9D9 /* cache.cpp in Sources */,
+				FB50C1DA1A6AC6060011A9D9 /* factory.cpp in Sources */,
+				FB50C1DB1A6AC6060011A9D9 /* parameter_container.cpp in Sources */,
+				FB50C1DC1A6AC6060011A9D9 /* TProtocolJson.cpp in Sources */,
+				FB50C1DD1A6AC6060011A9D9 /* edge_se2_pointxy_offset.cpp in Sources */,
+				FB50C1DE1A6AC6060011A9D9 /* SoyMemFile.cpp in Sources */,
+				FB50C1DF1A6AC6060011A9D9 /* types_icp.cpp in Sources */,
+				FB50C1E01A6AC6060011A9D9 /* cs_ereach.c in Sources */,
+				FB50C1E11A6AC6060011A9D9 /* cs_randperm.c in Sources */,
+				FB50C1E21A6AC6060011A9D9 /* TJob.cpp in Sources */,
+				FB50C1E31A6AC6060011A9D9 /* vertex_line2d.cpp in Sources */,
+				FB50C1E41A6AC6060011A9D9 /* batch_stats.cpp in Sources */,
+				FB50C1E51A6AC6060011A9D9 /* data_queue.cpp in Sources */,
+				FB50C1E61A6AC6060011A9D9 /* edge_se3_pointxyz_depth.cpp in Sources */,
+				FB50C1E71A6AC6060011A9D9 /* edge_plane.cpp in Sources */,
+				FB50C1E81A6AC6060011A9D9 /* vertex_se3.cpp in Sources */,
+				FB50C1E91A6AC6060011A9D9 /* cs_lu.c in Sources */,
+				FB50C1EA1A6AC6060011A9D9 /* hyper_graph.cpp in Sources */,
+				FB50C1EB1A6AC6060011A9D9 /* matrix_structure.cpp in Sources */,
+				FB50C1EC1A6AC6060011A9D9 /* laser_parameters.cpp in Sources */,
+				FB50C1ED1A6AC6060011A9D9 /* isometry3d_gradients.cpp in Sources */,
+				FB50C1EE1A6AC6060011A9D9 /* DeferredTestReporter.cpp in Sources */,
+				FB50C1EF1A6AC6060011A9D9 /* parameter_stereo_camera.cpp in Sources */,
+				FB50C1F01A6AC6060011A9D9 /* os_specific.c in Sources */,
+				FB50C1F11A6AC6060011A9D9 /* edge_se3_euler.cpp in Sources */,
+				FB50C1F21A6AC6060011A9D9 /* TJobEventSubscriber.cpp in Sources */,
+				FB50C1F31A6AC6060011A9D9 /* types_sba.cpp in Sources */,
+				FB50C1F41A6AC6060011A9D9 /* SignalTranslator.cpp in Sources */,
+				FB50C1F51A6AC6060011A9D9 /* vertex_odom_differential_params.cpp in Sources */,
+				FB50C1F61A6AC6060011A9D9 /* cs_gaxpy.c in Sources */,
+				FB50C1F71A6AC6060011A9D9 /* edge_se3_quat.cpp in Sources */,
+				FB50C1F81A6AC6060011A9D9 /* edge_se2_pointxy.cpp in Sources */,
+				FB50C1F91A6AC6060011A9D9 /* parameter_se2_offset.cpp in Sources */,
+				FB50C1FA1A6AC6060011A9D9 /* edge_pointxy.cpp in Sources */,
+				FB50C1FB1A6AC6060011A9D9 /* SoyData.cpp in Sources */,
+				FB50C1FC1A6AC6060011A9D9 /* SoyRef.cpp in Sources */,
+				FB50C1FD1A6AC6060011A9D9 /* property.cpp in Sources */,
+				FB50C1FE1A6AC6060011A9D9 /* optimization_algorithm_dogleg.cpp in Sources */,
+				FB50C1FF1A6AC6060011A9D9 /* vertex_ellipse.cpp in Sources */,
+				FB50C2001A6AC6060011A9D9 /* cs_house.c in Sources */,
+				FB50C2011A6AC6060011A9D9 /* SoyApp.cpp in Sources */,
+				FB50C2021A6AC6060011A9D9 /* Frame.cpp in Sources */,
+				FB50C2031A6AC6060011A9D9 /* TestList.cpp in Sources */,
+				FB50C2041A6AC6060011A9D9 /* edge_line2d.cpp in Sources */,
+				FB50C2051A6AC6060011A9D9 /* Checks.cpp in Sources */,
+				FB50C2061A6AC6060011A9D9 /* edge_se3_offset.cpp in Sources */,
+				FB50C2071A6AC6060011A9D9 /* edge_se2_xyprior.cpp in Sources */,
+				FB50C2081A6AC6060011A9D9 /* cs_symperm.c in Sources */,
+				FB50C2091A6AC6060011A9D9 /* marginal_covariance_cholesky.cpp in Sources */,
+				FB50C20A1A6AC6060011A9D9 /* MemoryOutStream.cpp in Sources */,
+				FB50C20B1A6AC6060011A9D9 /* CurrentTest.cpp in Sources */,
+				FB50C20C1A6AC6060011A9D9 /* cs_sqr.c in Sources */,
+				FB50C20D1A6AC6060011A9D9 /* types_slam2d.cpp in Sources */,
+				FB50C20E1A6AC6060011A9D9 /* tictoc.cpp in Sources */,
+				FB50C20F1A6AC6060011A9D9 /* TChannelPipe.cpp in Sources */,
+				FB50C2101A6AC6060011A9D9 /* TFeatureBinRing.cpp in Sources */,
+				FB50C2111A6AC6060011A9D9 /* edge_se2_lotsofxy.cpp in Sources */,
+				FB50C2121A6AC6060011A9D9 /* dquat2mat.cpp in Sources */,
+				FB50C2131A6AC6060011A9D9 /* cs_dfs.c in Sources */,
+				FB50C2141A6AC6060011A9D9 /* ReportAssert.cpp in Sources */,
+				FB50C2151A6AC6060011A9D9 /* cs_pinv.c in Sources */,
+				FB50C2161A6AC6060011A9D9 /* types_sclam2d.cpp in Sources */,
+				FB50C2171A6AC6060011A9D9 /* types_six_dof_expmap.cpp in Sources */,
+				FB50C2181A6AC6060011A9D9 /* cs_ipvec.c in Sources */,
+				FB50C2191A6AC6060011A9D9 /* optimization_algorithm_levenberg.cpp in Sources */,
+				FB50C21A1A6AC6060011A9D9 /* edge_se3.cpp in Sources */,
+				FB50C21B1A6AC6060011A9D9 /* robust_kernel_factory.cpp in Sources */,
+				FB50C21C1A6AC6060011A9D9 /* optimization_algorithm.cpp in Sources */,
+				FB50C21D1A6AC6060011A9D9 /* TChannelFile.cpp in Sources */,
+				FB50C21E1A6AC6060011A9D9 /* edge_se3_plane_calib.cpp in Sources */,
+				FB50C21F1A6AC6060011A9D9 /* edge_se2_segment2d_line.cpp in Sources */,
+				FB50C2201A6AC6060011A9D9 /* edge_se3_offset.cpp in Sources */,
+				FB50C2211A6AC6060011A9D9 /* edge_se3_pointxyz_depth.cpp in Sources */,
+				FB50C2221A6AC6060011A9D9 /* edge_se2_line2d.cpp in Sources */,
+				FB50C2231A6AC6060011A9D9 /* estimate_propagator.cpp in Sources */,
+				FB50C2241A6AC6060011A9D9 /* raw_laser.cpp in Sources */,
+				FB50C2251A6AC6060011A9D9 /* solver.cpp in Sources */,
+				FB50C2261A6AC6060011A9D9 /* TJobFormat.cpp in Sources */,
+				FB50C2271A6AC6060011A9D9 /* Sim3Tracker.cpp in Sources */,
+				FB50C2281A6AC6060011A9D9 /* parameter.cpp in Sources */,
+				FB50C2291A6AC6060011A9D9 /* KeyFrameGraph.cpp in Sources */,
+				FB50C22A1A6AC6060011A9D9 /* odometry_measurement.cpp in Sources */,
+				FB50C22B1A6AC6060011A9D9 /* TimeHelpers.cpp in Sources */,
+				FB50C22C1A6AC6060011A9D9 /* cs_updown.c in Sources */,
+				FB50C22D1A6AC6060011A9D9 /* cs_malloc.c in Sources */,
+				FB50C22E1A6AC6060011A9D9 /* TJobRelay.cpp in Sources */,
+				FB50C22F1A6AC6060011A9D9 /* cs_schol.c in Sources */,
+				FB50C2301A6AC6060011A9D9 /* vertex_se3_euler.cpp in Sources */,
+				FB50C2311A6AC6060011A9D9 /* sparse_helper.cpp in Sources */,
+				FB50C2321A6AC6060011A9D9 /* edge_se2_odom_differential_calib.cpp in Sources */,
+				FB50C2331A6AC6060011A9D9 /* parameter_se3_offset.cpp in Sources */,
+				FB50C2341A6AC6060011A9D9 /* robot_data.cpp in Sources */,
+				FB50C2351A6AC6060011A9D9 /* command_args.cpp in Sources */,
+				FB50C2361A6AC6060011A9D9 /* SlamSystem.cpp in Sources */,
+				FB50C2371A6AC6060011A9D9 /* TestResults.cpp in Sources */,
+				FB50C2381A6AC6060011A9D9 /* edge_line2d_pointxy.cpp in Sources */,
+				FB50C2391A6AC6060011A9D9 /* SoyPixels.cpp in Sources */,
+				FB50C23A1A6AC6060011A9D9 /* types_slam3d_addons.cpp in Sources */,
+				FB50C23B1A6AC6060011A9D9 /* cs_droptol.c in Sources */,
+				FB50C23C1A6AC6060011A9D9 /* cs_compress.c in Sources */,
+				FB50C23D1A6AC6060011A9D9 /* memheap.cpp in Sources */,
+				FB50C23E1A6AC6060011A9D9 /* SE3Tracker.cpp in Sources */,
+				FB50C23F1A6AC6060011A9D9 /* cs_qrsol.c in Sources */,
+				FB50C2401A6AC6060011A9D9 /* cs_load.c in Sources */,
+				FB50C2411A6AC6060011A9D9 /* SoyArray.cpp in Sources */,
+				FB50C2421A6AC6060011A9D9 /* hyper_graph_action.cpp in Sources */,
+				FB50C2431A6AC6060011A9D9 /* edge_se3_prior.cpp in Sources */,
+				FB50C2441A6AC6060011A9D9 /* cs_print.c in Sources */,
+				FB50C2451A6AC6060011A9D9 /* cs_utsolve.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB8A058F1A2E54730099596C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FB8A06FC1A2E6B520099596C /* TestRunner.cpp in Sources */,
-				FBC16DCE1A5C529700874332 /* sparse_optimizer_terminate_action.cpp in Sources */,
-				FBC16D671A5C3DAD00874332 /* SophusUtil.cpp in Sources */,
-				FBC16F8C1A5C573C00874332 /* edge_line3d.cpp in Sources */,
-				FBC16F7B1A5C573C00874332 /* edge_se3_lotsofxyz.cpp in Sources */,
-				FBC16F8A1A5C573C00874332 /* vertex_pointxyz.cpp in Sources */,
-				FBC16E631A5C569400874332 /* cs_usolve.c in Sources */,
-				FBC16DB91A5C529700874332 /* hyper_dijkstra.cpp in Sources */,
-				FBC16F901A5C573C00874332 /* edge_se3_line.cpp in Sources */,
-				FBC16F4B1A5C573C00874332 /* edge_se3_pointxyz.cpp in Sources */,
-				FBC16F681A5C573C00874332 /* edge_se2_twopointsxy.cpp in Sources */,
-				FBC16DC31A5C529700874332 /* optimization_algorithm_gauss_newton.cpp in Sources */,
-				FBC16E331A5C569400874332 /* cs_add.c in Sources */,
-				FBC16D551A5C3DAD00874332 /* FabMap.cpp in Sources */,
-				FBC16F531A5C573C00874332 /* types_slam3d.cpp in Sources */,
-				FBC16F491A5C573C00874332 /* vertex_tag.cpp in Sources */,
-				FBC16F7D1A5C573C00874332 /* edge_se3_pointxyz.cpp in Sources */,
-				FBC16D611A5C3DAD00874332 /* Relocalizer.cpp in Sources */,
-				FBC16DBC1A5C529700874332 /* jacobian_workspace.cpp in Sources */,
-				FBC16F5A1A5C573C00874332 /* edge_se2_sensor_calib.cpp in Sources */,
-				FBC16F731A5C573C00874332 /* edge_se2_segment2d_pointLine.cpp in Sources */,
-				FBC16E4C1A5C569400874332 /* cs_lusol.c in Sources */,
 				FB8A06651A2E5A7C0099596C /* SoyTest.cpp in Sources */,
 				FB8A06F61A2E6B520099596C /* Test.cpp in Sources */,
-				FBC16F651A5C573C00874332 /* edge_se2_pointxy_calib.cpp in Sources */,
 				FB8A06FA1A2E6B520099596C /* TestReporterStdout.cpp in Sources */,
-				FBC16F961A5C573C00874332 /* vertex_plane.cpp in Sources */,
-				FBC16F461A5C573C00874332 /* robot_laser.cpp in Sources */,
 				FB8A06571A2E5A7C0099596C /* SoyFilesytem.cpp in Sources */,
 				FB8A06681A2E5A7C0099596C /* SoyTypes.cpp in Sources */,
-				FBC16E3B1A5C569400874332 /* cs_dmperm.c in Sources */,
 				FB8A071A1A2E6C3E0099596C /* PopCameraTrack.cpp in Sources */,
 				FB8A06F91A2E6B520099596C /* TestReporter.cpp in Sources */,
-				FBC16E6E1A5C56F000874332 /* csparse_helper.cpp in Sources */,
-				FBC16E601A5C569400874332 /* cs_tdfs.c in Sources */,
 				FB8A06F11A2E6B520099596C /* DeferredTestResult.cpp in Sources */,
-				FBC16D561A5C3DAD00874332 /* g2oTypeSim3Sophus.cpp in Sources */,
-				FBC16E421A5C569400874332 /* cs_fkeep.c in Sources */,
-				FBC16D581A5C3DAD00874332 /* TrackableKeyFrameSearch.cpp in Sources */,
-				FBC16DED1A5C535600874332 /* filesys_tools.cpp in Sources */,
-				FBC16D641A5C3DAD00874332 /* TrackingReference.cpp in Sources */,
-				FBC16E511A5C569400874332 /* cs_permute.c in Sources */,
-				FBC16F7F1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp in Sources */,
 				FB8A07131A2E6B880099596C /* TParameters.cpp in Sources */,
 				FB8A06801A2E69340099596C /* PopMain.cpp in Sources */,
-				FBC16E531A5C569400874332 /* cs_post.c in Sources */,
 				FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */,
-				FBC16F6D1A5C573C00874332 /* vertex_se2.cpp in Sources */,
-				FBC16E411A5C569400874332 /* cs_etree.c in Sources */,
-				FBC16F801A5C573C00874332 /* edge_se3_prior.cpp in Sources */,
-				FBC16F621A5C573C00874332 /* edge_se2_offset.cpp in Sources */,
-				FBC16DF31A5C535600874332 /* string_tools.cpp in Sources */,
 				FBC16F9D1A5D741000874332 /* TCameraPose.cpp in Sources */,
-				FBC16F641A5C573C00874332 /* edge_se2_pointxy_bearing.cpp in Sources */,
 				FB8A06671A2E5A7C0099596C /* SoyTime.cpp in Sources */,
-				FBC16F471A5C573C00874332 /* types_data.cpp in Sources */,
 				FB8A06ED1A2E6B520099596C /* AssertException.cpp in Sources */,
 				FB8A06661A2E5A7C0099596C /* SoyThread.cpp in Sources */,
-				FBC16F6C1A5C573C00874332 /* vertex_point_xy.cpp in Sources */,
-				FBC16DC81A5C529700874332 /* robust_kernel.cpp in Sources */,
-				FBC16F821A5C573C00874332 /* isometry3d_mappings.cpp in Sources */,
 				FB8A06971A2E6AB50099596C /* TProtocol.cpp in Sources */,
-				FBC16E5D1A5C569400874332 /* cs_spsolve.c in Sources */,
 				FB8A06641A2E5A7C0099596C /* SoyString.cpp in Sources */,
 				FB8A069B1A2E6AB50099596C /* TProtocolWebSocket.cpp in Sources */,
-				FBC16E441A5C569400874332 /* cs_happly.c in Sources */,
-				FBC16F551A5C573C00874332 /* vertex_se3_quat.cpp in Sources */,
-				FBC16DF11A5C535600874332 /* sampler.cpp in Sources */,
-				FBC16E351A5C569400874332 /* cs_chol.c in Sources */,
 				FB8A06F71A2E6B520099596C /* TestDetails.cpp in Sources */,
-				FBC16E3F1A5C569400874332 /* cs_entry.c in Sources */,
-				FBC16E3E1A5C569400874332 /* cs_dupl.c in Sources */,
 				FB8A06991A2E6AB50099596C /* TProtocolHttp.cpp in Sources */,
-				FBC16D531A5C3DAD00874332 /* DepthMap.cpp in Sources */,
-				FBC16E361A5C569400874332 /* cs_cholsol.c in Sources */,
-				FBC16F601A5C573C00874332 /* edge_se2.cpp in Sources */,
-				FBC16F791A5C573C00874332 /* edge_pointxyz.cpp in Sources */,
-				FBC16E561A5C569400874332 /* cs_qr.c in Sources */,
 				FB8A06A51A2E6AF80099596C /* TChannel.cpp in Sources */,
-				FBC16DCA1A5C529700874332 /* robust_kernel_impl.cpp in Sources */,
-				FBC16E4A1A5C569400874332 /* cs_ltsolve.c in Sources */,
 				FB8A070E1A2E6B520099596C /* TimeConstraint.cpp in Sources */,
-				FBC16E3D1A5C569400874332 /* cs_dropzeros.c in Sources */,
-				FBC16F831A5C573C00874332 /* parameter_camera.cpp in Sources */,
-				FBC16F761A5C573C00874332 /* vertex_segment2d.cpp in Sources */,
-				FBC16F501A5C573C00874332 /* parameter_camera.cpp in Sources */,
-				FBC16E491A5C569400874332 /* cs_lsolve.c in Sources */,
-				FBC16D661A5C3DAD00874332 /* settings.cpp in Sources */,
 				FB8A06A81A2E6AF80099596C /* TChannelSocket.cpp in Sources */,
-				FBC16DBF1A5C529700874332 /* optimizable_graph.cpp in Sources */,
 				FB8A06561A2E5A7C0099596C /* SoyEvent.cpp in Sources */,
-				FBC16F741A5C573C00874332 /* types_slam2d_addons.cpp in Sources */,
-				FBC16D651A5C3DAD00874332 /* globalFuncs.cpp in Sources */,
-				FBC16E641A5C569400874332 /* cs_util.c in Sources */,
 				FB8A06981A2E6AB50099596C /* TProtocolCli.cpp in Sources */,
-				FBC16E591A5C569400874332 /* cs_reach.c in Sources */,
 				FB8A07101A2E6B520099596C /* XmlTestReporter.cpp in Sources */,
-				FBC16E551A5C569400874332 /* cs_pvec.c in Sources */,
-				FBC16F951A5C573C00874332 /* vertex_line3d.cpp in Sources */,
-				FBC16F671A5C573C00874332 /* edge_se2_prior.cpp in Sources */,
-				FBC16F8E1A5C573C00874332 /* edge_se3_calib.cpp in Sources */,
-				FBC16F521A5C573C00874332 /* se3quat_gradients.cpp in Sources */,
-				FBC16DC21A5C529700874332 /* optimization_algorithm_factory.cpp in Sources */,
-				FBC16E471A5C569400874332 /* cs_leaf.c in Sources */,
 				FB8A065E1A2E5A7C0099596C /* SoyPng.cpp in Sources */,
-				FBC16F921A5C573C00874332 /* line3d.cpp in Sources */,
-				FBC16F711A5C573C00874332 /* edge_se2_segment2d.cpp in Sources */,
-				FBC16D521A5C3DAD00874332 /* FramePoseStruct.cpp in Sources */,
-				FBC16E5A1A5C569400874332 /* cs_scatter.c in Sources */,
-				FBC16D541A5C3DAD00874332 /* DepthMapPixelHypothesis.cpp in Sources */,
-				FBC16D511A5C3DAD00874332 /* FrameMemory.cpp in Sources */,
-				FBC16D5D1A5C3DAD00874332 /* LiveSLAMWrapper.cpp in Sources */,
-				FBC16E391A5C569400874332 /* cs_cumsum.c in Sources */,
 				FB6650CD1A56FD8600DF0A12 /* SoyDebug.mm in Sources */,
-				FBC16F511A5C573C00874332 /* parameter_se3_offset.cpp in Sources */,
-				FBC16F4D1A5C573C00874332 /* edge_se3_pointxyz_disparity.cpp in Sources */,
-				FBC16E341A5C569400874332 /* cs_amd.c in Sources */,
-				FBC16E4F1A5C569400874332 /* cs_multiply.c in Sources */,
 				FB8A06551A2E5A7C0099596C /* SoyDebug.cpp in Sources */,
-				FBC16D5C1A5C3DAD00874332 /* Timestamp.cpp in Sources */,
-				FBC16E381A5C569400874332 /* cs_counts.c in Sources */,
-				FBC16E5B1A5C569400874332 /* cs_scc.c in Sources */,
-				FBC16F541A5C573C00874332 /* vertex_pointxyz.cpp in Sources */,
 				FB8A07171A2E6BBF0099596C /* sha1.cpp in Sources */,
-				FBC16E4E1A5C569400874332 /* cs_maxtrans.c in Sources */,
-				FBC16E501A5C569400874332 /* cs_norm.c in Sources */,
 				FB8A069C1A2E6AB50099596C /* TSerialisation.cpp in Sources */,
-				FBC16DF51A5C535600874332 /* timeutil.cpp in Sources */,
-				FBC16E611A5C569400874332 /* cs_transpose.c in Sources */,
-				FBC16E6F1A5C56F000874332 /* solver_csparse.cpp in Sources */,
-				FBC16DCD1A5C529700874332 /* sparse_optimizer.cpp in Sources */,
-				FBC16DC51A5C529700874332 /* optimization_algorithm_with_hessian.cpp in Sources */,
-				FBC16DB61A5C529700874332 /* cache.cpp in Sources */,
-				FBC16DB81A5C529700874332 /* factory.cpp in Sources */,
-				FBC16DC71A5C529700874332 /* parameter_container.cpp in Sources */,
 				FB8A069A1A2E6AB50099596C /* TProtocolJson.cpp in Sources */,
-				FBC16F661A5C573C00874332 /* edge_se2_pointxy_offset.cpp in Sources */,
 				FB8A06591A2E5A7C0099596C /* SoyMemFile.cpp in Sources */,
-				FBC16F561A5C573C00874332 /* types_icp.cpp in Sources */,
-				FBC16E401A5C569400874332 /* cs_ereach.c in Sources */,
-				FBC16E581A5C569400874332 /* cs_randperm.c in Sources */,
 				FB8A06941A2E6AB50099596C /* TJob.cpp in Sources */,
-				FBC16F751A5C573C00874332 /* vertex_line2d.cpp in Sources */,
-				FBC16DB51A5C529700874332 /* batch_stats.cpp in Sources */,
-				FBC16F421A5C573C00874332 /* data_queue.cpp in Sources */,
-				FBC16F7E1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp in Sources */,
-				FBC16F8D1A5C573C00874332 /* edge_plane.cpp in Sources */,
-				FBC16F8B1A5C573C00874332 /* vertex_se3.cpp in Sources */,
-				FBC16E4B1A5C569400874332 /* cs_lu.c in Sources */,
-				FBC16DBA1A5C529700874332 /* hyper_graph.cpp in Sources */,
-				FBC16DBE1A5C529700874332 /* matrix_structure.cpp in Sources */,
-				FBC16F431A5C573C00874332 /* laser_parameters.cpp in Sources */,
-				FBC16F811A5C573C00874332 /* isometry3d_gradients.cpp in Sources */,
 				FB8A06F01A2E6B520099596C /* DeferredTestReporter.cpp in Sources */,
-				FBC16F851A5C573C00874332 /* parameter_stereo_camera.cpp in Sources */,
-				FBC16DEF1A5C535600874332 /* os_specific.c in Sources */,
-				FBC16F8F1A5C573C00874332 /* edge_se3_euler.cpp in Sources */,
 				FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */,
-				FBC16F571A5C573C00874332 /* types_sba.cpp in Sources */,
 				FB8A06F31A2E6B520099596C /* SignalTranslator.cpp in Sources */,
-				FBC16F5D1A5C573C00874332 /* vertex_odom_differential_params.cpp in Sources */,
-				FBC16E431A5C569400874332 /* cs_gaxpy.c in Sources */,
-				FBC16F4F1A5C573C00874332 /* edge_se3_quat.cpp in Sources */,
-				FBC16F631A5C573C00874332 /* edge_se2_pointxy.cpp in Sources */,
-				FBC16F6A1A5C573C00874332 /* parameter_se2_offset.cpp in Sources */,
-				FBC16F5F1A5C573C00874332 /* edge_pointxy.cpp in Sources */,
 				FB8A06811A2E69340099596C /* SoyData.cpp in Sources */,
 				FB8A065F1A2E5A7C0099596C /* SoyRef.cpp in Sources */,
-				FBC16DF01A5C535600874332 /* property.cpp in Sources */,
-				FBC16DC11A5C529700874332 /* optimization_algorithm_dogleg.cpp in Sources */,
-				FBC16F481A5C573C00874332 /* vertex_ellipse.cpp in Sources */,
-				FBC16E451A5C569400874332 /* cs_house.c in Sources */,
 				FB8A06531A2E5A7C0099596C /* SoyApp.cpp in Sources */,
-				FBC16D501A5C3DAD00874332 /* Frame.cpp in Sources */,
 				FB8A06F81A2E6B520099596C /* TestList.cpp in Sources */,
-				FBC16F6E1A5C573C00874332 /* edge_line2d.cpp in Sources */,
+				FB50C2511A6ACACF0011A9D9 /* TestResults.cpp in Sources */,
 				FB8A06EE1A2E6B520099596C /* Checks.cpp in Sources */,
-				FBC16F4A1A5C573C00874332 /* edge_se3_offset.cpp in Sources */,
-				FBC16F691A5C573C00874332 /* edge_se2_xyprior.cpp in Sources */,
-				FBC16E5F1A5C569400874332 /* cs_symperm.c in Sources */,
-				FBC16DBD1A5C529700874332 /* marginal_covariance_cholesky.cpp in Sources */,
 				FB8A06F21A2E6B520099596C /* MemoryOutStream.cpp in Sources */,
 				FB8A06EF1A2E6B520099596C /* CurrentTest.cpp in Sources */,
-				FBC16E5E1A5C569400874332 /* cs_sqr.c in Sources */,
-				FBC16F6B1A5C573C00874332 /* types_slam2d.cpp in Sources */,
-				FBC16DF41A5C535600874332 /* tictoc.cpp in Sources */,
 				FB8A06A71A2E6AF80099596C /* TChannelPipe.cpp in Sources */,
-				FBC16F611A5C573C00874332 /* edge_se2_lotsofxy.cpp in Sources */,
-				FBC16F771A5C573C00874332 /* dquat2mat.cpp in Sources */,
-				FBC16E3A1A5C569400874332 /* cs_dfs.c in Sources */,
+				FB50C0551A6AC55A0011A9D9 /* TFeatureBinRing.cpp in Sources */,
 				FB8A06F51A2E6B520099596C /* ReportAssert.cpp in Sources */,
-				FBC16E521A5C569400874332 /* cs_pinv.c in Sources */,
-				FBC16F5C1A5C573C00874332 /* types_sclam2d.cpp in Sources */,
-				FBC16F581A5C573C00874332 /* types_six_dof_expmap.cpp in Sources */,
-				FBC16E461A5C569400874332 /* cs_ipvec.c in Sources */,
-				FBC16DC41A5C529700874332 /* optimization_algorithm_levenberg.cpp in Sources */,
-				FBC16F7A1A5C573C00874332 /* edge_se3.cpp in Sources */,
-				FBC16DC91A5C529700874332 /* robust_kernel_factory.cpp in Sources */,
-				FBC16DC01A5C529700874332 /* optimization_algorithm.cpp in Sources */,
 				FB8A06A61A2E6AF80099596C /* TChannelFile.cpp in Sources */,
-				FBC16F911A5C573C00874332 /* edge_se3_plane_calib.cpp in Sources */,
-				FBC16F721A5C573C00874332 /* edge_se2_segment2d_line.cpp in Sources */,
-				FBC16F7C1A5C573C00874332 /* edge_se3_offset.cpp in Sources */,
-				FBC16F4C1A5C573C00874332 /* edge_se3_pointxyz_depth.cpp in Sources */,
-				FBC16F701A5C573C00874332 /* edge_se2_line2d.cpp in Sources */,
-				FBC16DB71A5C529700874332 /* estimate_propagator.cpp in Sources */,
-				FBC16F441A5C573C00874332 /* raw_laser.cpp in Sources */,
-				FBC16DCB1A5C529700874332 /* solver.cpp in Sources */,
 				FB8A06951A2E6AB50099596C /* TJobFormat.cpp in Sources */,
-				FBC16DF61A5C53BA00874332 /* Sim3Tracker.cpp in Sources */,
-				FBC16DC61A5C529700874332 /* parameter.cpp in Sources */,
-				FBC16DF71A5C560300874332 /* KeyFrameGraph.cpp in Sources */,
-				FBC16F5B1A5C573C00874332 /* odometry_measurement.cpp in Sources */,
 				FB8A06F41A2E6B520099596C /* TimeHelpers.cpp in Sources */,
-				FBC16E621A5C569400874332 /* cs_updown.c in Sources */,
-				FBC16E4D1A5C569400874332 /* cs_malloc.c in Sources */,
 				FB8A06961A2E6AB50099596C /* TJobRelay.cpp in Sources */,
-				FBC16E5C1A5C569400874332 /* cs_schol.c in Sources */,
-				FBC16F971A5C573C00874332 /* vertex_se3_euler.cpp in Sources */,
-				FBC16DF21A5C535600874332 /* sparse_helper.cpp in Sources */,
-				FBC16F591A5C573C00874332 /* edge_se2_odom_differential_calib.cpp in Sources */,
-				FBC16F841A5C573C00874332 /* parameter_se3_offset.cpp in Sources */,
-				FBC16F451A5C573C00874332 /* robot_data.cpp in Sources */,
-				FBC16DEC1A5C535600874332 /* command_args.cpp in Sources */,
-				FBC16D601A5C3DAD00874332 /* SlamSystem.cpp in Sources */,
-				FB8A06FB1A2E6B520099596C /* TestResults.cpp in Sources */,
-				FBC16F6F1A5C573C00874332 /* edge_line2d_pointxy.cpp in Sources */,
 				FB8A065D1A2E5A7C0099596C /* SoyPixels.cpp in Sources */,
-				FBC16F941A5C573C00874332 /* types_slam3d_addons.cpp in Sources */,
-				FBC16E3C1A5C569400874332 /* cs_droptol.c in Sources */,
-				FBC16E371A5C569400874332 /* cs_compress.c in Sources */,
 				FB8A06211A2E5A200099596C /* memheap.cpp in Sources */,
-				FBC16D621A5C3DAD00874332 /* SE3Tracker.cpp in Sources */,
-				FBC16E571A5C569400874332 /* cs_qrsol.c in Sources */,
-				FBC16E481A5C569400874332 /* cs_load.c in Sources */,
 				FB8A06541A2E5A7C0099596C /* SoyArray.cpp in Sources */,
-				FBC16DBB1A5C529700874332 /* hyper_graph_action.cpp in Sources */,
-				FBC16F4E1A5C573C00874332 /* edge_se3_prior.cpp in Sources */,
-				FBC16E541A5C569400874332 /* cs_print.c in Sources */,
-				FBC16E651A5C569400874332 /* cs_utsolve.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		FB50C24D1A6AC6060011A9D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_LSD_SLAM = true;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Code/libmv/src/third_party/pthreads-w32/lib",
+				);
+				PRODUCT_NAME = "PopCameraTrack copy";
+			};
+			name = Debug;
+		};
+		FB50C24E1A6AC6060011A9D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_LSD_SLAM = true;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Volumes/Code/libmv/src/third_party/pthreads-w32/lib",
+				);
+				PRODUCT_NAME = "PopCameraTrack copy";
+			};
+			name = Release;
+		};
 		FB8A05981A2E54730099596C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB8A05A61A2E57700099596C /* PopApp.xcconfig */;
@@ -2092,6 +2285,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB50C24C1A6AC6060011A9D9 /* Build configuration list for PBXNativeTarget "PopCameraTrack_WithLsdSlam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB50C24D1A6AC6060011A9D9 /* Debug */,
+				FB50C24E1A6AC6060011A9D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FB8A058E1A2E54730099596C /* Build configuration list for PBXProject "PopCameraTrack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
