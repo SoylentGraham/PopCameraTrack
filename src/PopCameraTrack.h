@@ -65,7 +65,8 @@ public:
 	void			OnNewFrame(TJobAndChannel& JobAndChannel);
 	void			SubscribeNewCameraPose(TJobAndChannel& JobAndChannel);
 	void			OnResetSlam(TJobAndChannel& JobAndChannel);
-	
+	void			OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel);
+
 	bool			UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error);
 	
 public:
@@ -81,6 +82,7 @@ public:
 	float			mSlamTimestamp;
 #endif
 	
+	std::shared_ptr<TChannel>		mFeatureChannel;
 	std::map<std::string,TFeatureTracker>	mFeatureTrackers;	//	feature tracker for each camera serial
 };
 

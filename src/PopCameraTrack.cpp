@@ -84,6 +84,9 @@ TPopCameraTrack::TPopCameraTrack() :
 
 	
 	AddJobHandler("resetslam", TParameterTraits(), *this, &TPopCameraTrack::OnResetSlam );
+
+	AddJobHandler("re:findinterestingfeatures", TParameterTraits(), *this, &TPopCameraTrack::OnFoundInterestingFeatures );
+//	AddJobHandler("re:findfeatures", TParameterTraits(), *this, &TPopCameraTrack::OnFoundFeatures );
 }
 
 void TPopCameraTrack::AddChannel(std::shared_ptr<TChannel> Channel)
@@ -131,13 +134,95 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 	}
 	std::Debug << "Decoded image " << Image.GetWidth() << "x" << Image.GetHeight() << " " << Image.GetFormat() << std::endl;
 
+#if defined(ENABLE_LSDSLAM)
 	std::stringstream SlamError;
 	UpdateSlam( Image, SlamError );
 	if ( !SlamError.str().empty() )
 		std::Debug << "Update slam failed: " << SlamError.str() << std::endl;
+#endif
 
+	
+	//	get features from feature channel
+	if ( mFeatureChannel )
+	{
+		//	update feature tracker
+		auto SerialParam = Job.mParams.GetParam("serial");
+		if ( !SerialParam.IsValid() )
+		{
+			std::Debug << "New frame missing serial, can't update feature tracker" << std::endl;
+			return;
+		}
+
+		auto Serial = SerialParam.Decode<std::string>();
+		auto& FeatureTracker = mFeatureTrackers[Serial];
+		
+		//	get initial interesting features if we haven't got any yet
+		TJob GetFeaturesJob;
+		if ( FeatureTracker.mFeatures.IsEmpty() )
+		{
+			GetFeaturesJob.mParams.mCommand = "findinterestingfeatures";
+		}
+		else
+		{
+			GetFeaturesJob.mParams.mCommand = "findfeatures";
+			GetFeaturesJob.mParams.AddParam("oldfeatures", FeatureTracker.mFeatures );
+		}
+		
+		ImageParam.mName = "image";
+		auto ImageParamFormat = ImageParam.GetFormat();
+		std::Debug << "sending on image as " << ImageParamFormat << std::endl;
+		GetFeaturesJob.mParams.AddParam( ImageParam );
+		GetFeaturesJob.mParams.AddParam( SerialParam );
+		GetFeaturesJob.mParams.AddParam("asbinary",true);
+		
+		GetFeaturesJob.mChannelMeta.mChannelRef = mFeatureChannel->GetChannelRef();
+		mFeatureChannel->SendCommand( GetFeaturesJob );
+	}
 }
 
+void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
+{
+	const TJob& Job = JobAndChannel;
+	
+	//	print out any error
+	std::string Error;
+	if ( Job.mParams.GetParamAs( TJobParam::Param_Error, Error ) )
+		std::Debug << Job.mParams.mCommand << " error: " << Error << std::endl;
+
+	//	update feature tracker
+	std::string Serial;
+	if ( !Job.mParams.GetParamAs("serial", Serial ) )
+	{
+		std::Debug << "New interesting features missing serial, can't update feature tracker" << std::endl;
+		std::Debug << Job.mParams << std::endl;
+		return;
+	}
+	
+	//	get feature tracker
+	auto& FeatureTracker = mFeatureTrackers[Serial];
+
+	//	already have base features!
+	if ( !FeatureTracker.mFeatures.IsEmpty() )
+	{
+		std::Debug << "FeatureTracker for " << Serial << " already has base features, ignored new interesting features" << std::endl;
+		return;
+	}
+	
+	std::Debug << Job.mParams.mCommand << " params: " << Job.mParams << std::endl;
+
+	//	read features
+	auto FeaturesParam = Job.mParams.GetDefaultParam();
+	//	explicit decode as it's not a known type
+	SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mFeatures );
+	if ( !FeaturesParam.Decode( FeaturesData ) )
+	{
+		auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+		std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+		return;
+	}
+	
+	std::Debug << "got interesting features for " << Serial << std::endl;
+}
 
 void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 {
@@ -346,13 +431,14 @@ TPopAppError::Type PopMain(TJobParams& Params)
 //	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9090-9099", SoyRef("websock") );
 	//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
 	auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
-	
+	App.mFeatureChannel = CreateChannelFromInputString("cli://localhost:7090", SoyRef("Feature") );
 	
 	App.AddChannel( CommandLineChannel );
 	App.AddChannel( StdioChannel );
 //	App.AddChannel( HttpChannel );
 //	App.AddChannel( WebSocketChannel );
 	App.AddChannel( SocksChannel );
+	App.AddChannel( App.mFeatureChannel );
 
 	//	when the commandline SENDs a command (a reply), send it to stdout
 	auto RelayFunc = [](TJobAndChannel& JobAndChannel)
@@ -390,16 +476,13 @@ TPopAppError::Type PopMain(TJobParams& Params)
 			TJob GetFrameJob;
 			GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
 			GetFrameJob.mParams.mCommand = "subscribenewframe";
-			GetFrameJob.mParams.AddParam("serial", "Right" );
+			GetFrameJob.mParams.AddParam("serial", "face" );
 			GetFrameJob.mParams.AddParam("memfile", "1" );
 			Channel.SendCommand( GetFrameJob );
 		};
 		
 		CaptureChannel->mOnConnected.AddListener( StartSubscription );
 	}
-	
-
-	
 	
 	//	run
 	App.mConsoleApp.WaitForExit();
