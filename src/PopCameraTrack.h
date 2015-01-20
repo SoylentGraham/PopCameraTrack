@@ -38,16 +38,26 @@ public:
 #endif
 
 
+class TTrackerState
+{
+public:
+	Array<TFeatureMatch>		mFeatures;	//	base/original features we're matching
+	SoyTime						mFeaturesTimestamp;	//	timestamp for mFeatures
+	TJobParam					mLastImage;
+};
+
 //	persistent feature tracker
 class TFeatureTracker
 {
 public:
-	void						UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp);
+	void						UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,TJobParam Image);
 
+	bool						HasBaseFeatures() const	{	return !mBase.mFeatures.IsEmpty();	}
+	
 public:
+	TTrackerState				mBase;
 	std::string					mSerial;	//	serial of the camera we're tracking
-	Array<TFeatureMatch>		mFeatures;	//	base/original features we're matching
-	SoyTime						mFeaturesTimestamp;	//	timestamp for mFeatures
+	SoyEvent<TTrackerState>		mOnNewState;
 };
 
 
@@ -66,9 +76,13 @@ public:
 	void			SubscribeNewCameraPose(TJobAndChannel& JobAndChannel);
 	void			OnResetSlam(TJobAndChannel& JobAndChannel);
 	void			OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel);
+	void			OnTrackedFeatures(TJobAndChannel& JobAndChannel);
+	void			SubscribeNewFeatures(TJobAndChannel& JobAndChannel);
 
 	bool			UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error);
 	
+	bool			OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State);
+
 public:
 	Soy::Platform::TConsoleApp	mConsoleApp;
 	TSubscriberManager	mSubcriberManager;

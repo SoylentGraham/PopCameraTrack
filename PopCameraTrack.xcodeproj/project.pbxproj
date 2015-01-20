@@ -165,7 +165,6 @@
 		FB50C1EF1A6AC6060011A9D9 /* parameter_stereo_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F191A5C573C00874332 /* parameter_stereo_camera.cpp */; };
 		FB50C1F01A6AC6060011A9D9 /* os_specific.c in Sources */ = {isa = PBXBuildFile; fileRef = FBC16DDC1A5C535600874332 /* os_specific.c */; };
 		FB50C1F11A6AC6060011A9D9 /* edge_se3_euler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F2F1A5C573C00874332 /* edge_se3_euler.cpp */; };
-		FB50C1F21A6AC6060011A9D9 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */; };
 		FB50C1F31A6AC6060011A9D9 /* types_sba.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EAC1A5C573C00874332 /* types_sba.cpp */; };
 		FB50C1F41A6AC6060011A9D9 /* SignalTranslator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06BA1A2E6B520099596C /* SignalTranslator.cpp */; };
 		FB50C1F51A6AC6060011A9D9 /* vertex_odom_differential_params.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16EBB1A5C573C00874332 /* vertex_odom_differential_params.cpp */; };
@@ -254,6 +253,8 @@
 		FB50C2491A6AC6060011A9D9 /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */; };
 		FB50C24A1A6AC6060011A9D9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328461A2E7591003DE7AA /* AVFoundation.framework */; };
 		FB50C2511A6ACACF0011A9D9 /* TestResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06CB1A2E6B520099596C /* TestResults.cpp */; };
+		FB50C2591A6DD2650011A9D9 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB50C2571A6DD2650011A9D9 /* TJobEventSubscriber.cpp */; };
+		FB50C25A1A6DD2650011A9D9 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB50C2571A6DD2650011A9D9 /* TJobEventSubscriber.cpp */; };
 		FB6650CD1A56FD8600DF0A12 /* SoyDebug.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */; };
 		FB8A06211A2E5A200099596C /* memheap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06201A2E5A200099596C /* memheap.cpp */; };
 		FB8A06531A2E5A7C0099596C /* SoyApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB8A06241A2E5A7C0099596C /* SoyApp.cpp */; };
@@ -309,7 +310,6 @@
 		FBB3284A1A2E75D4003DE7AA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328481A2E75D4003DE7AA /* CoreMedia.framework */; };
 		FBB3284B1A2E75D4003DE7AA /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB328491A2E75D4003DE7AA /* CoreMediaIO.framework */; };
 		FBB3284D1A2E75EF003DE7AA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB3284C1A2E75EF003DE7AA /* CoreVideo.framework */; };
-		FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */; };
 		FBC16F9D1A5D741000874332 /* TCameraPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC16F9B1A5D741000874332 /* TCameraPose.cpp */; };
 		FBC3A0E11A308648009DA49E /* SoyScope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBC3A0DF1A308648009DA49E /* SoyScope.cpp */; };
 /* End PBXBuildFile section */
@@ -339,6 +339,8 @@
 		FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TFeatureBinRing.cpp; path = src/TFeatureBinRing.cpp; sourceTree = "<group>"; };
 		FB50C0541A6AC55A0011A9D9 /* TFeatureBinRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFeatureBinRing.h; path = src/TFeatureBinRing.h; sourceTree = "<group>"; };
 		FB50C24F1A6AC6060011A9D9 /* PopCameraTrack copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PopCameraTrack copy"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB50C2571A6DD2650011A9D9 /* TJobEventSubscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJobEventSubscriber.cpp; path = src/TJobEventSubscriber.cpp; sourceTree = "<group>"; };
+		FB50C2581A6DD2650011A9D9 /* TJobEventSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJobEventSubscriber.h; path = src/TJobEventSubscriber.h; sourceTree = "<group>"; };
 		FB6650CC1A56FD8600DF0A12 /* SoyDebug.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SoyDebug.mm; path = src/SoyDebug.mm; sourceTree = "<group>"; };
 		FB8A05931A2E54730099596C /* PopCameraTrack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PopCameraTrack; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8A05A61A2E57700099596C /* PopApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = PopApp.xcconfig; path = ../NewChromantics/PopTrack/PopApp.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -877,8 +879,6 @@
 		FBC16F3F1A5C573C00874332 /* vertex_plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex_plane.h; sourceTree = "<group>"; };
 		FBC16F401A5C573C00874332 /* vertex_se3_euler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vertex_se3_euler.cpp; sourceTree = "<group>"; };
 		FBC16F411A5C573C00874332 /* vertex_se3_euler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vertex_se3_euler.h; sourceTree = "<group>"; };
-		FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TJobEventSubscriber.cpp; path = src/TJobEventSubscriber.cpp; sourceTree = SOURCE_ROOT; };
-		FBC16F991A5D72C000874332 /* TJobEventSubscriber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TJobEventSubscriber.h; path = src/TJobEventSubscriber.h; sourceTree = SOURCE_ROOT; };
 		FBC16F9B1A5D741000874332 /* TCameraPose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TCameraPose.cpp; path = src/TCameraPose.cpp; sourceTree = SOURCE_ROOT; };
 		FBC16F9C1A5D741000874332 /* TCameraPose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCameraPose.h; path = src/TCameraPose.h; sourceTree = SOURCE_ROOT; };
 		FBC3A0DF1A308648009DA49E /* SoyScope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SoyScope.cpp; path = ../ofxSoylent/src/SoyScope.cpp; sourceTree = "<group>"; };
@@ -944,8 +944,6 @@
 				FB8A07191A2E6C3E0099596C /* PopCameraTrack.h */,
 				FBC16F9B1A5D741000874332 /* TCameraPose.cpp */,
 				FBC16F9C1A5D741000874332 /* TCameraPose.h */,
-				FBC16F981A5D72C000874332 /* TJobEventSubscriber.cpp */,
-				FBC16F991A5D72C000874332 /* TJobEventSubscriber.h */,
 			);
 			name = src;
 			path = PopCapture;
@@ -999,12 +997,13 @@
 		FB8A067B1A2E68C20099596C /* poplib */ = {
 			isa = PBXGroup;
 			children = (
-				FB8A07111A2E6B880099596C /* TParameters.cpp */,
-				FB8A07121A2E6B880099596C /* TParameters.h */,
-				FB8A06A91A2E6B040099596C /* Unittest++ */,
+				FB50C2571A6DD2650011A9D9 /* TJobEventSubscriber.cpp */,
+				FB50C2581A6DD2650011A9D9 /* TJobEventSubscriber.h */,
+				FB8A067C1A2E69340099596C /* PopMain.cpp */,
+				FB8A067D1A2E69340099596C /* PopMain.h */,
+				FB8A067E1A2E69340099596C /* SoyData.cpp */,
+				FB8A067F1A2E69340099596C /* SoyData.h */,
 				FB8A069D1A2E6AF80099596C /* TChannel.cpp */,
-				FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */,
-				FB50C0541A6AC55A0011A9D9 /* TFeatureBinRing.h */,
 				FB8A069E1A2E6AF80099596C /* TChannel.h */,
 				FB8A069F1A2E6AF80099596C /* TChannelFile.cpp */,
 				FB8A06A01A2E6AF80099596C /* TChannelFile.h */,
@@ -1012,12 +1011,16 @@
 				FB8A06A21A2E6AF80099596C /* TChannelPipe.h */,
 				FB8A06A31A2E6AF80099596C /* TChannelSocket.cpp */,
 				FB8A06A41A2E6AF80099596C /* TChannelSocket.h */,
+				FB50C0531A6AC55A0011A9D9 /* TFeatureBinRing.cpp */,
+				FB50C0541A6AC55A0011A9D9 /* TFeatureBinRing.h */,
 				FB8A06821A2E6AB50099596C /* TJob.cpp */,
 				FB8A06831A2E6AB50099596C /* TJob.h */,
 				FB8A06841A2E6AB50099596C /* TJobFormat.cpp */,
 				FB8A06851A2E6AB50099596C /* TJobFormat.h */,
 				FB8A06861A2E6AB50099596C /* TJobRelay.cpp */,
 				FB8A06871A2E6AB50099596C /* TJobRelay.h */,
+				FB8A07111A2E6B880099596C /* TParameters.cpp */,
+				FB8A07121A2E6B880099596C /* TParameters.h */,
 				FB8A06881A2E6AB50099596C /* TProtocol.cpp */,
 				FB8A06891A2E6AB50099596C /* TProtocol.h */,
 				FB8A068A1A2E6AB50099596C /* TProtocolCli.cpp */,
@@ -1030,10 +1033,7 @@
 				FB8A06911A2E6AB50099596C /* TProtocolWebSocket.h */,
 				FB8A06921A2E6AB50099596C /* TSerialisation.cpp */,
 				FB8A06931A2E6AB50099596C /* TSerialisation.h */,
-				FB8A067C1A2E69340099596C /* PopMain.cpp */,
-				FB8A067D1A2E69340099596C /* PopMain.h */,
-				FB8A067E1A2E69340099596C /* SoyData.cpp */,
-				FB8A067F1A2E69340099596C /* SoyData.h */,
+				FB8A06A91A2E6B040099596C /* Unittest++ */,
 			);
 			name = poplib;
 			path = ../NewChromantics/PopTrack;
@@ -1890,6 +1890,7 @@
 				FB50C1991A6AC6060011A9D9 /* cs_chol.c in Sources */,
 				FB50C19A1A6AC6060011A9D9 /* TestDetails.cpp in Sources */,
 				FB50C19B1A6AC6060011A9D9 /* cs_entry.c in Sources */,
+				FB50C25A1A6DD2650011A9D9 /* TJobEventSubscriber.cpp in Sources */,
 				FB50C19C1A6AC6060011A9D9 /* cs_dupl.c in Sources */,
 				FB50C19D1A6AC6060011A9D9 /* TProtocolHttp.cpp in Sources */,
 				FB50C19E1A6AC6060011A9D9 /* DepthMap.cpp in Sources */,
@@ -1976,7 +1977,6 @@
 				FB50C1EF1A6AC6060011A9D9 /* parameter_stereo_camera.cpp in Sources */,
 				FB50C1F01A6AC6060011A9D9 /* os_specific.c in Sources */,
 				FB50C1F11A6AC6060011A9D9 /* edge_se3_euler.cpp in Sources */,
-				FB50C1F21A6AC6060011A9D9 /* TJobEventSubscriber.cpp in Sources */,
 				FB50C1F31A6AC6060011A9D9 /* types_sba.cpp in Sources */,
 				FB50C1F41A6AC6060011A9D9 /* SignalTranslator.cpp in Sources */,
 				FB50C1F51A6AC6060011A9D9 /* vertex_odom_differential_params.cpp in Sources */,
@@ -2088,6 +2088,7 @@
 				FB8A069B1A2E6AB50099596C /* TProtocolWebSocket.cpp in Sources */,
 				FB8A06F71A2E6B520099596C /* TestDetails.cpp in Sources */,
 				FB8A06991A2E6AB50099596C /* TProtocolHttp.cpp in Sources */,
+				FB50C2591A6DD2650011A9D9 /* TJobEventSubscriber.cpp in Sources */,
 				FB8A06A51A2E6AF80099596C /* TChannel.cpp in Sources */,
 				FB8A070E1A2E6B520099596C /* TimeConstraint.cpp in Sources */,
 				FB8A06A81A2E6AF80099596C /* TChannelSocket.cpp in Sources */,
@@ -2103,7 +2104,6 @@
 				FB8A06591A2E5A7C0099596C /* SoyMemFile.cpp in Sources */,
 				FB8A06941A2E6AB50099596C /* TJob.cpp in Sources */,
 				FB8A06F01A2E6B520099596C /* DeferredTestReporter.cpp in Sources */,
-				FBC16F9A1A5D72C000874332 /* TJobEventSubscriber.cpp in Sources */,
 				FB8A06F31A2E6B520099596C /* SignalTranslator.cpp in Sources */,
 				FB8A06811A2E69340099596C /* SoyData.cpp in Sources */,
 				FB8A065F1A2E5A7C0099596C /* SoyRef.cpp in Sources */,

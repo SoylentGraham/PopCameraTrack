@@ -13,6 +13,18 @@
 #include "DataStructures/Frame.h"
 #endif
 
+void TFeatureTracker::UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,TJobParam Image)
+{
+	TTrackerState NewState;
+	NewState.mFeaturesTimestamp = Timestamp;
+	NewState.mFeatures = NewFeatures;
+	NewState.mLastImage = Image;
+
+	NewState.mLastImage.Cast( TJobFormat( Soy::GetTypeName<SoyPixels>() ) );
+	
+	mOnNewState.OnTriggered( NewState );
+}
+
 
 #if defined(ENABLE_LSDSLAM)
 void SlamOutput::publishKeyframeGraph(lsd_slam::KeyFrameGraph* graph)
@@ -86,7 +98,12 @@ TPopCameraTrack::TPopCameraTrack() :
 	AddJobHandler("resetslam", TParameterTraits(), *this, &TPopCameraTrack::OnResetSlam );
 
 	AddJobHandler("re:findinterestingfeatures", TParameterTraits(), *this, &TPopCameraTrack::OnFoundInterestingFeatures );
-//	AddJobHandler("re:findfeatures", TParameterTraits(), *this, &TPopCameraTrack::OnFoundFeatures );
+	AddJobHandler("re:trackfeatures", TParameterTraits(), *this, &TPopCameraTrack::OnTrackedFeatures );
+
+	TParameterTraits SubscribeNewFeatures;
+	SubscribeNewFeatures.mAssumedKeys.PushBack("serial");
+	SubscribeNewFeatures.mDefaultParams.PushBack( std::make_tuple(std::string("command"),std::string("newfeatures")) );
+	AddJobHandler("subscribenewfeatures", SubscribeNewFeatures, *this, &TPopCameraTrack::SubscribeNewFeatures );
 }
 
 void TPopCameraTrack::AddChannel(std::shared_ptr<TChannel> Channel)
@@ -158,14 +175,14 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		
 		//	get initial interesting features if we haven't got any yet
 		TJob GetFeaturesJob;
-		if ( FeatureTracker.mFeatures.IsEmpty() )
+		if ( !FeatureTracker.HasBaseFeatures() )
 		{
 			GetFeaturesJob.mParams.mCommand = "findinterestingfeatures";
 		}
 		else
 		{
-			GetFeaturesJob.mParams.mCommand = "findfeatures";
-			GetFeaturesJob.mParams.AddParam("oldfeatures", FeatureTracker.mFeatures );
+			GetFeaturesJob.mParams.mCommand = "trackfeatures";
+			GetFeaturesJob.mParams.AddParam("sourcefeatures", FeatureTracker.mBase.mFeatures );
 		}
 		
 		ImageParam.mName = "image";
@@ -178,6 +195,46 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		GetFeaturesJob.mChannelMeta.mChannelRef = mFeatureChannel->GetChannelRef();
 		mFeatureChannel->SendCommand( GetFeaturesJob );
 	}
+}
+
+void TPopCameraTrack::OnTrackedFeatures(TJobAndChannel& JobAndChannel)
+{
+	const TJob& Job = JobAndChannel;
+	
+	//	print out any error
+	std::string Error;
+	if ( Job.mParams.GetParamAs( TJobParam::Param_Error, Error ) )
+		std::Debug << Job.mParams.mCommand << " error: " << Error << std::endl;
+
+	//	update feature tracker
+	std::string Serial;
+	if ( !Job.mParams.GetParamAs("serial", Serial ) )
+	{
+		std::Debug << "New interesting features missing serial, can't update feature tracker" << std::endl;
+		std::Debug << Job.mParams << std::endl;
+		return;
+	}
+	
+	//	get feature tracker
+	auto& FeatureTracker = mFeatureTrackers[Serial];
+	
+	std::Debug << Job.mParams.mCommand << " params: " << Job.mParams << std::endl;
+	
+	//	read features
+	auto FeaturesParam = Job.mParams.GetDefaultParam();
+	//	explicit decode as it's not a known type
+	SoyData_Stack<Array<TFeatureMatch>> FeaturesData;
+	if ( !FeaturesParam.Decode( FeaturesData ) )
+	{
+		auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+		std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+		return;
+	}
+	
+	//	do update which should trigger event
+	auto Timecode = Job.mParams.GetParamAs<SoyTime>("timecode");
+	auto Image = Job.mParams.GetParam("image");
+	FeatureTracker.UpdateFeatures( GetArrayBridge(FeaturesData.mValue), Timecode, Image );
 }
 
 void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
@@ -202,18 +259,16 @@ void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
 	auto& FeatureTracker = mFeatureTrackers[Serial];
 
 	//	already have base features!
-	if ( !FeatureTracker.mFeatures.IsEmpty() )
+	if ( FeatureTracker.HasBaseFeatures() )
 	{
 		std::Debug << "FeatureTracker for " << Serial << " already has base features, ignored new interesting features" << std::endl;
 		return;
 	}
 	
-	std::Debug << Job.mParams.mCommand << " params: " << Job.mParams << std::endl;
-
 	//	read features
 	auto FeaturesParam = Job.mParams.GetDefaultParam();
 	//	explicit decode as it's not a known type
-	SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mFeatures );
+	SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mBase.mFeatures );
 	if ( !FeaturesParam.Decode( FeaturesData ) )
 	{
 		auto FeaturesAsString = FeaturesParam.Decode<std::string>();
@@ -267,6 +322,109 @@ void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 	Error << "Slam not enabled";
 
 #endif
+	
+	if ( !Error.str().empty() )
+		Reply.mParams.AddErrorParam( Error.str() );
+	Reply.mParams.AddParam("eventcommand", EventName);
+	
+	TChannel& Channel = JobAndChannel;
+	Channel.OnJobCompleted( Reply );
+}
+
+
+
+
+bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State)
+{
+	TJob OutputJob;
+	auto& Reply = OutputJob;
+	
+	
+	//	send pixels
+	Reply.mParams.AddParam( State.mLastImage );
+	
+	//	as json for now
+	bool AsJson = true;
+	
+	auto& FeatureMatches = State.mFeatures;
+	if ( AsJson )
+	{
+		//	gr: the internal SoyData system doesn't know this type, so won't auto encode :/ need to work on this!
+		std::shared_ptr<SoyData_Impl<json::Object>> FeatureMatchesJsonData( new SoyData_Stack<json::Object>() );
+		if ( FeatureMatchesJsonData->EncodeRaw( FeatureMatches ) )
+		{
+			std::shared_ptr<SoyData> FeatureMatchesJsonDataGen( FeatureMatchesJsonData );
+			Reply.mParams.AddDefaultParam( FeatureMatchesJsonDataGen );
+		}
+	}
+	if ( !Reply.mParams.HasDefaultParam() )
+		Reply.mParams.AddDefaultParam( FeatureMatches );
+	
+	if ( !SubscriptionManager.SendSubscriptionJob( Reply, Client ) )
+		return false;
+	
+	return true;
+}
+
+
+
+void TPopCameraTrack::SubscribeNewFeatures(TJobAndChannel& JobAndChannel)
+{
+	const TJob& Job = JobAndChannel;
+	TJobReply Reply( JobAndChannel );
+	
+	std::stringstream Error;
+
+	//	get serial so we know what feature tracker to subscribe to
+	std::string Serial;
+	if ( !Job.mParams.GetParamAs("serial", Serial ) )
+	{
+		Reply.mParams.AddErrorParam("Couldn't decode serial");
+		JobAndChannel.GetChannel().OnJobCompleted(Reply);
+		return;
+	}
+	
+	//	get/create feature tracker
+	auto& FeatureTracker = mFeatureTrackers[Serial];
+	
+	//	gr: determine if this already exists!
+	auto EventName = Job.mParams.GetParamAs<std::string>("command");
+	
+	//	create new subscription for it
+	auto Event = mSubcriberManager.AddEvent( FeatureTracker.mOnNewState, EventName, Error );
+	if ( !Event )
+	{
+		std::stringstream ReplyError;
+		ReplyError << "Failed to create new event " << EventName << ". " << Error.str();
+		Reply.mParams.AddErrorParam( ReplyError.str() );
+		TChannel& Channel = JobAndChannel;
+		Channel.OnJobCompleted( Reply );
+		return;
+	}
+	
+	//	make a lambda to recieve the event
+	auto Client = Job.mChannelMeta;
+	TEventSubscriptionCallback<TTrackerState> ListenerCallback = [this,Client](TEventSubscriptionManager& SubscriptionManager,TTrackerState& Value)
+	{
+		return this->OnNewFeatureStateCallback( SubscriptionManager, Client, Value );
+	};
+	
+	//	subscribe this caller
+	if ( !Event->AddSubscriber( Job.mChannelMeta, ListenerCallback, Error ) )
+	{
+		std::stringstream ReplyError;
+		ReplyError << "Failed to add subscriber to event " << EventName << ". " << Error.str();
+		Reply.mParams.AddErrorParam( ReplyError.str() );
+		TChannel& Channel = JobAndChannel;
+		Channel.OnJobCompleted( Reply );
+		return;
+	}
+	
+	
+	std::stringstream ReplyString;
+	ReplyString << "OK subscribed to " << EventName;
+	Reply.mParams.AddDefaultParam( ReplyString.str() );
+
 	
 	if ( !Error.str().empty() )
 		Reply.mParams.AddErrorParam( Error.str() );
@@ -428,7 +586,7 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	auto StdioChannel = CreateChannelFromInputString("std:", SoyRef("stdio") );
 	gStdioChannel = StdioChannel;
 	auto HttpChannel = CreateChannelFromInputString("http:8080-8090", SoyRef("http") );
-//	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9090-9099", SoyRef("websock") );
+	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9030-9039", SoyRef("websock") );
 	//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
 	auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
 	App.mFeatureChannel = CreateChannelFromInputString("cli://localhost:7090", SoyRef("Feature") );
@@ -436,7 +594,7 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	App.AddChannel( CommandLineChannel );
 	App.AddChannel( StdioChannel );
 //	App.AddChannel( HttpChannel );
-//	App.AddChannel( WebSocketChannel );
+	App.AddChannel( WebSocketChannel );
 	App.AddChannel( SocksChannel );
 	App.AddChannel( App.mFeatureChannel );
 
@@ -471,6 +629,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 		};
 		gStdioChannel->mOnJobRecieved.AddListener( SendToCaptureFunc );
 		
+		
+		//	gr: need to do this in subscribe features!
 		auto StartSubscription = [](TChannel& Channel)
 		{
 			TJob GetFrameJob;
