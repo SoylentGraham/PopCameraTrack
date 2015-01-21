@@ -13,15 +13,13 @@
 #include "DataStructures/Frame.h"
 #endif
 
-void TFeatureTracker::UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,TJobParam Image)
+void TFeatureTracker::UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,const SoyPixels& Image)
 {
 	TTrackerState NewState;
 	NewState.mFeaturesTimestamp = Timestamp;
 	NewState.mFeatures = NewFeatures;
 	NewState.mLastImage = Image;
 
-	NewState.mLastImage.Cast( TJobFormat( Soy::GetTypeName<SoyPixels>() ) );
-	
 	mOnNewState.OnTriggered( NewState );
 }
 
@@ -142,6 +140,8 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 	
 	//	pull image
 	auto ImageParam = Job.mParams.GetDefaultParam();
+
+	/*
 	SoyPixels Image;
 	std::Debug << "Getting image from " << ImageParam.GetFormat() << std::endl;
 	if ( !ImageParam.Decode( Image ) )
@@ -149,8 +149,7 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		std::Debug << "Failed to decode image" << std::endl;
 		return;
 	}
-	std::Debug << "Decoded image " << Image.GetWidth() << "x" << Image.GetHeight() << " " << Image.GetFormat() << std::endl;
-
+*/
 #if defined(ENABLE_LSDSLAM)
 	std::stringstream SlamError;
 	UpdateSlam( Image, SlamError );
@@ -185,10 +184,7 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 			GetFeaturesJob.mParams.AddParam("sourcefeatures", FeatureTracker.mBase.mFeatures );
 		}
 		
-		ImageParam.mName = "image";
-		auto ImageParamFormat = ImageParam.GetFormat();
-		std::Debug << "sending on image as " << ImageParamFormat << std::endl;
-		GetFeaturesJob.mParams.AddParam( ImageParam );
+		GetFeaturesJob.mParams.AddDefaultParam( ImageParam.mSoyData );
 		GetFeaturesJob.mParams.AddParam( SerialParam );
 		GetFeaturesJob.mParams.AddParam("asbinary",true);
 		
@@ -222,19 +218,43 @@ void TPopCameraTrack::OnTrackedFeatures(TJobAndChannel& JobAndChannel)
 	
 	//	read features
 	auto FeaturesParam = Job.mParams.GetDefaultParam();
-	//	explicit decode as it's not a known type
-	SoyData_Stack<Array<TFeatureMatch>> FeaturesData;
-	if ( !FeaturesParam.Decode( FeaturesData ) )
+	
+	if ( FeaturesParam.GetFormat().HasContainer( Soy::StringToLower(Soy::GetTypeName<TFeatureMatchesAndImage>()) ) )
 	{
-		auto FeaturesAsString = FeaturesParam.Decode<std::string>();
-		std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
-		return;
+		SoyData_Stack<TFeatureMatchesAndImage> MaiData;
+		if ( !FeaturesParam.Decode( MaiData ) )
+		{
+			auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+			if ( FeaturesAsString.length() > 100 )
+				FeaturesAsString = FeaturesAsString.substr( 0, 100 );
+			std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+			return;
+		}
+		
+		//	do update which should trigger event
+		auto Timecode = Job.mParams.GetParamAs<SoyTime>("timecode");
+		auto Image = Job.mParams.GetParam("image");
+		FeatureTracker.UpdateFeatures( GetArrayBridge(MaiData.mValue.mFeatureMatches), Timecode, MaiData.mValue.mImage );
+	}
+	else
+	{
+		//	explicit decode as it's not a known type
+		SoyData_Stack<Array<TFeatureMatch>> FeaturesData;
+		if ( !FeaturesParam.Decode( FeaturesData ) )
+		{
+			auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+			std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+			return;
+		}
+	
+		/*
+		//	do update which should trigger event
+		auto Timecode = Job.mParams.GetParamAs<SoyTime>("timecode");
+		auto Image = Job.mParams.GetParam("image");
+		FeatureTracker.UpdateFeatures( GetArrayBridge(FeaturesData.mValue), Timecode, Image );
+		 */
 	}
 	
-	//	do update which should trigger event
-	auto Timecode = Job.mParams.GetParamAs<SoyTime>("timecode");
-	auto Image = Job.mParams.GetParam("image");
-	FeatureTracker.UpdateFeatures( GetArrayBridge(FeaturesData.mValue), Timecode, Image );
 }
 
 void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
@@ -268,12 +288,31 @@ void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
 	//	read features
 	auto FeaturesParam = Job.mParams.GetDefaultParam();
 	//	explicit decode as it's not a known type
-	SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mBase.mFeatures );
-	if ( !FeaturesParam.Decode( FeaturesData ) )
+	
+	if ( FeaturesParam.GetFormat().HasContainer( Soy::StringToLower(Soy::GetTypeName<TFeatureMatchesAndImage>()) ) )
 	{
-		auto FeaturesAsString = FeaturesParam.Decode<std::string>();
-		std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
-		return;
+		SoyData_Stack<TFeatureMatchesAndImage> MaiData;
+		if ( !FeaturesParam.Decode( MaiData ) )
+		{
+			auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+			if ( FeaturesAsString.length() > 100 )
+				FeaturesAsString = FeaturesAsString.substr( 0, 100 );
+			std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+			return;
+		}
+
+		FeatureTracker.mBase.mFeatures = MaiData.mValue.mFeatureMatches;
+		FeatureTracker.mBase.mLastImage = MaiData.mValue.mImage;
+	}
+	else
+	{
+		SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mBase.mFeatures );
+		if ( !FeaturesParam.Decode( FeaturesData ) )
+		{
+			auto FeaturesAsString = FeaturesParam.Decode<std::string>();
+			std::Debug << "Failed to get features from " << Job.mParams.mCommand << " (" << FeaturesParam.GetFormat() << ") " << FeaturesAsString << std::endl;
+			return;
+		}
 	}
 	
 	std::Debug << "got interesting features for " << Serial << std::endl;
@@ -338,10 +377,9 @@ bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& Subsc
 {
 	TJob OutputJob;
 	auto& Reply = OutputJob;
-	
-	
+
 	//	send pixels
-	Reply.mParams.AddParam( State.mLastImage );
+	Reply.mParams.AddParam("image", State.mLastImage);
 	
 	//	as json for now
 	bool AsJson = true;

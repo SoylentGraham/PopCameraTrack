@@ -43,14 +43,14 @@ class TTrackerState
 public:
 	Array<TFeatureMatch>		mFeatures;	//	base/original features we're matching
 	SoyTime						mFeaturesTimestamp;	//	timestamp for mFeatures
-	TJobParam					mLastImage;
+	SoyPixels					mLastImage;
 };
 
 //	persistent feature tracker
 class TFeatureTracker
 {
 public:
-	void						UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,TJobParam Image);
+	void						UpdateFeatures(const ArrayBridge<TFeatureMatch>&& NewFeatures,SoyTime Timestamp,const SoyPixels& Image);
 
 	bool						HasBaseFeatures() const	{	return !mBase.mFeatures.IsEmpty();	}
 	
