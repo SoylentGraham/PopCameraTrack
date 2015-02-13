@@ -141,7 +141,6 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 	//	pull image
 	auto ImageParam = Job.mParams.GetDefaultParam();
 
-	/*
 	SoyPixels Image;
 	std::Debug << "Getting image from " << ImageParam.GetFormat() << std::endl;
 	if ( !ImageParam.Decode( Image ) )
@@ -149,7 +148,9 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		std::Debug << "Failed to decode image" << std::endl;
 		return;
 	}
-*/
+	
+	std::Debug << "On new frame: " << Image.GetWidth() << "x" << Image.GetHeight() << std::endl;
+
 #if defined(ENABLE_LSDSLAM)
 	std::stringstream SlamError;
 	UpdateSlam( Image, SlamError );
@@ -614,6 +615,12 @@ std::shared_ptr<TChannel> gCaptureChannel;
 
 TPopAppError::Type PopMain(TJobParams& Params)
 {
+	//std::string FeatureChannelSpec = "cli://localhost:7090";
+	std::string FeatureChannelSpec = "xxxxxfork:/Users/grahamr/Desktop/PopFeatures --childmode=1";
+	//std::string CaptureChannelSpec = "cli://localhost:7070";
+	std::string CaptureChannelSpec = "fork:/Users/grahamr/Desktop/PopCapture --childmode=1";
+	std::string CameraSerial = "face";
+	
 	std::cout << Params << std::endl;
 	
 	TPopCameraTrack App;
@@ -627,7 +634,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9030-9039", SoyRef("websock") );
 	//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
 	auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
-	App.mFeatureChannel = CreateChannelFromInputString("cli://localhost:7090", SoyRef("Feature") );
+
+	App.mFeatureChannel = CreateChannelFromInputString(FeatureChannelSpec, SoyRef("Feature") );
 	
 	App.AddChannel( CommandLineChannel );
 	App.AddChannel( StdioChannel );
@@ -652,11 +660,12 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	bool CreateCaptureChannel = true;
 	if ( CreateCaptureChannel )
 	{
-		auto CaptureChannel = CreateChannelFromInputString("cli://localhost:7070", SoyRef("capture") );
+		auto CaptureChannel = CreateChannelFromInputString(CaptureChannelSpec, SoyRef("capture") );
 		gCaptureChannel = CaptureChannel;
-		CaptureChannel->mOnJobRecieved.AddListener( RelayFunc );
+		//CaptureChannel->mOnJobRecieved.AddListener( RelayFunc );
 		App.AddChannel( CaptureChannel );
 		
+		/*
 		//	send commands from stdio to new channel
 		auto SendToCaptureFunc = [](TJobAndChannel& JobAndChannel)
 		{
@@ -666,20 +675,23 @@ TPopAppError::Type PopMain(TJobParams& Params)
 			gCaptureChannel->SendCommand( Job );
 		};
 		gStdioChannel->mOnJobRecieved.AddListener( SendToCaptureFunc );
-		
+		*/
 		
 		//	gr: need to do this in subscribe features!
-		auto StartSubscription = [](TChannel& Channel)
+		auto StartSubscription = [CameraSerial](TChannel& Channel)
 		{
 			TJob GetFrameJob;
 			GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
 			GetFrameJob.mParams.mCommand = "subscribenewframe";
-			GetFrameJob.mParams.AddParam("serial", "face" );
+			GetFrameJob.mParams.AddParam("serial", CameraSerial );
 			GetFrameJob.mParams.AddParam("memfile", "1" );
 			Channel.SendCommand( GetFrameJob );
 		};
 		
-		CaptureChannel->mOnConnected.AddListener( StartSubscription );
+		if ( CaptureChannel->IsConnected() )
+			StartSubscription(*CaptureChannel);
+		else
+			CaptureChannel->mOnConnected.AddListener( StartSubscription );
 	}
 	
 	//	run
