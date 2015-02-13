@@ -160,7 +160,7 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 
 	
 	//	get features from feature channel
-	if ( mFeatureChannel )
+	if ( mFeatureChannel && mFeatureChannel->IsConnected() )
 	{
 		//	update feature tracker
 		auto SerialParam = Job.mParams.GetParam("serial");
@@ -175,7 +175,8 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		
 		//	get initial interesting features if we haven't got any yet
 		TJob GetFeaturesJob;
-		if ( !FeatureTracker.HasBaseFeatures() )
+		static bool AlwaysSendFindInteresting = true;
+		if ( AlwaysSendFindInteresting || !FeatureTracker.HasBaseFeatures() )
 		{
 			GetFeaturesJob.mParams.mCommand = "findinterestingfeatures";
 		}
@@ -184,7 +185,7 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 			GetFeaturesJob.mParams.mCommand = "trackfeatures";
 			GetFeaturesJob.mParams.AddParam("sourcefeatures", FeatureTracker.mBase.mFeatures );
 		}
-		
+
 		GetFeaturesJob.mParams.AddDefaultParam( ImageParam.mSoyData );
 		GetFeaturesJob.mParams.AddParam( SerialParam );
 		GetFeaturesJob.mParams.AddParam("asbinary",true);
@@ -280,11 +281,17 @@ void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
 	auto& FeatureTracker = mFeatureTrackers[Serial];
 
 	//	already have base features!
-	if ( FeatureTracker.HasBaseFeatures() )
+	TTrackerState NewState;
+	auto& TargetState = FeatureTracker.HasBaseFeatures() ? NewState : FeatureTracker.mBase;
+	static bool PushAsNewFeatures = true;
+	if ( !PushAsNewFeatures && FeatureTracker.HasBaseFeatures() )
 	{
 		std::Debug << "FeatureTracker for " << Serial << " already has base features, ignored new interesting features" << std::endl;
 		return;
 	}
+	
+	bool PushNewFeatures = (FeatureTracker.HasBaseFeatures());
+
 	
 	//	read features
 	auto FeaturesParam = Job.mParams.GetDefaultParam();
@@ -302,12 +309,12 @@ void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
 			return;
 		}
 
-		FeatureTracker.mBase.mFeatures = MaiData.mValue.mFeatureMatches;
-		FeatureTracker.mBase.mLastImage = MaiData.mValue.mImage;
+		TargetState.mFeatures = MaiData.mValue.mFeatureMatches;
+		TargetState.mLastImage = MaiData.mValue.mImage;
 	}
 	else
 	{
-		SoyData_Impl<Array<TFeatureMatch>> FeaturesData( FeatureTracker.mBase.mFeatures );
+		SoyData_Impl<Array<TFeatureMatch>> FeaturesData( TargetState.mFeatures );
 		if ( !FeaturesParam.Decode( FeaturesData ) )
 		{
 			auto FeaturesAsString = FeaturesParam.Decode<std::string>();
@@ -316,7 +323,16 @@ void TPopCameraTrack::OnFoundInterestingFeatures(TJobAndChannel& JobAndChannel)
 		}
 	}
 	
-	std::Debug << "got interesting features for " << Serial << std::endl;
+	if ( PushNewFeatures )
+	{
+		TargetState.mFeaturesTimestamp = SoyTime(true);
+		FeatureTracker.UpdateFeatures( GetArrayBridge(TargetState.mFeatures), TargetState.mFeaturesTimestamp, TargetState.mLastImage );
+		std::Debug << "pushed interesting features as new for " << Serial << std::endl;
+	}
+	else
+	{
+		std::Debug << "got interesting features for " << Serial << std::endl;
+	}
 }
 
 void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
@@ -615,83 +631,102 @@ std::shared_ptr<TChannel> gCaptureChannel;
 
 TPopAppError::Type PopMain(TJobParams& Params)
 {
-	//std::string FeatureChannelSpec = "cli://localhost:7090";
-	std::string FeatureChannelSpec = "xxxxxfork:/Users/grahamr/Desktop/PopFeatures --childmode=1";
-	//std::string CaptureChannelSpec = "cli://localhost:7070";
-	std::string CaptureChannelSpec = "fork:/Users/grahamr/Desktop/PopCapture --childmode=1";
-	std::string CameraSerial = "face";
+	//	in future, we're ALWAYS in child mode and caller/bootup.txt can specify what channels to create etc
+	bool ChildProcessMode = Params.GetParamAsWithDefault("childmode", false );
+	bool BinaryStdio = Params.GetParamAsWithDefault("binarystdio", false );
 	
-	std::cout << Params << std::endl;
+	//	dont debug to stdout if we're using it for comms!
+	if ( ChildProcessMode )
+		std::Debug.EnableStdOut(false);
+	
 	
 	TPopCameraTrack App;
 
-	auto CommandLineChannel = std::shared_ptr<TChan<TChannelLiteral,TProtocolCli>>( new TChan<TChannelLiteral,TProtocolCli>( SoyRef("cmdline") ) );
+	std::string stdioChannelSpec = "std:";
+	if ( BinaryStdio )
+		stdioChannelSpec += "binaryin,binaryout";
 	
-	//	create stdio channel for commandline output
-	auto StdioChannel = CreateChannelFromInputString("std:", SoyRef("stdio") );
-	gStdioChannel = StdioChannel;
-	auto HttpChannel = CreateChannelFromInputString("http:8080-8090", SoyRef("http") );
-	auto WebSocketChannel = CreateChannelFromInputString("ws:json:9030-9039", SoyRef("websock") );
-	//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
-	auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
-
-	App.mFeatureChannel = CreateChannelFromInputString(FeatureChannelSpec, SoyRef("Feature") );
+	gStdioChannel = CreateChannelFromInputString(stdioChannelSpec, SoyRef("stdio") );
+	App.AddChannel( gStdioChannel );
 	
-	App.AddChannel( CommandLineChannel );
-	App.AddChannel( StdioChannel );
-//	App.AddChannel( HttpChannel );
-	App.AddChannel( WebSocketChannel );
-	App.AddChannel( SocksChannel );
-	App.AddChannel( App.mFeatureChannel );
-
-	//	when the commandline SENDs a command (a reply), send it to stdout
-	auto RelayFunc = [](TJobAndChannel& JobAndChannel)
+	std::string PopFeaturesFilename = "/Users/grahamr/Desktop/PopFeatures";
+	std::string PopCaptureFilename = "/Users/grahamr/Desktop/PopCapture";
+	std::string DefaultCameraSerial = "face";
+	
 	{
-		if ( !gStdioChannel )
-			return;
-		TJob Job = JobAndChannel;
-		Job.mChannelMeta.mChannelRef = gStdioChannel->GetChannelRef();
-		Job.mChannelMeta.mClientRef = SoyRef();
-		gStdioChannel->SendCommand( Job );
-	};
-	CommandLineChannel->mOnJobSent.AddListener( RelayFunc );
-	
-	//	connect to another app, and subscribe to frames
-	bool CreateCaptureChannel = true;
-	if ( CreateCaptureChannel )
-	{
-		auto CaptureChannel = CreateChannelFromInputString(CaptureChannelSpec, SoyRef("capture") );
-		gCaptureChannel = CaptureChannel;
-		//CaptureChannel->mOnJobRecieved.AddListener( RelayFunc );
-		App.AddChannel( CaptureChannel );
+		static bool FeatureAsFork = true;
+		std::string FeatureChannelSpec = "cli://localhost:7090";
+		if ( FeatureAsFork )
+			FeatureChannelSpec = "fork:" + PopFeaturesFilename + " --childmode=1 --binarystdio=1";
 		
-		/*
-		//	send commands from stdio to new channel
-		auto SendToCaptureFunc = [](TJobAndChannel& JobAndChannel)
+		//std::string CaptureChannelSpec = "cli://localhost:7070";
+		std::string CaptureChannelSpec = "fork:" + PopCaptureFilename + " --childmode=1 --binarystdio=1";
+		std::string CameraSerial = Params.GetParamAsWithDefault<std::string>("serial", DefaultCameraSerial );
+	
+		static bool CreateFeatureChannel = true;
+		if ( CreateFeatureChannel )
 		{
+			App.mFeatureChannel = CreateChannelFromInputString(FeatureChannelSpec, SoyRef("Feature") );
+			App.AddChannel( App.mFeatureChannel );
+		}
+		
+		//	connect to another app, and subscribe to frames
+		bool CreateCaptureChannel = true;
+		if ( CreateCaptureChannel )
+		{
+			auto CaptureChannel = CreateChannelFromInputString(CaptureChannelSpec, SoyRef("capture") );
+			gCaptureChannel = CaptureChannel;
+			//CaptureChannel->mOnJobRecieved.AddListener( RelayFunc );
+			App.AddChannel( CaptureChannel );
+
+			//	gr: need to do this in subscribe features!
+			auto StartSubscription = [CameraSerial](TChannel& Channel)
+			{
+				TJob GetFrameJob;
+				GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
+				GetFrameJob.mParams.mCommand = "subscribenewframe";
+				GetFrameJob.mParams.AddParam("serial", CameraSerial );
+				GetFrameJob.mParams.AddParam("memfile", "1" );
+				Channel.SendCommand( GetFrameJob );
+			};
+			
+			if ( CaptureChannel->IsConnected() )
+				StartSubscription(*CaptureChannel);
+			else
+				CaptureChannel->mOnConnected.AddListener( StartSubscription );
+		}
+	}
+	
+	
+	
+	if ( !ChildProcessMode )
+	{
+		auto CommandLineChannel = std::shared_ptr<TChan<TChannelLiteral,TProtocolCli>>( new TChan<TChannelLiteral,TProtocolCli>( SoyRef("cmdline") ) );
+		
+		auto HttpChannel = CreateChannelFromInputString("http:8080-8090", SoyRef("http") );
+		auto WebSocketChannel = CreateChannelFromInputString("ws:json:9030-9039", SoyRef("websock") );
+		//auto WebSocketChannel = CreateChannelFromInputString("ws:cli:9090-9099", SoyRef("websock") );
+		auto SocksChannel = CreateChannelFromInputString("cli:7080-7089", SoyRef("socks") );
+
+		
+		App.AddChannel( CommandLineChannel );
+	//	App.AddChannel( HttpChannel );
+		App.AddChannel( WebSocketChannel );
+		App.AddChannel( SocksChannel );
+
+		//	when the commandline SENDs a command (a reply), send it to stdout
+		auto RelayFunc = [](TJobAndChannel& JobAndChannel)
+		{
+			if ( !gStdioChannel )
+				return;
 			TJob Job = JobAndChannel;
 			Job.mChannelMeta.mChannelRef = gStdioChannel->GetChannelRef();
 			Job.mChannelMeta.mClientRef = SoyRef();
-			gCaptureChannel->SendCommand( Job );
+			gStdioChannel->SendCommand( Job );
 		};
-		gStdioChannel->mOnJobRecieved.AddListener( SendToCaptureFunc );
-		*/
+		CommandLineChannel->mOnJobSent.AddListener( RelayFunc );
 		
-		//	gr: need to do this in subscribe features!
-		auto StartSubscription = [CameraSerial](TChannel& Channel)
-		{
-			TJob GetFrameJob;
-			GetFrameJob.mChannelMeta.mChannelRef = Channel.GetChannelRef();
-			GetFrameJob.mParams.mCommand = "subscribenewframe";
-			GetFrameJob.mParams.AddParam("serial", CameraSerial );
-			GetFrameJob.mParams.AddParam("memfile", "1" );
-			Channel.SendCommand( GetFrameJob );
-		};
-		
-		if ( CaptureChannel->IsConnected() )
-			StartSubscription(*CaptureChannel);
-		else
-			CaptureChannel->mOnConnected.AddListener( StartSubscription );
+	
 	}
 	
 	//	run
