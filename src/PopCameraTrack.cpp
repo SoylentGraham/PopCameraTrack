@@ -650,8 +650,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	}
 	
 	
-	
-	if ( !ChildProcessMode )
+	static bool MakeOtherChannels = false;
+	if ( !ChildProcessMode && MakeOtherChannels )
 	{
 		auto CommandLineChannel = std::shared_ptr<TChan<TChannelLiteral,TProtocolCli>>( new TChan<TChannelLiteral,TProtocolCli>( SoyRef("cmdline") ) );
 		
