@@ -8,6 +8,7 @@
 #include <TJobRelay.h>
 #include <SoyPixels.h>
 #include <SoyString.h>
+#include "TChannelLiteral.h"
 
 #if defined(ENABLE_LSDSLAM)
 #include "DataStructures/Frame.h"
@@ -189,6 +190,7 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		GetFeaturesJob.mParams.AddDefaultParam( ImageParam.mSoyData );
 		GetFeaturesJob.mParams.AddParam( SerialParam );
 		GetFeaturesJob.mParams.AddParam("asbinary",true);
+		GetFeaturesJob.mParams.AddParam("returnimage",true);
 		
 		GetFeaturesJob.mChannelMeta.mChannelRef = mFeatureChannel->GetChannelRef();
 		mFeatureChannel->SendCommand( GetFeaturesJob );
@@ -571,56 +573,6 @@ bool TPopCameraTrack::UpdateSlam(SoyPixelsImpl& CameraPixels,std::stringstream& 
 	return false;
 #endif
 }
-
-
-class TChannelLiteral : public TChannel
-{
-public:
-	TChannelLiteral(SoyRef ChannelRef) :
-	TChannel	( ChannelRef )
-	{
-	}
-	
-	virtual void				GetClients(ArrayBridge<SoyRef>&& Clients)
-	{
-
-	}
-	
-	bool				FixParamFormat(TJobParam& Param,std::stringstream& Error) override
-	{
-		return true;
-	}
-	void		Execute(std::string Command)
-	{
-		TJobParams Params;
-		Execute( Command, Params );
-	}
-	void		Execute(std::string Command,const TJobParams& Params)
-	{
-		auto& Channel = *this;
-		TJob Job;
-		Job.mParams = Params;
-		Job.mParams.mCommand = Command;
-		Job.mChannelMeta.mChannelRef = Channel.GetChannelRef();
-		Job.mChannelMeta.mClientRef = SoyRef("x");
-		
-		//	send job to handler
-		Channel.OnJobRecieved( Job );
-	}
-	
-	//	we don't do anything, but to enable relay, we say it's "done"
-	virtual bool				SendJobReply(const TJobReply& Job) override
-	{
-		OnJobSent( Job );
-		return true;
-	}
-	virtual bool				SendCommandImpl(const TJob& Job) override
-	{
-		OnJobSent( Job );
-		return true;
-	}
-};
-
 
 
 //	horrible global for lambda
