@@ -609,6 +609,7 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	//	in future, we're ALWAYS in child mode and caller/bootup.txt can specify what channels to create etc
 	bool ChildProcessMode = Params.GetParamAsWithDefault("childmode", false );
 	bool BinaryStdio = Params.GetParamAsWithDefault("binarystdio", false );
+	auto ForkPath = Params.GetParamAsWithDefault<std::string>("forkpath", "/Users/grahamr/Desktop/" );
 	
 	//	dont debug to stdout if we're using it for comms!
 	if ( ChildProcessMode )
@@ -624,8 +625,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 	gStdioChannel = CreateChannelFromInputString(stdioChannelSpec, SoyRef("stdio") );
 	App.AddChannel( gStdioChannel );
 	
-	std::string PopFeaturesFilename = "/Users/grahamr/Desktop/PopFeatures";
-	std::string PopCaptureFilename = "/Users/grahamr/Desktop/PopCapture";
+	std::string PopFeaturesFilename = ForkPath + "PopFeatures";
+	std::string PopCaptureFilename = ForkPath + "PopCapture";
 	std::string DefaultCameraSerial = "face";
 	
 	{
