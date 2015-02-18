@@ -58,6 +58,8 @@ public:
 	TTrackerState				mBase;
 	std::string					mSerial;	//	serial of the camera we're tracking
 	SoyEvent<TTrackerState>		mOnNewState;
+	
+	ofMutexM<bool>				mPendingFeatures;
 };
 
 
@@ -66,7 +68,7 @@ public:
 class TPopCameraTrack : public TJobHandler, public TChannelManager
 {
 public:
-	TPopCameraTrack();
+	TPopCameraTrack(TJobParams& Params);
 	
 	virtual void	AddChannel(std::shared_ptr<TChannel> Channel) override;
 
@@ -95,6 +97,8 @@ public:
 	unsigned int	mSlamFrameCounter;
 	float			mSlamTimestamp;
 #endif
+	
+	TFeatureBinRingParams		mFeatureParams;
 	
 	std::shared_ptr<TChannel>		mFeatureChannel;
 	std::map<std::string,TFeatureTracker>	mFeatureTrackers;	//	feature tracker for each camera serial

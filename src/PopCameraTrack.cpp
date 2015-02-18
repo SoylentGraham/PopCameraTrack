@@ -81,8 +81,9 @@ void SlamOutput::publishTrackedFrame(lsd_slam::Frame* kf)
 
 
 
-TPopCameraTrack::TPopCameraTrack() :
-	mSubcriberManager	( *this )
+TPopCameraTrack::TPopCameraTrack(TJobParams& Params) :
+	mSubcriberManager	( *this ),
+	mFeatureParams		( Params )
 {
 	AddJobHandler("exit", TParameterTraits(), *this, &TPopCameraTrack::OnExit );
 	
@@ -183,17 +184,39 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 		}
 		else
 		{
+			//	already have a frame pending so skip
+			static bool WaitForPending = true;
+			if ( WaitForPending )
+			{
+				bool Skip = false;
+				FeatureTracker.mPendingFeatures.lock();
+				Skip = FeatureTracker.mPendingFeatures.mMember;
+				FeatureTracker.mPendingFeatures.unlock();
+				if ( Skip )
+					return;
+			}
 			GetFeaturesJob.mParams.mCommand = "trackfeatures";
 			GetFeaturesJob.mParams.AddParam("sourcefeatures", FeatureTracker.mBase.mFeatures );
 		}
 
+		mFeatureParams.mMatchStepX = Image.GetWidth() / 10;
+		mFeatureParams.mMatchStepX = Image.GetHeight() / 10;
+
+		
+		GetFeaturesJob.mParams.AddParam("MatchStepX", mFeatureParams.mMatchStepX );
+		GetFeaturesJob.mParams.AddParam("MatchStepY", mFeatureParams.mMatchStepY );
 		GetFeaturesJob.mParams.AddDefaultParam( ImageParam.mSoyData );
 		GetFeaturesJob.mParams.AddParam( SerialParam );
 		GetFeaturesJob.mParams.AddParam("asbinary",true);
-		GetFeaturesJob.mParams.AddParam("returnimage",true);
+		GetFeaturesJob.mParams.AddParam("returnimage",false);
 		
 		GetFeaturesJob.mChannelMeta.mChannelRef = mFeatureChannel->GetChannelRef();
-		mFeatureChannel->SendCommand( GetFeaturesJob );
+		if ( mFeatureChannel->SendCommand( GetFeaturesJob ) )
+		{
+			FeatureTracker.mPendingFeatures.lock();
+			FeatureTracker.mPendingFeatures.mMember = true;
+			FeatureTracker.mPendingFeatures.unlock();
+		}
 	}
 }
 
@@ -592,8 +615,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 		std::Debug.EnableStdOut(false);
 	
 	
-	TPopCameraTrack App;
-
+	TPopCameraTrack App( Params );
+	
 	std::string stdioChannelSpec = "std:";
 	if ( BinaryStdio )
 		stdioChannelSpec += "binaryin,binaryout";
@@ -612,7 +635,8 @@ TPopAppError::Type PopMain(TJobParams& Params)
 			FeatureChannelSpec = "fork:" + PopFeaturesFilename + " --childmode=1 --binarystdio=1";
 		
 		//std::string CaptureChannelSpec = "cli://localhost:7070";
-		std::string CaptureChannelSpec = "fork:" + PopCaptureFilename + " --childmode=1 --binarystdio=1";
+		bool CaptureAsBinary = true;
+		std::string CaptureChannelSpec = "fork:" + PopCaptureFilename + " --childmode=1 " + (CaptureAsBinary ? "--binarystdio=1" : "");
 		std::string CameraSerial = Params.GetParamAsWithDefault<std::string>("serial", DefaultCameraSerial );
 	
 		static bool CreateFeatureChannel = true;
