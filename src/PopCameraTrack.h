@@ -83,7 +83,7 @@ public:
 
 	bool			UpdateSlam(SoyPixelsImpl& Pixels,std::stringstream& Error);
 	
-	bool			OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State);
+	bool			OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State,bool AsJson,bool AsBinary);
 
 public:
 	Soy::Platform::TConsoleApp	mConsoleApp;

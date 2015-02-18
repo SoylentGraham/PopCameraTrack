@@ -199,10 +199,6 @@ void TPopCameraTrack::OnNewFrame(TJobAndChannel& JobAndChannel)
 			GetFeaturesJob.mParams.AddParam("sourcefeatures", FeatureTracker.mBase.mFeatures );
 		}
 
-		mFeatureParams.mMatchStepX = Image.GetWidth() / 10;
-		mFeatureParams.mMatchStepX = Image.GetHeight() / 10;
-
-		
 		GetFeaturesJob.mParams.AddParam("MatchStepX", mFeatureParams.mMatchStepX );
 		GetFeaturesJob.mParams.AddParam("MatchStepY", mFeatureParams.mMatchStepY );
 		GetFeaturesJob.mParams.AddDefaultParam( ImageParam.mSoyData );
@@ -415,7 +411,7 @@ void TPopCameraTrack::SubscribeNewCameraPose(TJobAndChannel& JobAndChannel)
 
 
 
-bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State)
+bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& SubscriptionManager,TJobChannelMeta Client,TTrackerState& State,bool AsJson,bool AsBinary)
 {
 	TJob OutputJob;
 	auto& Reply = OutputJob;
@@ -424,10 +420,9 @@ bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& Subsc
 	Reply.mParams.AddParam("image", State.mLastImage);
 	
 	//	as json for now
-	bool AsJson = true;
-	
 	auto& FeatureMatches = State.mFeatures;
-	if ( AsJson )
+
+	if ( AsJson && !Reply.mParams.HasDefaultParam() )
 	{
 		//	gr: the internal SoyData system doesn't know this type, so won't auto encode :/ need to work on this!
 		std::shared_ptr<SoyData_Impl<json::Object>> FeatureMatchesJsonData( new SoyData_Stack<json::Object>() );
@@ -437,6 +432,19 @@ bool TPopCameraTrack::OnNewFeatureStateCallback(TEventSubscriptionManager& Subsc
 			Reply.mParams.AddDefaultParam( FeatureMatchesJsonDataGen );
 		}
 	}
+	
+	if ( AsBinary && !Reply.mParams.HasDefaultParam() )
+	{
+		//	gr: the internal SoyData system doesn't know this type, so won't auto encode :/ need to work on this!
+		std::shared_ptr<SoyData_Impl<Array<char>>> FeatureMatchesJsonData( new SoyData_Stack<Array<char>>() );
+		if ( FeatureMatchesJsonData->EncodeRaw( FeatureMatches ) )
+		{
+			std::shared_ptr<SoyData> FeatureMatchesJsonDataGen( FeatureMatchesJsonData );
+			Reply.mParams.AddDefaultParam( FeatureMatchesJsonDataGen );
+		}
+	}
+	
+	
 	if ( !Reply.mParams.HasDefaultParam() )
 		Reply.mParams.AddDefaultParam( FeatureMatches );
 	
@@ -482,11 +490,14 @@ void TPopCameraTrack::SubscribeNewFeatures(TJobAndChannel& JobAndChannel)
 		return;
 	}
 	
+	bool AsJson = Job.mParams.GetParamAsWithDefault("asjson", false );
+	bool AsBinary = Job.mParams.GetParamAsWithDefault("asbinary", false );
+	
 	//	make a lambda to recieve the event
 	auto Client = Job.mChannelMeta;
-	TEventSubscriptionCallback<TTrackerState> ListenerCallback = [this,Client](TEventSubscriptionManager& SubscriptionManager,TTrackerState& Value)
+	TEventSubscriptionCallback<TTrackerState> ListenerCallback = [this,Client,AsJson,AsBinary](TEventSubscriptionManager& SubscriptionManager,TTrackerState& Value)
 	{
-		return this->OnNewFeatureStateCallback( SubscriptionManager, Client, Value );
+		return this->OnNewFeatureStateCallback( SubscriptionManager, Client, Value, AsJson, AsBinary );
 	};
 	
 	//	subscribe this caller
